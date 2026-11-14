@@ -1,0 +1,31 @@
+[
+  {
+    "id": "foundations",
+    "name": "Floor basics",
+    "description": "Moves that work on any dance floor, to any beat. Start here.",
+    "bpm": { "min": 110, "max": 130, "default": 120 },
+    "music": ["Anything with a steady beat"]
+  },
+  {
+    "id": "goth",
+    "name": "Goth",
+    "description": "Slow, fluid and theatrical. The body sways, the arms tell the story, and the floor is never rushed.",
+    "bpm": { "min": 100, "max": 140, "default": 120 },
+    "music": ["Post-punk", "Deathrock", "Darkwave", "Coldwave"],
+    "why": "A lot of goth tracks run at a normal club tempo, but the dancing sits on every other beat. Moving in half time is what gives it that drifting, unhurried look."
+  },
+  {
+    "id": "industrial",
+    "name": "Industrial",
+    "description": "Heavy, grounded and percussive. Stomps, marches and punchy arms that hit the beat hard.",
+    "bpm": { "min": 120, "max": 140, "default": 128 },
+    "music": ["EBM", "Industrial", "Aggrotech", "Dark electro"]
+  },
+  {
+    "id": "rave",
+    "name": "Rave",
+    "description": "Light on the feet, bouncy and repetitive. Built to last for hours on a crowded floor.",
+    "bpm": { "min": 124, "max": 150, "default": 132 },
+    "music": ["Techno", "House", "Trance", "Hard dance"]
+  }
+]

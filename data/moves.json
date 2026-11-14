@@ -1,0 +1,355 @@
+[
+  {
+    "id": "knee-bounce",
+    "name": "Knee bounce",
+    "style": "foundations",
+    "difficulty": 1,
+    "buildsOn": [],
+    "focus": ["legs"],
+    "counts": "Down on every beat",
+    "summary": "Soft knees that dip a little on each beat. Almost every other move sits on top of this.",
+    "steps": [
+      "Stand with feet hip-width apart, knees soft",
+      "On each beat, let your knees dip a few centimetres",
+      "Come back up between beats, but never lock your knees",
+      "Let your shoulders and head ride along with the bounce"
+    ],
+    "tips": [
+      "Find the kick drum first and bounce only on that",
+      "Smaller is cooler: a tiny bounce on time beats a big one off time"
+    ],
+    "mistakes": [
+      "Bouncing up on the beat instead of down",
+      "Locking the knees between bounces, which makes it look stiff"
+    ],
+    "why": "Feeling the beat in your knees is what makes the rest of your body look like it's dancing to the music rather than next to it."
+  },
+  {
+    "id": "step-touch",
+    "name": "Step-touch",
+    "style": "foundations",
+    "difficulty": 1,
+    "buildsOn": ["knee-bounce"],
+    "focus": ["feet"],
+    "counts": "1 step · 2 touch · 3 step · 4 touch",
+    "summary": "Step to one side, bring the other foot in to tap, then go back the other way.",
+    "steps": [
+      "Step your right foot out to the right (1)",
+      "Bring your left foot in and tap it next to the right (2)",
+      "Step your left foot out to the left (3)",
+      "Tap the right foot next to it (4)"
+    ],
+    "tips": [
+      "Keep the knee bounce going underneath",
+      "Once it's automatic, let your shoulders swing the opposite way to your feet"
+    ],
+    "mistakes": [
+      "Stepping too wide, which eats floor space and pulls you off the beat"
+    ]
+  },
+  {
+    "id": "sway",
+    "name": "Weight-shift sway",
+    "style": "foundations",
+    "difficulty": 1,
+    "buildsOn": [],
+    "focus": ["hips", "torso"],
+    "counts": "1 left · 2 right",
+    "summary": "Feet stay put while your weight rolls from one foot to the other, and the hips follow.",
+    "steps": [
+      "Feet a bit wider than hip-width, knees soft",
+      "Shift your weight over the left foot on 1, so the right heel can lift",
+      "Shift over the right foot on 2",
+      "Let the hips and shoulders follow the weight, not lead it"
+    ],
+    "tips": [
+      "Try it at half speed (one shift every two beats) for slow tracks",
+      "This is the move to fall back on when you've lost the beat"
+    ],
+    "mistakes": [
+      "Swinging only the hips while the weight stays in the middle"
+    ]
+  },
+  {
+    "id": "loose-arms",
+    "name": "Loose arms",
+    "style": "foundations",
+    "difficulty": 1,
+    "buildsOn": ["knee-bounce"],
+    "focus": ["arms"],
+    "counts": "Follow the bounce",
+    "summary": "Give your hands somewhere to be: elbows bent, hands around waist to chest height, moving with the body.",
+    "steps": [
+      "Bend your elbows and bring your hands up to between waist and chest",
+      "Loosen your fists, or make them soft",
+      "Let the hands rise and fall a little with the knee bounce",
+      "Every few bars, change it: one arm swings, or both hands push down on the beat"
+    ],
+    "tips": [
+      "Watch the hands of someone whose dancing you like, then borrow one gesture"
+    ],
+    "mistakes": [
+      "Arms hanging straight down, which reads as 'not dancing'",
+      "Arms flying wide on a crowded floor"
+    ],
+    "why": "Most people feel awkward because of their arms, not their feet. A default arm position takes that worry away."
+  },
+  {
+    "id": "crowd-footprint",
+    "name": "Dancing in a crowd",
+    "style": "foundations",
+    "difficulty": 1,
+    "buildsOn": [],
+    "focus": ["awareness"],
+    "counts": "Any",
+    "summary": "Keep your moves inside your own footprint, and go bigger only when there's space.",
+    "steps": [
+      "Before you start, notice how much room you have around you",
+      "On a packed floor, keep feet under your hips and elbows in",
+      "Save spins, kicks and wide arms for when a gap opens",
+      "If you bump someone, a quick smile or hand on the heart is all it takes"
+    ],
+    "tips": [
+      "Face the DJ or the speakers when it's packed: everyone moves the same way and nobody collides"
+    ],
+    "mistakes": [
+      "Practising a big new move in the middle of a packed floor"
+    ],
+    "why": "Being easy to dance next to is the fastest way to feel welcome on any floor."
+  },
+  {
+    "id": "goth-drift",
+    "name": "Half-time drift",
+    "style": "goth",
+    "difficulty": 1,
+    "buildsOn": ["sway"],
+    "focus": ["feet", "torso"],
+    "counts": "Step on 1, hold 2 · step on 3, hold 4",
+    "summary": "Slow, gliding steps on every other beat, as if you were walking through water.",
+    "steps": [
+      "Step slowly to the side, or a little forward, on 1",
+      "Let the other foot follow and settle on 2, no rush",
+      "Step the other way on 3, settle on 4",
+      "Keep the upper body tall and let the head turn slowly with the steps"
+    ],
+    "tips": [
+      "Roll through the whole foot when you step, heel to toe or toe to heel",
+      "Close your eyes for a few bars to stop yourself rushing"
+    ],
+    "mistakes": [
+      "Stepping on every beat, which turns it into a march"
+    ],
+    "why": "Dancing in half time is what makes goth dancing look effortless, even at a club tempo."
+  },
+  {
+    "id": "cobweb-hands",
+    "name": "Cobweb hands",
+    "style": "goth",
+    "difficulty": 2,
+    "buildsOn": ["goth-drift", "loose-arms"],
+    "focus": ["arms"],
+    "counts": "One push over two beats",
+    "summary": "Hands slowly push and part the air in front of you, as if you were clearing away cobwebs.",
+    "steps": [
+      "Bring both hands up in front of your face, palms out",
+      "Over two beats, sweep one hand slowly out and down to the side",
+      "Over the next two, the other hand follows on its own path",
+      "Let the wrists lead and the fingers trail behind"
+    ],
+    "tips": [
+      "Change levels: high above the head, then low by the hips",
+      "Your eyes can follow one hand, which adds a lot of drama for free"
+    ],
+    "mistakes": [
+      "Moving both arms the same way at the same time, which looks mechanical"
+    ]
+  },
+  {
+    "id": "slow-turn",
+    "name": "Slow turn",
+    "style": "goth",
+    "difficulty": 2,
+    "buildsOn": ["goth-drift"],
+    "focus": ["feet", "balance"],
+    "counts": "A full turn over 8 beats",
+    "summary": "A small, unhurried turn on the spot in tiny steps, with the arms trailing.",
+    "steps": [
+      "Turn your head and shoulders a little first to start the turn",
+      "Take tiny steps on the spot in that direction, one every two beats",
+      "Finish facing the front after 8 beats",
+      "Let one arm float out behind you as you turn"
+    ],
+    "tips": [
+      "Pick a spot on the wall and find it again at the end, so you don't get dizzy",
+      "Turn the other way next time, so both sides get practice"
+    ],
+    "mistakes": [
+      "Spinning on one foot, which is fast and needs much more space"
+    ]
+  },
+  {
+    "id": "stomp-march",
+    "name": "Stomp march",
+    "style": "industrial",
+    "difficulty": 1,
+    "buildsOn": ["knee-bounce"],
+    "focus": ["feet", "legs"],
+    "counts": "Right on 1 · left on 2 · right on 3 · left on 4",
+    "summary": "March on the spot, putting each foot down flat and heavy, right on the kick drum.",
+    "steps": [
+      "Lift your right knee a little and stamp the foot down flat on 1",
+      "Same with the left on 2",
+      "Keep the knees soft as you land, so the stomp goes into the floor and not your joints",
+      "Lean the upper body slightly forward"
+    ],
+    "tips": [
+      "Hit harder on 1 than on the other beats",
+      "Wear boots you can stomp in. Barefoot practice at home is fine, just softer"
+    ],
+    "mistakes": [
+      "Landing with a straight leg, which jars the knees"
+    ]
+  },
+  {
+    "id": "ebm-two-step",
+    "name": "EBM two-step",
+    "style": "industrial",
+    "difficulty": 2,
+    "buildsOn": ["stomp-march"],
+    "focus": ["feet", "arms"],
+    "counts": "1 forward · 2 back · 3 forward · 4 back",
+    "summary": "One foot steps forward and back on the spot while the arms pump, switching feet every few bars.",
+    "steps": [
+      "Step your right foot forward and put weight on it (1)",
+      "Step it back to where it started (2)",
+      "Repeat on 3 and 4",
+      "Pump the opposite arm forward and back with the foot, fists loose",
+      "After two or four bars, switch to the left foot"
+    ],
+    "tips": [
+      "Lean into the forward step a little, as if pushing through a crowd",
+      "Add a small heel stomp on the back step"
+    ],
+    "mistakes": [
+      "Taking big steps: this move lives in a small square on the floor"
+    ],
+    "why": "It's the move you see on almost every EBM floor. Once you have it, you can fit in anywhere industrial is playing."
+  },
+  {
+    "id": "punch-pull",
+    "name": "Punch and pull",
+    "style": "industrial",
+    "difficulty": 2,
+    "buildsOn": ["stomp-march", "loose-arms"],
+    "focus": ["arms"],
+    "counts": "Punch on 1 and 3, pull on 2 and 4",
+    "summary": "Alternate fists punch down or forward on the beat and pull back, like working a machine.",
+    "steps": [
+      "Fists up at chest height, elbows bent",
+      "Drive the right fist down and forward on 1",
+      "Pull it back sharply on 2",
+      "Left fist on 3, back on 4, while the feet keep the stomp march going"
+    ],
+    "tips": [
+      "Keep the punches short and sharp: stopping the movement is what makes it look hard",
+      "Try punching straight up on the big drops"
+    ],
+    "mistakes": [
+      "Straightening the arm all the way, which looks floppy and can hurt someone nearby"
+    ]
+  },
+  {
+    "id": "rave-bounce",
+    "name": "Rave bounce",
+    "style": "rave",
+    "difficulty": 1,
+    "buildsOn": ["knee-bounce"],
+    "focus": ["legs", "torso"],
+    "counts": "Up on every beat",
+    "summary": "A light, springy bounce through the balls of the feet, with the chest and shoulders loose.",
+    "steps": [
+      "Weight on the balls of your feet, heels just off the floor",
+      "Bounce through the ankles on each beat, knees soft",
+      "Let the chest pop forward a little with each bounce",
+      "Shoulders loose, hands relaxed at waist height"
+    ],
+    "tips": [
+      "Keep it small, and it'll last all night",
+      "Swap to the knee bounce now and then to rest your calves"
+    ],
+    "mistakes": [
+      "Jumping off the floor on every beat, which tires you out in one track"
+    ],
+    "why": "Rave floors run for hours. A low-effort bounce is what lets you dance from the first track to the last."
+  },
+  {
+    "id": "running-man",
+    "name": "Running man",
+    "style": "rave",
+    "difficulty": 2,
+    "buildsOn": ["rave-bounce"],
+    "focus": ["feet", "legs"],
+    "counts": "Lift on 'and', slide on the beat",
+    "summary": "Run on the spot: one knee lifts while the standing foot slides back, then they swap.",
+    "steps": [
+      "Stand on your left foot and lift the right knee",
+      "On the beat, put the right foot down in front while the left foot slides back",
+      "Lift the left knee on the 'and', bringing the foot through",
+      "Put it down in front while the right foot slides back, and repeat"
+    ],
+    "tips": [
+      "Practise in socks on a smooth floor so the slide is easy",
+      "Learn it slowly at 100 BPM, then raise the tempo"
+    ],
+    "mistakes": [
+      "Hopping instead of sliding",
+      "Leaning back: keep the chest a little forward"
+    ]
+  },
+  {
+    "id": "t-step",
+    "name": "T-step",
+    "style": "rave",
+    "difficulty": 3,
+    "buildsOn": ["running-man"],
+    "focus": ["feet", "balance"],
+    "counts": "Swivel on every beat",
+    "summary": "The standing foot swivels heel-toe to travel sideways while the other leg kicks out.",
+    "steps": [
+      "Stand on your left foot with the right knee lifted",
+      "Swivel the left foot: toes out, then heel out, moving you to the left",
+      "At the same time, kick the right foot out to the side on each swivel",
+      "After four swivels, switch legs and travel the other way"
+    ],
+    "tips": [
+      "Learn the swivel alone first, holding on to a chair",
+      "Smooth floors and trainers help; grippy boots make it hard"
+    ],
+    "mistakes": [
+      "Travelling too far on a busy floor. Two swivels and back is plenty"
+    ]
+  },
+  {
+    "id": "arm-wave",
+    "name": "Arm wave",
+    "style": "rave",
+    "difficulty": 2,
+    "buildsOn": ["loose-arms"],
+    "focus": ["arms"],
+    "counts": "Across over 4 beats",
+    "summary": "A ripple that travels from one hand, through the shoulders, to the other hand.",
+    "steps": [
+      "Arms out to the sides at shoulder height",
+      "Lift the left wrist, then elbow, then shoulder, one after the other",
+      "Pass it across: right shoulder, right elbow, right wrist",
+      "Each joint drops as the next one rises"
+    ],
+    "tips": [
+      "Practise one joint at a time in front of a mirror",
+      "Bring it out on the breakdown, when everyone slows down"
+    ],
+    "mistakes": [
+      "Moving the whole arm at once, so it never ripples"
+    ]
+  }
+]
