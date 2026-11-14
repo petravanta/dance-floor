@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Moves",
+  "description": "Every move the app teaches. Grouped by style in the file and shown in this order.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["id", "name", "style", "difficulty", "buildsOn", "focus", "counts", "summary", "steps"],
+    "properties": {
+      "id": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "description": "Stable short id. People's progress and practice logs refer to it, so never change or reuse one that has shipped."},
+      "name": {"type": "string", "minLength": 2, "description": "Name shown in the app."},
+      "style": {"type": "string", "description": "Id of the style in data/styles.json this move belongs to."},
+      "difficulty": {"type": "integer", "minimum": 1, "maximum": 3, "description": "1 (first night out), 2 (needs a little practice) or 3 (takes a few sessions)."},
+      "buildsOn": {"type": "array", "uniqueItems": true, "items": {"type": "string"}, "description": "Move ids worth being comfortable with first. [] for a starting point."},
+      "focus": {
+        "type": "array", "minItems": 1, "uniqueItems": true,
+        "items": {"enum": ["feet", "legs", "hips", "torso", "arms", "balance", "awareness"]},
+        "description": "Which part of the body (or skill) the move mostly trains."
+      },
+      "counts": {"type": "string", "minLength": 1, "description": "How the move fits the beat, e.g. '1 step · 2 touch'."},
+      "summary": {"type": "string", "minLength": 10, "description": "One or two sentences describing the move."},
+      "steps": {"type": "array", "minItems": 2, "items": {"type": "string"}, "description": "Short, ordered cues for doing the move."},
+      "tips": {"type": "array", "items": {"type": "string"}, "description": "Practice tips and ways to vary it."},
+      "mistakes": {"type": "array", "items": {"type": "string"}, "description": "Common mistakes to watch for."},
+      "why": {"type": "string", "description": "Optional: why this move is worth learning, when it isn't obvious."},
+      "video": {"type": "string", "format": "uri", "pattern": "^https://", "description": "Optional link to a video that shows the move."}
+    }
+  }
+}

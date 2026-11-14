@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Styles",
+  "description": "The dance-floor styles the app teaches. Each move belongs to one. Shown in this order.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["id", "name", "description", "bpm"],
+    "properties": {
+      "id": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "description": "Stable short id. Moves and saved settings refer to it, so never change or reuse one that has shipped."},
+      "name": {"type": "string", "minLength": 2, "description": "Name shown in the app."},
+      "description": {"type": "string", "minLength": 10, "description": "One or two sentences on what the style feels like."},
+      "bpm": {
+        "type": "object", "additionalProperties": false, "required": ["min", "max", "default"],
+        "description": "Typical tempo range in beats per minute, and where the practice beat starts for this style.",
+        "properties": {
+          "min": {"type": "integer", "minimum": 40, "maximum": 220, "description": "Slowest typical tempo."},
+          "max": {"type": "integer", "minimum": 40, "maximum": 220, "description": "Fastest typical tempo."},
+          "default": {"type": "integer", "minimum": 40, "maximum": 220, "description": "Tempo the practice beat starts at."}
+        }
+      },
+      "music": {"type": "array", "items": {"type": "string"}, "description": "Genres you'd hear this style danced to."},
+      "why": {"type": "string", "description": "Optional: something about the style that isn't obvious and helps people get it."}
+    }
+  }
+}
