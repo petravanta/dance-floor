@@ -11,6 +11,12 @@ for (const s of styles) {
   if (styleIds.has(s.id)) errors.push(`styles.json: id "${s.id}" is used more than once`);
   styleIds.add(s.id);
   if (!(s.bpm.min <= s.bpm.default && s.bpm.default <= s.bpm.max)) errors.push(`styles.json: "${s.id}" bpm needs min ≤ default ≤ max`);
+  const g = s.groove || {};
+  for (const lane of ['kick', 'snare', 'clap', 'tom', 'hat', 'open', 'bass', 'lead']) {
+    if (!g[lane]) continue;
+    const steps = /^[xo.]+$/.test(g[lane]) ? g[lane].length : g[lane].split(' ').length;
+    if (steps % 16) errors.push(`styles.json: "${s.id}" groove ${lane} has ${steps} steps; use whole bars (16, 32 or 64)`);
+  }
 }
 const byId = new Map();
 for (const m of moves) {
