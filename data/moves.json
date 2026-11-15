@@ -22,7 +22,15 @@
       "Bouncing up on the beat instead of down",
       "Locking the knees between bounces, which makes it look stiff"
     ],
-    "why": "Feeling the beat in your knees is what makes the rest of your body look like it's dancing to the music rather than next to it."
+    "why": "Feeling the beat in your knees is what makes the rest of your body look like it's dancing to the music rather than next to it.",
+    "animation": {
+      "view": "front",
+      "beats": 1,
+      "keys": [
+        { "at": 0, "hip": [0, 79], "head": 4, "say": "down" },
+        { "at": 0.5, "hip": [0, 86], "head": 0, "say": "up" }
+      ]
+    }
   },
   {
     "id": "step-touch",
@@ -45,7 +53,21 @@
     ],
     "mistakes": [
       "Stepping too wide, which eats floor space and pulls you off the beat"
-    ]
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [0, 80], "lFoot": [-14, 0], "rFoot": [14, 0], "lHand": [-2, -48], "rHand": [10, -44], "say": "step" },
+        { "at": 0.5, "hip": [5, 86], "lFoot": [-5, 7] },
+        { "at": 1, "hip": [8, 80], "lFoot": [2, 0], "say": "touch" },
+        { "at": 1.5, "hip": [4, 86], "lFoot": [-8, 6], "lHand": [-10, -44], "rHand": [2, -48] },
+        { "at": 2, "hip": [0, 80], "lFoot": [-14, 0], "say": "step" },
+        { "at": 2.5, "hip": [-5, 86], "rFoot": [5, 7] },
+        { "at": 3, "hip": [-8, 80], "rFoot": [-2, 0], "say": "touch" },
+        { "at": 3.5, "hip": [-4, 86], "rFoot": [8, 6], "lHand": [-2, -48], "rHand": [10, -44] }
+      ]
+    }
   },
   {
     "id": "sway",
@@ -68,7 +90,15 @@
     ],
     "mistakes": [
       "Swinging only the hips while the weight stays in the middle"
-    ]
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 2,
+      "keys": [
+        { "at": 0, "hip": [-10, 83], "lean": 5, "lFoot": [-18, 0], "rFoot": [18, 4], "say": "left" },
+        { "at": 1, "hip": [10, 83], "lean": -5, "lFoot": [-18, 4], "rFoot": [18, 0], "say": "right" }
+      ]
+    }
   },
   {
     "id": "loose-arms",
@@ -92,7 +122,21 @@
       "Arms hanging straight down, which reads as 'not dancing'",
       "Arms flying wide on a crowded floor"
     ],
-    "why": "Most people feel awkward because of their arms, not their feet. A default arm position takes that worry away."
+    "why": "Most people feel awkward because of their arms, not their feet. A default arm position takes that worry away.",
+    "animation": {
+      "view": "front",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [0, 80], "lHand": [6, -34], "rHand": [-6, -34], "say": "bounce" },
+        { "at": 0.5, "hip": [0, 86], "lHand": [8, -26], "rHand": [-8, -26] },
+        { "at": 1, "hip": [0, 80], "lHand": [6, -34], "rHand": [-6, -34] },
+        { "at": 1.5, "hip": [0, 86], "lHand": [8, -26], "rHand": [-8, -26] },
+        { "at": 2, "hip": [0, 80], "lHand": [6, -34], "rHand": [-6, -34] },
+        { "at": 2.5, "hip": [0, 86], "lHand": [2, -22], "rHand": [-2, -22] },
+        { "at": 3, "hip": [0, 79], "lHand": [8, -44], "rHand": [-8, -44], "say": "push down", "ease": "hit" },
+        { "at": 3.5, "hip": [0, 86], "lHand": [8, -28], "rHand": [-8, -28] }
+      ]
+    }
   },
   {
     "id": "crowd-footprint",
@@ -115,7 +159,21 @@
     "mistakes": [
       "Practising a big new move in the middle of a packed floor"
     ],
-    "why": "Being easy to dance next to is the fastest way to feel welcome on any floor."
+    "why": "Being easy to dance next to is the fastest way to feel welcome on any floor.",
+    "animation": {
+      "view": "front",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [0, 81], "lFoot": [-8, 0], "rFoot": [8, 0], "lHand": [10, -32], "rHand": [-10, -32], "head": -12, "say": "look around" },
+        { "at": 0.5, "hip": [0, 86] },
+        { "at": 1, "hip": [0, 81], "head": -12 },
+        { "at": 1.5, "hip": [0, 86] },
+        { "at": 2, "hip": [0, 81], "head": 12, "say": "stay small" },
+        { "at": 2.5, "hip": [0, 86] },
+        { "at": 3, "hip": [0, 81], "head": 12 },
+        { "at": 3.5, "hip": [0, 86] }
+      ]
+    }
   },
   {
     "id": "goth-drift",
@@ -139,7 +197,21 @@
     "mistakes": [
       "Stepping on every beat, which turns it into a march"
     ],
-    "why": "Dancing in half time is what makes goth dancing look effortless, even at a club tempo."
+    "why": "Dancing in half time is what makes goth dancing look effortless, even at a club tempo.",
+    "animation": {
+      "view": "front",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [-9, 84], "lFoot": [-16, 0], "rFoot": [16, 0], "lHand": [-12, -40], "rHand": [18, -34], "head": -8, "say": "step" },
+        { "at": 0.5, "rFoot": [5, 3] },
+        { "at": 1, "hip": [-11, 86], "rFoot": [-6, 0], "say": "settle" },
+        { "at": 1.5, "hip": [0, 85], "rFoot": [5, 3], "lHand": [-16, -38], "rHand": [12, -40] },
+        { "at": 2, "hip": [9, 84], "rFoot": [16, 0], "lHand": [-18, -34], "rHand": [12, -40], "head": 8, "say": "step" },
+        { "at": 2.5, "lFoot": [-5, 3] },
+        { "at": 3, "hip": [11, 86], "lFoot": [6, 0], "say": "settle" },
+        { "at": 3.5, "hip": [0, 85], "lFoot": [-5, 3], "lHand": [-12, -40], "rHand": [16, -38] }
+      ]
+    }
   },
   {
     "id": "cobweb-hands",
@@ -162,7 +234,21 @@
     ],
     "mistakes": [
       "Moving both arms the same way at the same time, which looks mechanical"
-    ]
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 8,
+      "keys": [
+        { "at": 0, "hip": [-4, 85], "lHand": [13, 22], "rHand": [-13, 22], "say": "right sweeps" },
+        { "at": 1, "rHand": [12, 6] },
+        { "at": 2, "hip": [4, 85], "rHand": [18, -44], "say": "left sweeps" },
+        { "at": 3, "lHand": [-12, 6] },
+        { "at": 4, "hip": [-4, 85], "lHand": [-18, -44], "say": "right rises" },
+        { "at": 5, "rHand": [16, 0] },
+        { "at": 6, "hip": [4, 85], "rHand": [-13, 22], "say": "left rises" },
+        { "at": 7, "lHand": [-16, 0] }
+      ]
+    }
   },
   {
     "id": "slow-turn",
@@ -185,7 +271,21 @@
     ],
     "mistakes": [
       "Spinning on one foot, which is fast and needs much more space"
-    ]
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 8,
+      "keys": [
+        { "at": 0, "turn": 0, "hip": [0, 85], "lFoot": [-9, 0], "rFoot": [9, 0], "rHand": [36, -14], "lHand": [-6, -46], "head": 6, "say": "lead with the head" },
+        { "at": 1, "rFoot": [9, 5] },
+        { "at": 2, "turn": 0.25, "rFoot": [9, 0], "say": "tiny steps" },
+        { "at": 3, "lFoot": [-9, 5] },
+        { "at": 4, "turn": 0.5, "lFoot": [-9, 0], "say": "keep turning" },
+        { "at": 5, "rFoot": [9, 5] },
+        { "at": 6, "turn": 0.75, "rFoot": [9, 0], "say": "face the front" },
+        { "at": 7, "lFoot": [-9, 5] }
+      ]
+    }
   },
   {
     "id": "pushing-fog",
@@ -209,7 +309,15 @@
     "mistakes": [
       "Pushing fast: the fog is thick, so it takes the full two beats"
     ],
-    "why": "It's the move people mean when they joke about goth dancing, and that's exactly why it works: everyone on the floor recognises it."
+    "why": "It's the move people mean when they joke about goth dancing, and that's exactly why it works: everyone on the floor recognises it.",
+    "animation": {
+      "view": "side",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [0, 85], "lean": 0, "lFoot": [-6, 0], "rFoot": [8, 0], "lHand": [10, -16], "rHand": [12, -18], "say": "push" },
+        { "at": 2, "hip": [5, 84], "lean": 7, "lHand": [38, -10], "rHand": [40, -12], "say": "draw back", "ease": "float" }
+      ]
+    }
   },
   {
     "id": "catching-bats",
@@ -232,7 +340,19 @@
     ],
     "mistakes": [
       "Grabbing on every beat, which turns it into a punch"
-    ]
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [-3, 85], "rHand": [-6, -22], "lHand": [6, -22], "head": 6, "say": "reach" },
+        { "at": 0.85, "rHand": [22, 44], "ease": "float" },
+        { "at": 1, "rHand": [16, 34], "say": "catch!", "ease": "hit" },
+        { "at": 2, "hip": [3, 85], "rHand": [-6, -22], "head": -6, "say": "reach" },
+        { "at": 2.85, "lHand": [-22, 44], "ease": "float" },
+        { "at": 3, "lHand": [-16, 34], "say": "catch!", "ease": "hit" }
+      ]
+    }
   },
   {
     "id": "picking-pennies",
@@ -255,7 +375,17 @@
     ],
     "mistakes": [
       "Bending over with straight legs, which is hard on the back and looks like you dropped your keys"
-    ]
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 8,
+      "keys": [
+        { "at": 0, "hip": [0, 86], "lFoot": [-15, 0], "rFoot": [15, 0], "rHand": [4, -40], "lHand": [-6, 50], "head": 0, "say": "sink" },
+        { "at": 2, "hip": [0, 58], "rHand": [12, -52], "lHand": [-6, -40], "head": 10, "say": "rise", "ease": "float" },
+        { "at": 4, "hip": [0, 86], "rHand": [6, 50], "head": 0, "say": "sink" },
+        { "at": 6, "hip": [0, 58], "lHand": [-12, -52], "rHand": [4, -40], "head": -10, "say": "rise", "ease": "float" }
+      ]
+    }
   },
   {
     "id": "wrist-twirl",
@@ -279,7 +409,21 @@
     "mistakes": [
       "Turning the whole forearm instead of the wrist"
     ],
-    "why": "A lot of the classic post-punk front-women danced with their hands. Wrist twirls are the easiest way into that look."
+    "why": "A lot of the classic post-punk front-women danced with their hands. Wrist twirls are the easiest way into that look.",
+    "animation": {
+      "view": "front",
+      "beats": 2,
+      "keys": [
+        { "at": 0.0, "rHand": [-1.0, 24.0], "lHand": [1.0, 24.0], "ease": "linear", "hip": [-4, 85], "say": "circle the wrists" },
+        { "at": 0.25, "rHand": [-8.0, 31.0], "lHand": [8.0, 31.0], "ease": "linear" },
+        { "at": 0.5, "rHand": [-15.0, 24.0], "lHand": [15.0, 24.0], "ease": "linear" },
+        { "at": 0.75, "rHand": [-8.0, 17.0], "lHand": [8.0, 17.0], "ease": "linear" },
+        { "at": 1.0, "rHand": [3.8, 32.0], "lHand": [-3.8, 32.0], "ease": "linear", "hip": [4, 85], "say": "drift up and out" },
+        { "at": 1.25, "rHand": [-3.2, 39.0], "lHand": [3.2, 39.0], "ease": "linear" },
+        { "at": 1.5, "rHand": [-10.2, 32.0], "lHand": [10.2, 32.0], "ease": "linear" },
+        { "at": 1.75, "rHand": [-3.2, 25.0], "lHand": [3.2, 25.0], "ease": "linear" }
+      ]
+    }
   },
   {
     "id": "goth-hip-sway",
@@ -302,7 +446,19 @@
     ],
     "mistakes": [
       "Rocking the hips straight side to side, which loses the curve"
-    ]
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [-12, 84], "lean": 6, "lFoot": [-16, 0], "rFoot": [16, 0], "lHand": [-14, -40], "rHand": [14, -40], "say": "left" },
+        { "at": 0.5, "hip": [-10, 86] },
+        { "at": 1, "hip": [0, 81], "lean": 0 },
+        { "at": 2, "hip": [12, 84], "lean": -6, "say": "right" },
+        { "at": 2.5, "hip": [10, 86] },
+        { "at": 3, "hip": [0, 81], "lean": 0 }
+      ]
+    }
   },
   {
     "id": "floor-circle",
@@ -325,7 +481,21 @@
     "mistakes": [
       "Wandering out of your patch into someone else's"
     ],
-    "why": "Goth floors often move as slow, wandering circles rather than facing the stage. Joining that flow is how you look like you belong."
+    "why": "Goth floors often move as slow, wandering circles rather than facing the stage. Joining that flow is how you look like you belong.",
+    "animation": {
+      "view": "front",
+      "beats": 8,
+      "keys": [
+        { "at": 0, "turn": 0.0, "hip": [0, 85], "lFoot": [-9, 0], "rFoot": [9, 0], "lHand": [-14, -36], "rHand": [14, -36], "say": "drift round" },
+        { "at": 1, "hip": [7.0, 86], "rFoot": [16.0, 5] },
+        { "at": 2, "turn": 0.25, "hip": [14, 85], "lFoot": [5, 0], "rFoot": [23, 0] },
+        { "at": 3, "hip": [7.0, 86], "lFoot": [-2.0, 5] },
+        { "at": 4, "turn": 0.5, "hip": [0, 85], "lFoot": [-9, 0], "rFoot": [9, 0], "say": "change direction" },
+        { "at": 5, "hip": [-7.0, 86], "rFoot": [2.0, 5] },
+        { "at": 6, "turn": 0.75, "hip": [-14, 85], "lFoot": [-23, 0], "rFoot": [-5, 0] },
+        { "at": 7, "hip": [-7.0, 86], "lFoot": [-16.0, 5] }
+      ]
+    }
   },
   {
     "id": "deathrock-stomp",
@@ -349,7 +519,21 @@
     "mistakes": [
       "Big strides: a step the length of your foot is plenty"
     ],
-    "why": "Not every goth track is slow. Deathrock and the faster post-punk need something with more punch, and this is the usual answer."
+    "why": "Not every goth track is slow. Deathrock and the faster post-punk need something with more punch, and this is the usual answer.",
+    "animation": {
+      "view": "side",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [6, 80], "lean": 12, "rFoot": [12, 0], "lFoot": [-2, 0], "lHand": [10, -34], "rHand": [-6, -40], "say": "forward", "ease": "hit" },
+        { "at": 0.5, "hip": [8, 86], "lFoot": [10, 14] },
+        { "at": 1, "hip": [12, 80], "lFoot": [14, 0], "lHand": [-6, -40], "rHand": [10, -34], "ease": "hit" },
+        { "at": 1.5, "hip": [8, 86], "rFoot": [8, 14] },
+        { "at": 2, "hip": [4, 80], "rFoot": [0, 0], "lHand": [10, -34], "rHand": [-6, -40], "say": "back", "ease": "hit" },
+        { "at": 2.5, "hip": [2, 86], "lFoot": [6, 14] },
+        { "at": 3, "hip": [0, 80], "lFoot": [-2, 0], "lHand": [-6, -40], "rHand": [10, -34], "ease": "hit" },
+        { "at": 3.5, "hip": [2, 86], "rFoot": [8, 14] }
+      ]
+    }
   },
   {
     "id": "cape-swirl",
@@ -372,7 +556,21 @@
     ],
     "mistakes": [
       "Swinging the arms fast, which hits people instead of looking dramatic"
-    ]
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 8,
+      "keys": [
+        { "at": 0, "turn": 0, "hip": [0, 85], "lFoot": [-9, 0], "rFoot": [9, 0], "rHand": [-28, -14], "lHand": [-4, -50], "say": "cross" },
+        { "at": 1, "rFoot": [9, 5] },
+        { "at": 2, "turn": 0.25, "rFoot": [9, 0], "rHand": [50, 4], "lHand": [-20, -36], "say": "sweep" },
+        { "at": 3, "lFoot": [-9, 5], "lHand": [-48, -2] },
+        { "at": 4, "turn": 0.5, "lFoot": [-9, 0], "rHand": [10, -46], "lHand": [28, -14], "say": "swirl back" },
+        { "at": 5, "rFoot": [9, 5] },
+        { "at": 6, "turn": 0.25, "rFoot": [9, 0], "lHand": [-50, 4], "rHand": [20, -36] },
+        { "at": 7, "lFoot": [-9, 5], "rHand": [48, -2] }
+      ]
+    }
   },
   {
     "id": "stomp-march",
@@ -395,7 +593,17 @@
     ],
     "mistakes": [
       "Landing with a straight leg, which jars the knees"
-    ]
+    ],
+    "animation": {
+      "view": "side",
+      "beats": 2,
+      "keys": [
+        { "at": 0, "hip": [0, 80], "lean": 8, "rFoot": [4, 0], "lFoot": [-2, 0], "lHand": [12, -30], "rHand": [-8, -38], "say": "right", "ease": "hit" },
+        { "at": 0.5, "hip": [0, 86], "lFoot": [8, 16] },
+        { "at": 1, "hip": [0, 80], "lFoot": [-2, 0], "lHand": [-8, -38], "rHand": [12, -30], "say": "left", "ease": "hit" },
+        { "at": 1.5, "hip": [0, 86], "rFoot": [10, 16] }
+      ]
+    }
   },
   {
     "id": "ebm-two-step",
@@ -420,7 +628,17 @@
     "mistakes": [
       "Taking big steps: this move lives in a small square on the floor"
     ],
-    "why": "It's the move you see on almost every EBM floor. Once you have it, you can fit in anywhere industrial is playing."
+    "why": "It's the move you see on almost every EBM floor. Once you have it, you can fit in anywhere industrial is playing.",
+    "animation": {
+      "view": "side",
+      "beats": 2,
+      "keys": [
+        { "at": 0, "hip": [6, 81], "lean": 6, "rFoot": [20, 0], "lFoot": [-4, 0], "lHand": [16, -26], "rHand": [-10, -38], "say": "forward", "ease": "hit" },
+        { "at": 0.5, "hip": [3, 86], "rFoot": [10, 5] },
+        { "at": 1, "hip": [0, 81], "rFoot": [0, 0], "lHand": [-10, -38], "rHand": [16, -26], "say": "back", "ease": "hit" },
+        { "at": 1.5, "hip": [3, 86], "rFoot": [10, 5] }
+      ]
+    }
   },
   {
     "id": "punch-pull",
@@ -443,7 +661,21 @@
     ],
     "mistakes": [
       "Straightening the arm all the way, which looks floppy and can hurt someone nearby"
-    ]
+    ],
+    "animation": {
+      "view": "side",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [0, 81], "lean": 8, "rFoot": [4, 0], "lFoot": [-2, 0], "rHand": [32, -26], "lHand": [10, -18], "say": "punch", "ease": "hit" },
+        { "at": 0.5, "hip": [0, 85], "lFoot": [6, 10] },
+        { "at": 1, "hip": [0, 81], "lFoot": [-2, 0], "rHand": [10, -18], "say": "pull", "ease": "hit" },
+        { "at": 1.5, "hip": [0, 85], "rFoot": [8, 10] },
+        { "at": 2, "hip": [0, 81], "rFoot": [4, 0], "lHand": [32, -26], "say": "punch", "ease": "hit" },
+        { "at": 2.5, "hip": [0, 85], "lFoot": [6, 10] },
+        { "at": 3, "hip": [0, 81], "lFoot": [-2, 0], "lHand": [10, -18], "say": "pull", "ease": "hit" },
+        { "at": 3.5, "hip": [0, 85], "rFoot": [8, 10] }
+      ]
+    }
   },
   {
     "id": "rave-bounce",
@@ -467,7 +699,15 @@
     "mistakes": [
       "Jumping off the floor on every beat, which tires you out in one track"
     ],
-    "why": "Rave floors run for hours. A low-effort bounce is what lets you dance from the first track to the last."
+    "why": "Rave floors run for hours. A low-effort bounce is what lets you dance from the first track to the last.",
+    "animation": {
+      "view": "side",
+      "beats": 1,
+      "keys": [
+        { "at": 0, "hip": [0, 88], "lean": 8, "lFoot": [-3, 5], "rFoot": [3, 5], "lHand": [8, -36], "rHand": [4, -38], "say": "up" },
+        { "at": 0.5, "hip": [0, 82], "lean": 2, "lFoot": [-3, 2], "rFoot": [3, 2] }
+      ]
+    }
   },
   {
     "id": "running-man",
@@ -491,7 +731,17 @@
     "mistakes": [
       "Hopping instead of sliding",
       "Leaning back: keep the chest a little forward"
-    ]
+    ],
+    "animation": {
+      "view": "side",
+      "beats": 2,
+      "keys": [
+        { "at": 0, "hip": [0, 80], "lean": 6, "rFoot": [14, 0], "lFoot": [-16, 0], "lHand": [14, -22], "rHand": [-6, -34], "say": "slide", "ease": "hit" },
+        { "at": 0.5, "hip": [0, 86], "rFoot": [0, 0], "lFoot": [6, 24], "say": "lift" },
+        { "at": 1, "hip": [0, 80], "lFoot": [14, 0], "rFoot": [-16, 0], "lHand": [-6, -34], "rHand": [14, -22], "say": "slide", "ease": "hit" },
+        { "at": 1.5, "hip": [0, 86], "lFoot": [0, 0], "rFoot": [6, 24], "say": "lift" }
+      ]
+    }
   },
   {
     "id": "t-step",
@@ -514,7 +764,29 @@
     ],
     "mistakes": [
       "Travelling too far on a busy floor. Two swivels and back is plenty"
-    ]
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 8,
+      "keys": [
+        { "at": 0, "hip": [12, 82], "lFoot": [8, 0], "rFoot": [38, 12], "lHand": [-14, -34], "rHand": [-4, -38], "say": "swivel + kick" },
+        { "at": 0.5, "hip": [9, 86], "lFoot": [5, 0], "rFoot": [21, 20] },
+        { "at": 1, "hip": [6, 82], "lFoot": [2, 0], "rFoot": [32, 12], "lHand": [-14, -34], "rHand": [-4, -38] },
+        { "at": 1.5, "hip": [3, 86], "lFoot": [-1, 0], "rFoot": [15, 20] },
+        { "at": 2, "hip": [0, 82], "lFoot": [-4, 0], "rFoot": [26, 12], "lHand": [-14, -34], "rHand": [-4, -38] },
+        { "at": 2.5, "hip": [-3, 86], "lFoot": [-7, 0], "rFoot": [9, 20] },
+        { "at": 3, "hip": [-6, 82], "lFoot": [-10, 0], "rFoot": [20, 12], "lHand": [-14, -34], "rHand": [-4, -38] },
+        { "at": 3.5, "hip": [-9, 86], "lFoot": [-13, 0], "rFoot": [3, 20] },
+        { "at": 4, "hip": [-12, 82], "rFoot": [-8, 0], "lFoot": [-38, 12], "lHand": [4, -38], "rHand": [14, -34], "say": "switch legs" },
+        { "at": 4.5, "hip": [-9, 86], "rFoot": [-5, 0], "lFoot": [-21, 20] },
+        { "at": 5, "hip": [-6, 82], "rFoot": [-2, 0], "lFoot": [-32, 12], "lHand": [4, -38], "rHand": [14, -34] },
+        { "at": 5.5, "hip": [-3, 86], "rFoot": [1, 0], "lFoot": [-15, 20] },
+        { "at": 6, "hip": [0, 82], "rFoot": [4, 0], "lFoot": [-26, 12], "lHand": [4, -38], "rHand": [14, -34] },
+        { "at": 6.5, "hip": [3, 86], "rFoot": [7, 0], "lFoot": [-9, 20] },
+        { "at": 7, "hip": [6, 82], "rFoot": [10, 0], "lFoot": [-20, 12], "lHand": [4, -38], "rHand": [14, -34] },
+        { "at": 7.5, "hip": [9, 86], "rFoot": [13, 0], "lFoot": [-3, 20] }
+      ]
+    }
   },
   {
     "id": "arm-wave",
@@ -537,7 +809,20 @@
     ],
     "mistakes": [
       "Moving the whole arm at once, so it never ripples"
-    ]
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [0, 85], "lHand": [-52, 0], "rHand": [52, 0], "lElbow": [0, -1], "rElbow": [0, -1], "say": "left wrist" },
+        { "at": 0.5, "lHand": [-38, 18] },
+        { "at": 1, "lHand": [-42, -14], "lElbow": [0, 1], "say": "left elbow" },
+        { "at": 1.5, "lHand": [-52, 0], "lean": -4, "say": "shoulders" },
+        { "at": 2, "rHand": [42, -14], "rElbow": [0, 1], "lElbow": [0, -1], "lean": 4, "say": "right elbow" },
+        { "at": 3, "rHand": [38, 18], "rElbow": [0, -1], "lean": 0, "say": "right wrist" },
+        { "at": 3.5, "rHand": [52, 0] }
+      ]
+    }
   },
   {
     "id": "heel-toe",
@@ -561,7 +846,29 @@
     "mistakes": [
       "Lifting the feet instead of sliding them"
     ],
-    "why": "The swivel is the engine of shuffle. Once it's comfortable, the T-step and most combos fall into place."
+    "why": "The swivel is the engine of shuffle. Once it's comfortable, the T-step and most combos fall into place.",
+    "animation": {
+      "view": "front",
+      "beats": 8,
+      "keys": [
+        { "at": 0, "hip": [-12, 83], "lFoot": [-20, 0], "rFoot": [-4, 0], "lHand": [-10, -38], "rHand": [10, -38], "say": "heels" },
+        { "at": 0.5, "hip": [-8.0, 86] },
+        { "at": 1, "hip": [-4, 83], "lFoot": [-9, 0], "rFoot": [1, 0], "say": "toes" },
+        { "at": 1.5, "hip": [0.0, 86] },
+        { "at": 2, "hip": [4, 83], "lFoot": [-4, 0], "rFoot": [12, 0], "say": "heels" },
+        { "at": 2.5, "hip": [8.0, 86] },
+        { "at": 3, "hip": [12, 83], "lFoot": [7, 0], "rFoot": [17, 0], "say": "toes" },
+        { "at": 3.5, "hip": [12.0, 86] },
+        { "at": 4, "hip": [12, 83], "lFoot": [4, 0], "rFoot": [20, 0], "say": "reverse" },
+        { "at": 4.5, "hip": [8.0, 86] },
+        { "at": 5, "hip": [4, 83], "lFoot": [-1, 0], "rFoot": [9, 0], "say": "toes" },
+        { "at": 5.5, "hip": [0.0, 86] },
+        { "at": 6, "hip": [-4, 83], "lFoot": [-12, 0], "rFoot": [4, 0], "say": "heels" },
+        { "at": 6.5, "hip": [-8.0, 86] },
+        { "at": 7, "hip": [-12, 83], "lFoot": [-17, 0], "rFoot": [-7, 0], "say": "toes" },
+        { "at": 7.5, "hip": [-12.0, 86] }
+      ]
+    }
   },
   {
     "id": "charleston",
@@ -584,7 +891,21 @@
     ],
     "mistakes": [
       "Kicking high: keep it low and quick"
-    ]
+    ],
+    "animation": {
+      "view": "side",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [8, 84], "rFoot": [10, 0], "lFoot": [30, 12], "lHand": [-10, -38], "rHand": [14, -30], "say": "kick", "ease": "hit", "lean": 4 },
+        { "at": 0.5, "hip": [7, 87] },
+        { "at": 1, "hip": [6, 82], "lFoot": [8, 0], "say": "step" },
+        { "at": 1.5, "hip": [2, 87] },
+        { "at": 2, "hip": [-4, 84], "lFoot": [-6, 0], "rFoot": [-24, 10], "lHand": [14, -30], "rHand": [-10, -38], "say": "tap back", "ease": "hit" },
+        { "at": 2.5, "hip": [-3, 87] },
+        { "at": 3, "hip": [0, 82], "rFoot": [-4, 0], "say": "step" },
+        { "at": 3.5, "hip": [4, 87] }
+      ]
+    }
   },
   {
     "id": "spongebob",
@@ -607,7 +928,29 @@
     ],
     "mistakes": [
       "Kicking forward instead of to the side"
-    ]
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 8,
+      "keys": [
+        { "at": 0, "hip": [0, 82], "lFoot": [-5, 0], "rFoot": [28, 10], "lHand": [8, -34], "rHand": [-14, -34], "say": "kick out" },
+        { "at": 0.5, "hip": [0, 87], "lFoot": [-5, 4], "rFoot": [-10, 5], "say": "in" },
+        { "at": 1, "hip": [0, 82], "lFoot": [-5, 0], "rFoot": [28, 10], "lHand": [8, -34], "rHand": [-14, -34] },
+        { "at": 1.5, "hip": [0, 87], "lFoot": [-5, 4], "rFoot": [-10, 5] },
+        { "at": 2, "hip": [0, 82], "lFoot": [-5, 0], "rFoot": [28, 10], "lHand": [8, -34], "rHand": [-14, -34] },
+        { "at": 2.5, "hip": [0, 87], "lFoot": [-5, 4], "rFoot": [-10, 5] },
+        { "at": 3, "hip": [0, 82], "lFoot": [-5, 0], "rFoot": [28, 10], "lHand": [8, -34], "rHand": [-14, -34] },
+        { "at": 3.5, "hip": [0, 87], "lFoot": [-5, 4], "rFoot": [-10, 5] },
+        { "at": 4, "hip": [0, 82], "rFoot": [5, 0], "lFoot": [-28, 10], "rHand": [-8, -34], "lHand": [14, -34], "say": "switch" },
+        { "at": 4.5, "hip": [0, 87], "rFoot": [5, 4], "lFoot": [10, 5], "say": "in" },
+        { "at": 5, "hip": [0, 82], "rFoot": [5, 0], "lFoot": [-28, 10], "rHand": [-8, -34], "lHand": [14, -34] },
+        { "at": 5.5, "hip": [0, 87], "rFoot": [5, 4], "lFoot": [10, 5] },
+        { "at": 6, "hip": [0, 82], "rFoot": [5, 0], "lFoot": [-28, 10], "rHand": [-8, -34], "lHand": [14, -34] },
+        { "at": 6.5, "hip": [0, 87], "rFoot": [5, 4], "lFoot": [10, 5] },
+        { "at": 7, "hip": [0, 82], "rFoot": [5, 0], "lFoot": [-28, 10], "rHand": [-8, -34], "lHand": [14, -34] },
+        { "at": 7.5, "hip": [0, 87], "rFoot": [5, 4], "lFoot": [10, 5] }
+      ]
+    }
   },
   {
     "id": "shuffle-combo",
@@ -630,6 +973,76 @@
     ],
     "mistakes": [
       "Stopping between moves: keep the bounce going through every switch"
-    ]
+    ],
+    "animation": {
+      "view": "side",
+      "beats": 32,
+      "keys": [
+        { "at": 0, "hip": [0, 80], "lean": 6, "rFoot": [14, 0], "lFoot": [-16, 0], "lHand": [14, -22], "rHand": [-6, -34], "ease": "hit", "say": "running man" },
+        { "at": 0.5, "hip": [0, 86], "rFoot": [0, 0], "lFoot": [6, 24] },
+        { "at": 1, "hip": [0, 80], "lFoot": [14, 0], "rFoot": [-16, 0], "lHand": [-6, -34], "rHand": [14, -22], "ease": "hit" },
+        { "at": 1.5, "hip": [0, 86], "lFoot": [0, 0], "rFoot": [6, 24] },
+        { "at": 2, "hip": [0, 80], "lean": 6, "rFoot": [14, 0], "lFoot": [-16, 0], "lHand": [14, -22], "rHand": [-6, -34], "ease": "hit" },
+        { "at": 2.5, "hip": [0, 86], "rFoot": [0, 0], "lFoot": [6, 24] },
+        { "at": 3, "hip": [0, 80], "lFoot": [14, 0], "rFoot": [-16, 0], "lHand": [-6, -34], "rHand": [14, -22], "ease": "hit" },
+        { "at": 3.5, "hip": [0, 86], "lFoot": [0, 0], "rFoot": [6, 24] },
+        { "at": 4, "hip": [0, 80], "lean": 6, "rFoot": [14, 0], "lFoot": [-16, 0], "lHand": [14, -22], "rHand": [-6, -34], "ease": "hit" },
+        { "at": 4.5, "hip": [0, 86], "rFoot": [0, 0], "lFoot": [6, 24] },
+        { "at": 5, "hip": [0, 80], "lFoot": [14, 0], "rFoot": [-16, 0], "lHand": [-6, -34], "rHand": [14, -22], "ease": "hit" },
+        { "at": 5.5, "hip": [0, 86], "lFoot": [0, 0], "rFoot": [6, 24] },
+        { "at": 6, "hip": [0, 80], "lean": 6, "rFoot": [14, 0], "lFoot": [-16, 0], "lHand": [14, -22], "rHand": [-6, -34], "ease": "hit" },
+        { "at": 6.5, "hip": [0, 86], "rFoot": [0, 0], "lFoot": [6, 24] },
+        { "at": 7, "hip": [0, 80], "lFoot": [14, 0], "rFoot": [-16, 0], "lHand": [-6, -34], "rHand": [14, -22], "ease": "hit" },
+        { "at": 7.5, "hip": [0, 86], "lFoot": [0, 0], "rFoot": [6, 24] },
+        { "at": 8, "hip": [0, 82], "lean": 2, "lHand": [10, -30], "rHand": [10, -30], "lFoot": [0, 0], "rFoot": [18, 12], "say": "T-step" },
+        { "at": 8.5, "hip": [0, 86], "lFoot": [0, 2], "rFoot": [6, 22] },
+        { "at": 9, "hip": [0, 82], "lean": 2, "lHand": [10, -30], "rHand": [10, -30], "lFoot": [0, 0], "rFoot": [18, 12] },
+        { "at": 9.5, "hip": [0, 86], "lFoot": [0, 2], "rFoot": [6, 22] },
+        { "at": 10, "hip": [0, 82], "lean": 2, "lHand": [10, -30], "rHand": [10, -30], "lFoot": [0, 0], "rFoot": [18, 12] },
+        { "at": 10.5, "hip": [0, 86], "lFoot": [0, 2], "rFoot": [6, 22] },
+        { "at": 11, "hip": [0, 82], "lean": 2, "lHand": [10, -30], "rHand": [10, -30], "lFoot": [0, 0], "rFoot": [18, 12] },
+        { "at": 11.5, "hip": [0, 86], "lFoot": [0, 2], "rFoot": [6, 22] },
+        { "at": 12, "hip": [0, 82], "lean": 2, "lHand": [10, -30], "rHand": [10, -30], "lFoot": [0, 0], "rFoot": [18, 12] },
+        { "at": 12.5, "hip": [0, 86], "lFoot": [0, 2], "rFoot": [6, 22] },
+        { "at": 13, "hip": [0, 82], "lean": 2, "lHand": [10, -30], "rHand": [10, -30], "lFoot": [0, 0], "rFoot": [18, 12] },
+        { "at": 13.5, "hip": [0, 86], "lFoot": [0, 2], "rFoot": [6, 22] },
+        { "at": 14, "hip": [0, 82], "lean": 2, "lHand": [10, -30], "rHand": [10, -30], "lFoot": [0, 0], "rFoot": [18, 12] },
+        { "at": 14.5, "hip": [0, 86], "lFoot": [0, 2], "rFoot": [6, 22] },
+        { "at": 15, "hip": [0, 82], "lean": 2, "lHand": [10, -30], "rHand": [10, -30], "lFoot": [0, 0], "rFoot": [18, 12] },
+        { "at": 15.5, "hip": [0, 86], "lFoot": [0, 2], "rFoot": [6, 22] },
+        { "at": 16, "hip": [0, 82], "lean": 2, "lHand": [10, -30], "rHand": [10, -30], "rFoot": [0, 0], "lFoot": [18, 12], "say": "T-step back" },
+        { "at": 16.5, "hip": [0, 86], "rFoot": [0, 2], "lFoot": [6, 22] },
+        { "at": 17, "hip": [0, 82], "lean": 2, "lHand": [10, -30], "rHand": [10, -30], "rFoot": [0, 0], "lFoot": [18, 12] },
+        { "at": 17.5, "hip": [0, 86], "rFoot": [0, 2], "lFoot": [6, 22] },
+        { "at": 18, "hip": [0, 82], "lean": 2, "lHand": [10, -30], "rHand": [10, -30], "rFoot": [0, 0], "lFoot": [18, 12] },
+        { "at": 18.5, "hip": [0, 86], "rFoot": [0, 2], "lFoot": [6, 22] },
+        { "at": 19, "hip": [0, 82], "lean": 2, "lHand": [10, -30], "rHand": [10, -30], "rFoot": [0, 0], "lFoot": [18, 12] },
+        { "at": 19.5, "hip": [0, 86], "rFoot": [0, 2], "lFoot": [6, 22] },
+        { "at": 20, "hip": [0, 82], "lean": 2, "lHand": [10, -30], "rHand": [10, -30], "rFoot": [0, 0], "lFoot": [18, 12] },
+        { "at": 20.5, "hip": [0, 86], "rFoot": [0, 2], "lFoot": [6, 22] },
+        { "at": 21, "hip": [0, 82], "lean": 2, "lHand": [10, -30], "rHand": [10, -30], "rFoot": [0, 0], "lFoot": [18, 12] },
+        { "at": 21.5, "hip": [0, 86], "rFoot": [0, 2], "lFoot": [6, 22] },
+        { "at": 22, "hip": [0, 82], "lean": 2, "lHand": [10, -30], "rHand": [10, -30], "rFoot": [0, 0], "lFoot": [18, 12] },
+        { "at": 22.5, "hip": [0, 86], "rFoot": [0, 2], "lFoot": [6, 22] },
+        { "at": 23, "hip": [0, 82], "lean": 2, "lHand": [10, -30], "rHand": [10, -30], "rFoot": [0, 0], "lFoot": [18, 12] },
+        { "at": 23.5, "hip": [0, 86], "rFoot": [0, 2], "lFoot": [6, 22] },
+        { "at": 24, "hip": [8, 84], "rFoot": [10, 0], "lFoot": [30, 12], "lHand": [-10, -38], "rHand": [14, -30], "say": "Charleston", "ease": "hit", "lean": 4 },
+        { "at": 24.5, "hip": [7, 87] },
+        { "at": 25, "hip": [6, 82], "lFoot": [8, 0], "say": "step" },
+        { "at": 25.5, "hip": [2, 87] },
+        { "at": 26, "hip": [-4, 84], "lFoot": [-6, 0], "rFoot": [-24, 10], "lHand": [14, -30], "rHand": [-10, -38], "say": "tap back", "ease": "hit" },
+        { "at": 26.5, "hip": [-3, 87] },
+        { "at": 27, "hip": [0, 82], "rFoot": [-4, 0], "say": "step" },
+        { "at": 27.5, "hip": [4, 87] },
+        { "at": 28, "hip": [8, 84], "rFoot": [10, 0], "lFoot": [30, 12], "lHand": [-10, -38], "rHand": [14, -30], "say": "kick", "ease": "hit" },
+        { "at": 28.5, "hip": [7, 87] },
+        { "at": 29, "hip": [6, 82], "lFoot": [8, 0], "say": "step" },
+        { "at": 29.5, "hip": [2, 87] },
+        { "at": 30, "hip": [-4, 84], "lFoot": [-6, 0], "rFoot": [-24, 10], "lHand": [14, -30], "rHand": [-10, -38], "say": "tap back", "ease": "hit" },
+        { "at": 30.5, "hip": [-3, 87] },
+        { "at": 31, "hip": [0, 82], "rFoot": [-4, 0], "say": "step" },
+        { "at": 31.5, "hip": [4, 87] }
+      ]
+    }
   }
 ]

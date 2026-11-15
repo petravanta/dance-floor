@@ -24,7 +24,45 @@
       "tips": {"type": "array", "items": {"type": "string"}, "description": "Practice tips and ways to vary it."},
       "mistakes": {"type": "array", "items": {"type": "string"}, "description": "Common mistakes to watch for."},
       "why": {"type": "string", "description": "Optional: why this move is worth learning, when it isn't obvious."},
-      "video": {"type": "string", "format": "uri", "pattern": "^https://", "description": "Optional link to a video that shows the move."}
+      "video": {"type": "string", "format": "uri", "pattern": "^https://", "description": "Optional link to a video that shows the move."},
+      "animation": {"$ref": "#/$defs/animation"}
+    }
+  },
+  "$defs": {
+    "point": {"type": "array", "prefixItems": [{"type": "number"}, {"type": "number"}], "items": false, "minItems": 2, "description": "[x, y]."},
+    "animation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["view", "beats", "keys"],
+      "description": "Optional stick-figure animation shown with the move, timed to the count-along beat. Units: the figure is about 190 tall, the floor is y 0, x 0 is the middle. The figure is seen from behind (front view), so its right (+x) is your right; in side view it faces +x.",
+      "properties": {
+        "view": {"enum": ["front", "side"], "description": "front: seen from behind, for side-to-side moves. side: seen side-on facing right, for forward and back moves; the left limbs are drawn fainter."},
+        "beats": {"enum": [1, 2, 4, 8, 16, 32], "description": "Length of the loop in beats. Beat 0 lines up with count 1."},
+        "keys": {
+          "type": "array", "minItems": 1,
+          "description": "Poses at given beats, in order. The first must be at 0. Fields left out keep their value from the key before (or the neutral pose), and the figure eases between keys, looping back to the first.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["at"],
+            "properties": {
+              "at": {"type": "number", "minimum": 0, "description": "Beat this pose is reached, from 0. Halves are the 'and' counts."},
+              "say": {"type": "string", "description": "Short cue shown from this key until the next one that has a cue."},
+              "ease": {"enum": ["smooth", "linear", "hit", "float"], "description": "How the figure arrives at this pose: smooth (default), linear, hit (speeds into it, for stomps and punches) or float (slows into it)."},
+              "hip": {"$ref": "#/$defs/point", "description": "Middle of the hips. Neutral [0, 86]; lower y bends the knees."},
+              "lean": {"type": "number", "minimum": -45, "maximum": 45, "description": "Torso tilt in degrees toward +x (right, or forward in side view)."},
+              "head": {"type": "number", "minimum": -45, "maximum": 45, "description": "Head tilt in degrees toward +x."},
+              "turn": {"type": "number", "minimum": 0, "maximum": 1, "description": "Front view only: how far round the body has turned, 0 to 1 for a full turn. Eases the short way round."},
+              "lFoot": {"$ref": "#/$defs/point", "description": "Left foot on the floor plane: [x, height]. Neutral [-11, 0] (front) or [-2, 0] (side)."},
+              "rFoot": {"$ref": "#/$defs/point", "description": "Right foot. Neutral [11, 0] (front) or [2, 0] (side)."},
+              "lHand": {"$ref": "#/$defs/point", "description": "Left hand relative to the left shoulder: [x, y]. Arms reach about 54. Neutral [-4, -52], hanging."},
+              "rHand": {"$ref": "#/$defs/point", "description": "Right hand relative to the right shoulder. Neutral [4, -52]."},
+              "lElbow": {"$ref": "#/$defs/point", "description": "Which way the left elbow bends, as a direction. Defaults to out and down."},
+              "rElbow": {"$ref": "#/$defs/point", "description": "Which way the right elbow bends."}
+            }
+          }
+        }
+      }
     }
   }
 }

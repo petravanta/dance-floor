@@ -1,5 +1,5 @@
 // Checks what the JSON Schemas can't: ids are unique, every reference points at something that exists,
-// tempos make sense, and buildsOn never loops back on itself.
+// tempos make sense, buildsOn never loops back on itself, and animation keys are in order.
 // Run: node scripts/check-data.js
 const fs = require('fs'), path = require('path');
 const read = f => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', f), 'utf8'));
@@ -37,6 +37,17 @@ const visit = (id, trail) => {
   state.set(id, 2);
 };
 for (const m of moves) visit(m.id, []);
+
+// Animations: keys start at 0, go in order, and stay inside the loop.
+for (const m of moves) {
+  const a = m.animation; if (!a) continue;
+  if (a.keys[0].at !== 0) errors.push(`moves.json: "${m.id}" animation must start with a key at 0`);
+  a.keys.forEach((k, i) => {
+    if (k.at >= a.beats) errors.push(`moves.json: "${m.id}" animation key at ${k.at} is past the ${a.beats}-beat loop`);
+    if (i && k.at <= a.keys[i - 1].at) errors.push(`moves.json: "${m.id}" animation keys must be in order (${k.at} after ${a.keys[i - 1].at})`);
+    if (k.turn !== undefined && a.view !== 'front') errors.push(`moves.json: "${m.id}" uses turn, which only works in front view`);
+  });
+}
 
 if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
 console.log(`data ok: ${styles.length} styles, ${moves.length} moves`);
