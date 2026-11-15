@@ -14,6 +14,7 @@ The easiest way to help is to add a move. Moves live in one plain JSON file, [`d
    - `tips`, `mistakes` and `why` are optional. `buildsOn` lists the ids of easier moves to learn first (`[]` if none).
    - `focus`: which part of the body it trains (`feet`, `legs`, `hips`, `torso`, `arms`, `balance`, `awareness`).
    - `video` is an optional https link to a clip showing the move.
+   - `animation` is optional: the stick figure that dances the move. See below.
 4. Click **Propose changes**, then **Create pull request**. A check runs automatically and points out anything that needs fixing.
 
 Here is a complete example:
@@ -31,6 +32,28 @@ Here is a complete example:
   "steps": ["Keep the rave bounce going", "Lift both shoulders sharply on the beat", "Let them drop between beats"]
 }
 ```
+
+## Animate a move
+
+`animation` is a short loop of poses, timed in beats so the figure dances in step with the count-along beat:
+
+```json
+"animation": {
+  "view": "front",
+  "beats": 1,
+  "keys": [
+    { "at": 0, "hip": [0, 79], "say": "down" },
+    { "at": 0.5, "hip": [0, 86], "say": "up" }
+  ]
+}
+```
+
+- `view`: `front` (seen from behind, so the figure's right is the dancer's right) or `side` (facing right, for forward and back moves).
+- `beats`: how long the loop is. Beat `0` is count 1, and `0.5` is the "and".
+- `keys`: poses in order, starting at `0`. Anything you leave out stays as it was in the key before, so most keys only need a field or two. `say` is the cue shown under the figure.
+- The figure is about 190 units tall with the floor at 0. `hip` is the middle of the hips (standing is `[0, 86]`, lower bends the knees), feet are `[x, height]`, and hands are measured from their shoulder.
+
+Every field is described in the schema. Open the move in the app (`?move=<id>`) to watch it as you go.
 
 ## Add a style
 

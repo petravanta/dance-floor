@@ -6,5 +6,6 @@ Follow the shared standards in https://github.com/petravanta/general/blob/main/S
 - The app is `index.html` with no build step. Serve the folder (`python3 -m http.server`) to run it; `data/` can't load from `file://`. The shared look is inlined between its marker comments.
 - What it teaches is data: `data/styles.json` and `data/moves.json`, with schemas in `data/schema/`. Add or change moves there, never as literals in `index.html`. Move and style ids may be linked to (`?move=<id>`) and used by other apps, so never rename or reuse one.
 - `localStorage` holds only conveniences: `danceFloor.tab` (last style tab) and `danceFloor.beat` (`{bpm, half}`).
+- Each move's optional `animation` (keyframes for a stick figure, timed in beats) is drawn by the renderer in `index.html` (`poseAt`, `drawPose`). It reads the beat's audio clock (`beat.total`, `beat.next`), so the figure stays on the click; tune moves in the data, not with per-move code. Keyframe fields are documented in the schema.
 - The count-along beat schedules Web Audio clicks ahead of time (`tick()` every 25 ms, 120 ms look-ahead) so it stays steady when the page is busy. Goth styles default to half time.
 - Run `node scripts/check-data.js` and the ajv command in CONTRIBUTING.md after editing data.
