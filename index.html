@@ -152,6 +152,7 @@ section.group h3{margin-top:8px}
 .bpm output{font-family:var(--f-mono);min-width:3.5ch;text-align:right;font-size:16px}
 .bpm input{width:min(180px,32vw);accent-color:var(--accent)}
 .beat label.half-time{display:inline-flex;gap:6px;align-items:center;font-size:13px;color:var(--muted)}
+.beat select.sound{font:inherit;font-size:13px;color:var(--ink);background:var(--sunk);border:1px solid var(--line);border-radius:8px;padding:4px 6px}
 .beat .what{font-size:13px;color:var(--muted);flex:1 1 160px;min-width:0}
 @media (max-width:560px){.beat .what{order:9;flex-basis:100%}}
 .toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
@@ -196,6 +197,8 @@ section.group h3{margin-top:8px}
       <output id="bpmOut" for="bpm">120</output><span class="small muted">BPM</span>
     </div>
     <label class="half-time"><input type="checkbox" id="half"> Half time</label>
+    <label class="sr-only" for="sound">Sound</label>
+    <select id="sound" class="sound"><option value="groove">Groove</option><option value="click">Click</option></select>
     <span class="what" id="what">Tap play and bounce on every beat.</span>
   </div>
 </div>
@@ -267,6 +270,7 @@ function setTab(id) {
   tab = id; lsSet('danceFloor.tab', id);
   renderTabs(); renderMain();
   const s = styleOf.get(id);
+  setStyle(id);
   if (s && !beat.touched) setBpm(s.bpm.default, s.id === 'goth');
 }
 
@@ -402,7 +406,7 @@ function drawPose(P) {
 function dancerPhase() {
   if (beat.on && beat.ctx) {
     const c = beat.ctx, heard = c.currentTime - (c.outputLatency || c.baseLatency || 0);
-    return beat.total - (beat.next - heard) * beat.bpm / 60;
+    return (beat.step - (beat.next - heard) * beat.bpm / 15) / 4;  // the beat ticks in 16ths
   }
   return (performance.now() - dancer.t0) / 1000 * beat.bpm / 60;
 }
@@ -429,37 +433,137 @@ function startDancer(m) {
 }
 function stopDancer() { cancelAnimationFrame(dancer.raf); dancer.m = null; }
 
-/* ---------- Count-along beat (Web Audio, scheduled ahead so it stays steady) ---------- */
-const beat = { ctx: null, on: false, bpm: 120, half: false, n: 0, total: 0, next: 0, timer: null, touched: false };
-const saved = lsGet('danceFloor.beat'); if (saved) { beat.bpm = saved.bpm || 120; beat.half = !!saved.half; }
+/* ---------- Count-along beat (Web Audio, scheduled ahead so it stays steady) ----------
+   Each style's groove (data/styles.json) is played by small synthesised instruments, one 16th-note step at a time.
+   Half time plays the drums at half speed while the bass keeps driving, which is how half-time tracks sound. */
+const beat = { ctx: null, out: null, echo: null, noise: null, on: false, bpm: 120, half: false, sound: 'groove', style: 'foundations', step: 0, next: 0, timer: null, touched: false };
+const saved = lsGet('danceFloor.beat'); if (saved) { beat.bpm = saved.bpm || 120; beat.half = !!saved.half; if (saved.sound === 'click') beat.sound = 'click'; }
+const groove = () => { const s = styleOf.get(beat.style); return beat.sound === 'groove' && s && s.groove || null; };
 function setBpm(v, half) {
   beat.bpm = Math.max(60, Math.min(180, Math.round(v)));
   if (half !== undefined) beat.half = half;
-  $('#bpm').value = beat.bpm; $('#bpmOut').textContent = beat.bpm; $('#half').checked = beat.half;
-  lsSet('danceFloor.beat', { bpm: beat.bpm, half: beat.half });
+  $('#bpm').value = beat.bpm; $('#bpmOut').textContent = beat.bpm; $('#half').checked = beat.half; $('#sound').value = beat.sound;
+  lsSet('danceFloor.beat', { bpm: beat.bpm, half: beat.half, sound: beat.sound });
+  if (beat.ctx) setEcho();
   describeBeat();
 }
+function setStyle(id) {
+  beat.style = styleOf.has(id) ? id : 'foundations';
+  if (beat.ctx) setEcho(); describeBeat();
+}
 function describeBeat() {
-  $('#what').textContent = beat.half ? 'Half time: move on the bright beats (1 and 3).' : beat.on ? 'Bounce on every beat. 1 is the loud one.' : 'Tap play and bounce on every beat.';
+  const g = groove(), name = beat.on && g ? g.name.replace(/:.*/, '') + '. ' : '';
+  $('#what').textContent = name + (beat.half ? 'Half time: move on the bright beats (1 and 3).' : beat.on ? 'Move on every beat. 1 is the strong one.' : 'Tap play and bounce on every beat.');
   [...$('#dots').children].forEach((d, i) => d.classList.toggle('half', beat.half && i % 2 === 1));
   if ($('#dDots')) [...$('#dDots').children].forEach((d, i) => d.classList.toggle('half', beat.half && i % 2 === 1));
+}
+
+/* Mixer: everything goes through a compressor; snare, toms, lead and pad also feed a dotted-eighth echo. */
+function mixer() {
+  const c = beat.ctx, comp = c.createDynamicsCompressor(), master = c.createGain();
+  comp.threshold.value = -14; comp.ratio.value = 4; master.gain.value = 0.55;
+  master.connect(comp).connect(c.destination); beat.out = master;
+  const send = c.createGain(), delay = c.createDelay(2), fb = c.createGain(), tone = c.createBiquadFilter();
+  tone.type = 'lowpass'; tone.frequency.value = 2400; fb.gain.value = 0.38;
+  send.connect(delay).connect(tone).connect(fb).connect(delay); tone.connect(master);
+  beat.echo = { send, delay };
+  const len = c.sampleRate, buf = c.createBuffer(1, len, c.sampleRate), d = buf.getChannelData(0);
+  for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+  beat.noise = buf; setEcho();
+}
+function setEcho() {
+  const s = styleOf.get(beat.style), g = beat.sound === 'groove' && s && s.groove, t = beat.ctx.currentTime;
+  beat.echo.send.gain.setTargetAtTime(g && g.sound && g.sound.echo || 0, t, 0.05);
+  beat.echo.delay.delayTime.setTargetAtTime(Math.min(1.9, 0.75 * 60 / beat.bpm), t, 0.05);
+}
+const hz = midi => 440 * Math.pow(2, (midi - 69) / 12);
+function env(t, peak, attack, decay, dest, wet) {
+  const g = beat.ctx.createGain();
+  g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(peak, t + attack); g.gain.exponentialRampToValueAtTime(0.0001, t + attack + decay);
+  g.connect(dest || beat.out); if (wet) { const w = beat.ctx.createGain(); w.gain.value = wet; g.connect(w).connect(beat.echo.send); }
+  return g;
+}
+function osc(type, f, t, end, dest) { const o = beat.ctx.createOscillator(); o.type = type; o.frequency.setValueAtTime(f, t); o.connect(dest); o.start(t); o.stop(end); return o; }
+function noise(t, end, filter, f, q, dest) {
+  const c = beat.ctx, n = c.createBufferSource(), bq = c.createBiquadFilter();
+  n.buffer = beat.noise; bq.type = filter; bq.frequency.value = f; bq.Q.value = q || 0.7;
+  n.connect(bq).connect(dest); n.start(t, Math.random() * 0.5); n.stop(end);
+}
+const DRUMS = {
+  kick(t, v) { const o = osc('sine', 160, t, t + 0.4, env(t, v, 0.002, 0.32)); o.frequency.exponentialRampToValueAtTime(42, t + 0.14); },
+  snare(t, v) { noise(t, t + 0.25, 'bandpass', 1900, 0.8, env(t, v * 0.7, 0.001, 0.2, null, 1)); osc('triangle', 190, t, t + 0.12, env(t, v * 0.4, 0.001, 0.09)); },
+  clap(t, v) { [0, 0.011, 0.022].forEach(dt => noise(t + dt, t + dt + 0.05, 'bandpass', 1300, 1.2, env(t + dt, v * 0.8, 0.001, 0.035))); noise(t + 0.03, t + 0.3, 'bandpass', 1100, 1, env(t + 0.03, v * 0.7, 0.002, 0.18, null, 0.4)); },
+  tom(t, v) { const o = osc('sine', 130, t, t + 0.5, env(t, v * 0.8, 0.002, 0.4, null, 0.8)); o.frequency.exponentialRampToValueAtTime(75, t + 0.3); },
+  hat(t, v) { noise(t, t + 0.06, 'highpass', 7500, 0.7, env(t, v * 0.22, 0.001, 0.04)); },
+  open(t, v) { noise(t, t + 0.3, 'highpass', 6500, 0.7, env(t, v * 0.18, 0.002, 0.22)); }
+};
+const curves = new Map();
+function driveCurve(amount) {
+  if (!curves.has(amount)) { const k = amount * 40, c = new Float32Array(257); for (let i = 0; i < 257; i++) { const x = i / 128 - 1; c[i] = (1 + k) * x / (1 + k * Math.abs(x)); } curves.set(amount, c); }
+  return curves.get(amount);
+}
+function bass(t, midi, len, snd) {
+  const c = beat.ctx, f = c.createBiquadFilter(), cut = snd.cutoff || 900;
+  f.type = 'lowpass'; f.Q.value = 4; f.frequency.setValueAtTime(cut * 2.5, t); f.frequency.exponentialRampToValueAtTime(cut, t + 0.08);
+  let into = f;
+  if (snd.drive) { const w = c.createWaveShaper(); w.curve = driveCurve(snd.drive); f.connect(w); into = w; }
+  into.connect(env(t, 0.45, 0.004, len));
+  osc(snd.bass || 'sawtooth', hz(midi), t, t + len + 0.05, f);
+}
+function lead(t, midi, len, snd) {
+  const c = beat.ctx, acid = snd.lead === 'acid', f = c.createBiquadFilter();
+  f.type = 'lowpass'; f.Q.value = acid ? 14 : 1;
+  f.frequency.setValueAtTime(acid ? 2600 + Math.random() * 1800 : 3000, t); if (acid) f.frequency.exponentialRampToValueAtTime(320, t + len);
+  f.connect(env(t, acid ? 0.13 : 0.12, acid ? 0.003 : 0.02, len + (acid ? 0 : 0.5), null, 0.9));
+  osc(acid ? 'sawtooth' : snd.lead || 'triangle', hz(midi), t, t + len + 0.6, f);
+}
+function pad(t, chord, len, snd) {
+  const c = beat.ctx, f = c.createBiquadFilter(), g = c.createGain(), w = c.createGain();
+  f.type = 'lowpass'; f.frequency.value = 1100; w.gain.value = 0.6;
+  g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.045, t + len * 0.35); g.gain.exponentialRampToValueAtTime(0.0001, t + len + 0.4);
+  f.connect(g); g.connect(beat.out); g.connect(w).connect(beat.echo.send);
+  chord.forEach(n => [-6, 6].forEach(cents => { osc(snd.pad || 'triangle', hz(n), t, t + len + 0.5, f).detune.value = cents; }));
+}
+const tokens = new Map();
+const notesOf = str => { if (!tokens.has(str)) tokens.set(str, str.split(' ')); return tokens.get(str); };
+function notes(t, str, step, sixteenth, root, play, snd) {
+  const ns = notesOf(str), at = step % ns.length, tok = ns[at];
+  if (tok === '-' || tok === '~') return;
+  let n = 1; while (n < ns.length && ns[(at + n) % ns.length] === '~') n++;
+  play(t, root + +tok, n * sixteenth * (n > 1 ? 0.95 : 0.8), snd);
+}
+function playStep(t, s) {
+  const g = groove(), sixteenth = 15 / beat.bpm;
+  if (s % 4 === 0) {
+    const n = (s / 4) % 4, delay = Math.max(0, (t - beat.ctx.currentTime) * 1000);
+    setTimeout(() => { if (beat.on) [...$('#dots').children].forEach((d, i) => d.classList.toggle('on', i === n)); }, delay);
+    if (!g) click(t, n);
+  }
+  if (!g) return;
+  const snd = g.sound || {};
+  if (!beat.half || s % 2 === 0) {
+    const ds = beat.half ? s / 2 : s;
+    for (const k in DRUMS) { const p = g[k]; if (!p) continue; const ch = p[ds % p.length]; if (ch !== '.') DRUMS[k](t, ch === 'x' ? 1 : 0.6); }
+  }
+  if (g.bass) notes(t, g.bass, s, sixteenth, g.root, bass, snd);
+  if (g.lead) notes(t, g.lead, s, sixteenth, g.root + 12, lead, snd);
+  if (g.pad && s % 16 === 0) pad(t, g.pad[(s / 16) % g.pad.length].map(n => n + g.root + 24), 16 * sixteenth, snd);
 }
 function click(t, n) {
   const c = beat.ctx, o = c.createOscillator(), g = c.createGain();
   const accent = n === 0, soft = beat.half && n % 2 === 1;
   o.type = 'sine'; o.frequency.setValueAtTime(accent ? 150 : 110, t); o.frequency.exponentialRampToValueAtTime(45, t + 0.12);
   g.gain.setValueAtTime(accent ? 0.9 : soft ? 0.2 : 0.55, t); g.gain.exponentialRampToValueAtTime(0.001, t + 0.16);
-  o.connect(g).connect(c.destination); o.start(t); o.stop(t + 0.18);
-  const delay = Math.max(0, (t - c.currentTime) * 1000);
-  setTimeout(() => { [...$('#dots').children].forEach((d, i) => d.classList.toggle('on', i === n)); }, delay);
+  o.connect(g).connect(beat.out); o.start(t); o.stop(t + 0.18);
 }
 function tick() {
-  while (beat.next < beat.ctx.currentTime + 0.12) { click(beat.next, beat.n); beat.n = (beat.n + 1) % 4; beat.total++; beat.next += 60 / beat.bpm; }
+  while (beat.next < beat.ctx.currentTime + 0.12) { playStep(beat.next, beat.step); beat.step++; beat.next += 15 / beat.bpm; }
 }
 function start() {
   const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return;
-  beat.ctx = beat.ctx || new AC(); beat.ctx.resume();
-  beat.on = true; beat.n = 0; beat.total = 0; beat.next = beat.ctx.currentTime + 0.06;
+  if (!beat.ctx) { beat.ctx = new AC(); mixer(); }
+  beat.ctx.resume(); setEcho();
+  beat.on = true; beat.step = 0; beat.next = beat.ctx.currentTime + 0.06;
   clearInterval(beat.timer); beat.timer = setInterval(tick, 25); tick();
   $('#play').textContent = '■'; $('#play').setAttribute('aria-label', 'Stop the beat'); describeBeat(); syncTry();
 }
@@ -481,11 +585,11 @@ document.addEventListener('click', e => {
   if (t.dataset.tab) return setTab(t.dataset.tab);
   if (t.dataset.move) return openMove(t.dataset.move);
   if (t.hasAttribute('data-close')) return closeDrawer();
-  if (t.dataset.tempo) { const s = styleOf.get(t.dataset.tempo); beat.touched = true; return setBpm(s.bpm.default, s.id === 'goth'); }
+  if (t.dataset.tempo) { const s = styleOf.get(t.dataset.tempo); beat.touched = true; setStyle(s.id); return setBpm(s.bpm.default, s.id === 'goth'); }
   if (t.dataset.try) {
     const m = byId.get(t.dataset.try), s = styleOf.get(m.style);
     if (m.animation && beat.on) return stop();
-    beat.touched = true; setBpm(s.bpm.default, s.id === 'goth');
+    beat.touched = true; setStyle(s.id); setBpm(s.bpm.default, s.id === 'goth');
     if (!m.animation) closeDrawer();  // with a figure to follow, keep the drawer open
     return start();
   }
@@ -493,12 +597,13 @@ document.addEventListener('click', e => {
 });
 $('#bpm').addEventListener('input', e => { beat.touched = true; setBpm(+e.target.value); });
 $('#half').addEventListener('change', e => { beat.touched = true; setBpm(beat.bpm, e.target.checked); });
+$('#sound').addEventListener('change', e => { beat.sound = e.target.value; setBpm(beat.bpm); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('#layer').innerHTML) closeDrawer(); });
 
 (async () => {
   setBpm(beat.bpm, beat.half);
   try { await loadData(); } catch (e) { $('#main').innerHTML = '<p class="empty">Couldn’t load the moves. Check your connection and reload.</p>'; return; }
-  renderTabs(); renderMain();
+  renderTabs(); renderMain(); setStyle(tab);
   const m = new URLSearchParams(location.search).get('move'); if (m && byId.has(m)) openMove(m);
 })();
 </script>
