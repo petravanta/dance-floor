@@ -156,6 +156,19 @@ section.group h3{margin-top:8px}
 .beat .what{font-size:13px;color:var(--muted);flex:1 1 160px;min-width:0}
 @media (max-width:560px){.beat .what{order:9;flex-basis:100%}}
 .toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+/* Stick-figure animation in the move drawer */
+.dancer{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:4px 12px;background:var(--sunk);border-radius:var(--r);padding:10px 14px 12px}
+.dancer svg{grid-column:1/-1;width:100%;height:200px;display:block;overflow:visible}
+.dancer .fig{stroke:var(--ink);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.dancer .fig.far{opacity:.4}
+.dancer .head{fill:var(--ink);stroke:none}
+.dancer .face{fill:var(--accent);stroke:none}
+.dancer .floor{stroke:var(--line);stroke-width:2}
+.dancer .shadow{fill:var(--line);opacity:.6}
+.dancer .count{display:flex;align-items:center;gap:10px;min-width:0}
+.dancer .count .dots i{width:10px;height:10px}
+.dancer .cue{font-weight:600;color:var(--accent);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dancer .note{grid-column:1/-1;font-size:12px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -279,7 +292,8 @@ function openMove(id) {
         <p>${esc(m.summary)}</p>
         <p class="counts">${esc(m.counts)}</p>
       </div>
-      ${s ? `<button type="button" class="btn primary" data-try="${esc(m.id)}">▶ Try it at ${s.bpm.default} BPM${s.id === 'goth' ? ', half time' : ''}</button>` : ''}
+      ${m.animation ? dancerHtml(m) : ''}
+      ${s ? `<button type="button" class="btn primary" data-try="${esc(m.id)}">${tryLabel(m)}</button>` : ''}
       ${list('How to', m.steps, 'ol')}
       ${list('Tips', m.tips)}
       ${list('Watch out for', m.mistakes)}
@@ -289,8 +303,135 @@ function openMove(id) {
       ${next.length ? `<section><h3>Then try</h3><div class="links">${next.map(b => `<button type="button" class="chip" data-move="${esc(b.id)}">${esc(b.name)}</button>`).join('')}</div></section>` : ''}
     </aside>`;
   $('#layer .x').focus();
+  startDancer(m);
 }
-const closeDrawer = () => { $('#layer').innerHTML = ''; };
+const closeDrawer = () => { stopDancer(); $('#layer').innerHTML = ''; };
+function tryLabel(m) {
+  const s = styleOf.get(m.style);
+  if (m.animation && beat.on) return '■ Stop the beat';
+  return `▶ Try it at ${s.bpm.default} BPM${s.id === 'goth' ? ', half time' : ''}`;
+}
+
+/* ---------- Move animation: a stick figure posed by the keyframes in moves.json, kept in time with the beat ----------
+   Units: about 190 tall, floor at y 0, x 0 in the middle, y up. Front view is seen from behind (its right is your right);
+   side view faces +x. Keys fill forward from a neutral pose, and the figure eases between them, looping every `beats`. */
+const BODY = { thigh: 46, shin: 44, torso: 58, upper: 28, fore: 26, sh: 17, hipW: 9, neck: 14, headR: 11 };
+const NEUTRAL = {
+  front: { hip: [0, 86], lean: 0, head: 0, turn: 0, lFoot: [-11, 0], rFoot: [11, 0], lHand: [-4, -52], rHand: [4, -52], lElbow: [-1, -0.4], rElbow: [1, -0.4] },
+  side: { hip: [0, 86], lean: 0, head: 0, turn: 0, lFoot: [-2, 0], rFoot: [2, 0], lHand: [0, -52], rHand: [0, -52], lElbow: [-1, -0.3], rElbow: [-1, -0.3] }
+};
+const POINTS = ['hip', 'lFoot', 'rFoot', 'lHand', 'rHand', 'lElbow', 'rElbow'];
+const EASE = {
+  smooth: t => (1 - Math.cos(Math.PI * t)) / 2, linear: t => t,
+  hit: t => t * t * t, float: t => 1 - Math.pow(1 - t, 3)
+};
+const dancer = { m: null, keys: null, raf: 0, playing: true, t0: 0, cue: '', bar: -1 };
+const reducedMotion = () => window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function dancerHtml(m) {
+  return `<div class="dancer" id="dancer">
+    <svg viewBox="-75 -6 150 212" role="img" aria-label="Stick figure doing the ${esc(m.name)}">
+      <ellipse class="shadow" id="dShadow" cx="0" cy="200" rx="22" ry="3"/>
+      <line class="floor" x1="-75" y1="200" x2="75" y2="200"/>
+      <path class="fig far" id="dFar"/><path class="fig" id="dNear"/>
+      <circle class="head" id="dHead" r="${BODY.headR}"/><circle class="face" id="dFace" r="2.6"/>
+    </svg>
+    <div class="count" aria-hidden="true"><div class="dots" id="dDots"><i></i><i></i><i></i><i></i></div><span class="cue" id="dCue"></span></div>
+    <button type="button" class="btn sm" id="dPlay"></button>
+    <p class="note">${m.animation.view === 'side' ? 'Seen from the side, facing right. The far arm and leg are fainter.' : 'Seen from behind, so its right is your right: copy it as it is.'} Follows the beat when it's playing.</p>
+  </div>`;
+}
+function resolveKeys(a) {
+  let cur = NEUTRAL[a.view];
+  return a.keys.map(k => { cur = { ...cur, ...k }; return cur; });
+}
+function poseAt(p) {
+  const a = dancer.m.animation, ks = dancer.keys;
+  p = ((p % a.beats) + a.beats) % a.beats;
+  let i = ks.length - 1; while (i > 0 && ks[i].at > p) i--;
+  const k0 = ks[i], k1 = ks[(i + 1) % ks.length], end = i + 1 < ks.length ? k1.at : a.beats;
+  const span = end - k0.at, t = span > 0 ? EASE[k1.ease || 'smooth']((p - k0.at) / span) : 0;
+  const mix = (x, y) => x + (y - x) * t, out = { at: p };
+  for (const f of POINTS) out[f] = [mix(k0[f][0], k1[f][0]), mix(k0[f][1], k1[f][1])];
+  for (const f of ['lean', 'head']) out[f] = mix(k0[f], k1[f]);
+  let dt = k1.turn - k0.turn; dt -= Math.round(dt); out.turn = k0.turn + dt * t;
+  let j = i; while (j > 0 && !ks[j].say) j--;  // a cue stays up until the next key that has one
+  out.say = a.keys[j].say || '';
+  return out;
+}
+function ik(root, target, a, b, pref) {
+  const dx = target[0] - root[0], dy = target[1] - root[1], d0 = Math.hypot(dx, dy) || 0.001;
+  const d = Math.min(Math.max(d0, Math.abs(a - b) + 0.01), a + b - 0.01), base = Math.atan2(dy, dx);
+  const al = Math.acos(Math.max(-1, Math.min(1, (a * a + d * d - b * b) / (2 * a * d))));
+  const end = [root[0] + dx / d0 * d, root[1] + dy / d0 * d], mid = [(root[0] + end[0]) / 2, (root[1] + end[1]) / 2];
+  const cands = [base + al, base - al].map(g => [root[0] + a * Math.cos(g), root[1] + a * Math.sin(g)]);
+  const score = c => (c[0] - mid[0]) * pref[0] + (c[1] - mid[1]) * pref[1];
+  return [score(cands[0]) >= score(cands[1]) ? cands[0] : cands[1], end];
+}
+function drawPose(P) {
+  const side = dancer.m.animation.view === 'side', B = BODY, rad = Math.PI / 180;
+  const add = (p, v, k = 1) => [p[0] + v[0] * k, p[1] + v[1] * k];
+  const hip = P.hip, up = [Math.sin(P.lean * rad), Math.cos(P.lean * rad)], right = [up[1], -up[0]];
+  const neck = add(hip, up, B.torso), shoulder = add(neck, up, -4);
+  const sh = { l: side ? shoulder : add(shoulder, right, -B.sh), r: side ? shoulder : add(shoulder, right, B.sh) };
+  const hj = { l: side ? hip : add(hip, right, -B.hipW), r: side ? hip : add(hip, right, B.hipW) };
+  const headA = (P.lean + P.head) * rad, head = add(neck, [Math.sin(headA), Math.cos(headA)], B.neck);
+  const limbs = {};
+  for (const s of ['l', 'r']) {
+    const foot = P[s + 'Foot'], kneePref = side ? [1, 0] : [s === 'l' ? -1 : 1, 0];
+    let [knee, ankle] = ik(hj[s], foot, B.thigh, B.shin, kneePref);
+    if (!side) { const m = [(hj[s][0] + ankle[0]) / 2, (hj[s][1] + ankle[1]) / 2]; knee = [m[0] + (knee[0] - m[0]) * 0.35, m[1] + (knee[1] - m[1]) * 0.35]; }  // knees bend toward us, so most of the bend is hidden
+    const toe = side ? [ankle[0] + 9, ankle[1]] : [ankle[0] + (s === 'l' ? -5 : 5), ankle[1]];
+    const [elbow, hand] = ik(sh[s], add(sh[s], P[s + 'Hand']), B.upper, B.fore, P[s + 'Elbow']);
+    limbs[s] = { leg: [hj[s], knee, ankle, toe], arm: [sh[s], elbow, hand] };
+  }
+  // A turn squeezes the figure around the hips, which reads as turning on the spot. It never goes fully edge-on,
+  // which would collapse a flat figure into a line.
+  const c = Math.cos(P.turn * 2 * Math.PI), cs = Math.sign(c || 1) * Math.max(Math.abs(c), 0.3), sx = x => hip[0] + (x - hip[0]) * cs;
+  const pt = p => `${sx(p[0]).toFixed(1)} ${(200 - p[1]).toFixed(1)}`;
+  const line = ps => 'M' + ps.map(pt).join('L');
+  const spine = line([hip, neck]) + (side ? '' : line([sh.l, sh.r]) + line([hj.l, hj.r]));
+  const limbPath = s => line(limbs[s].leg) + line(limbs[s].arm);
+  $('#dFar').setAttribute('d', side ? limbPath('l') : '');
+  $('#dNear').setAttribute('d', spine + (side ? limbPath('r') : limbPath('l') + limbPath('r')));
+  const h = pt(head).split(' ');
+  $('#dHead').setAttribute('cx', h[0]); $('#dHead').setAttribute('cy', h[1]);
+  // A face only shows once the figure has turned at least side-on toward you (front view is from behind)
+  const face = $('#dFace'), sin = Math.sin(P.turn * 2 * Math.PI), showFace = side || c < 0.3;
+  face.style.display = showFace ? '' : 'none';
+  face.setAttribute('cx', (+h[0] + (side ? 7 : sin * 7)).toFixed(1)); face.setAttribute('cy', (+h[1] - 1).toFixed(1));
+  $('#dShadow').setAttribute('cx', hip[0].toFixed(1));
+  if (P.say !== dancer.cue) { dancer.cue = P.say; $('#dCue').textContent = P.say; }
+}
+function dancerPhase() {
+  if (beat.on && beat.ctx) {
+    const c = beat.ctx, heard = c.currentTime - (c.outputLatency || c.baseLatency || 0);
+    return (beat.step - (beat.next - heard) * beat.bpm / 15) / 4;  // the beat ticks in 16ths
+  }
+  return (performance.now() - dancer.t0) / 1000 * beat.bpm / 60;
+}
+function dancerFrame() {
+  if (!dancer.m || !$('#dancer')) return;
+  const p = dancer.playing ? dancerPhase() : 0;
+  drawPose(poseAt(p));
+  const bar = dancer.playing ? ((Math.floor(p) % 4) + 4) % 4 : -1;
+  if (bar !== dancer.bar) { dancer.bar = bar; [...$('#dDots').children].forEach((d, i) => d.classList.toggle('on', i === bar)); }
+  if (dancer.playing) dancer.raf = requestAnimationFrame(dancerFrame);
+}
+function setDancerPlaying(on) {
+  dancer.playing = on; cancelAnimationFrame(dancer.raf);
+  if (on) dancer.t0 = performance.now();
+  $('#dPlay').textContent = on ? 'Pause figure' : '▶ Play figure';
+  dancerFrame();
+}
+function startDancer(m) {
+  stopDancer();
+  if (!m.animation || !$('#dancer')) return;
+  dancer.m = m; dancer.keys = resolveKeys(m.animation); dancer.cue = null; dancer.bar = -1;
+  [...$('#dDots').children].forEach((d, i) => d.classList.toggle('half', beat.half && i % 2 === 1));
+  setDancerPlaying(!reducedMotion());
+}
+function stopDancer() { cancelAnimationFrame(dancer.raf); dancer.m = null; }
 
 /* ---------- Count-along beat (Web Audio, scheduled ahead so it stays steady) ----------
    Each style's groove (data/styles.json) is played by small synthesised instruments, one 16th-note step at a time.
@@ -314,6 +455,7 @@ function describeBeat() {
   const g = groove(), name = beat.on && g ? g.name.replace(/:.*/, '') + '. ' : '';
   $('#what').textContent = name + (beat.half ? 'Half time: move on the bright beats (1 and 3).' : beat.on ? 'Move on every beat. 1 is the strong one.' : 'Tap play and bounce on every beat.');
   [...$('#dots').children].forEach((d, i) => d.classList.toggle('half', beat.half && i % 2 === 1));
+  if ($('#dDots')) [...$('#dDots').children].forEach((d, i) => d.classList.toggle('half', beat.half && i % 2 === 1));
 }
 
 /* Mixer: everything goes through a compressor; snare, toms, lead and pad also feed a dotted-eighth echo. */
@@ -423,22 +565,34 @@ function start() {
   beat.ctx.resume(); setEcho();
   beat.on = true; beat.step = 0; beat.next = beat.ctx.currentTime + 0.06;
   clearInterval(beat.timer); beat.timer = setInterval(tick, 25); tick();
-  $('#play').textContent = '■'; $('#play').setAttribute('aria-label', 'Stop the beat'); describeBeat();
+  $('#play').textContent = '■'; $('#play').setAttribute('aria-label', 'Stop the beat'); describeBeat(); syncTry();
 }
 function stop() {
   beat.on = false; clearInterval(beat.timer);
   $('#play').textContent = '▶'; $('#play').setAttribute('aria-label', 'Start the beat');
-  [...$('#dots').children].forEach(d => d.classList.remove('on')); describeBeat();
+  [...$('#dots').children].forEach(d => d.classList.remove('on')); describeBeat(); syncTry();
+}
+// The drawer's try button doubles as a stop button while an animated move is open
+function syncTry() {
+  const t = $('[data-try]'); if (t) t.textContent = tryLabel(byId.get(t.dataset.try));
+  if (dancer.m && !dancer.playing && beat.on) setDancerPlaying(true);
 }
 
 /* ---------- Events ---------- */
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-tab],[data-move],[data-close],[data-try],[data-tempo],#play'); if (!t) return;
+  const t = e.target.closest('[data-tab],[data-move],[data-close],[data-try],[data-tempo],#play,#dPlay'); if (!t) return;
+  if (t.id === 'dPlay') return setDancerPlaying(!dancer.playing);
   if (t.dataset.tab) return setTab(t.dataset.tab);
   if (t.dataset.move) return openMove(t.dataset.move);
   if (t.hasAttribute('data-close')) return closeDrawer();
   if (t.dataset.tempo) { const s = styleOf.get(t.dataset.tempo); beat.touched = true; setStyle(s.id); return setBpm(s.bpm.default, s.id === 'goth'); }
-  if (t.dataset.try) { const s = styleOf.get(byId.get(t.dataset.try).style); beat.touched = true; setStyle(s.id); setBpm(s.bpm.default, s.id === 'goth'); closeDrawer(); return start(); }
+  if (t.dataset.try) {
+    const m = byId.get(t.dataset.try), s = styleOf.get(m.style);
+    if (m.animation && beat.on) return stop();
+    beat.touched = true; setStyle(s.id); setBpm(s.bpm.default, s.id === 'goth');
+    if (!m.animation) closeDrawer();  // with a figure to follow, keep the drawer open
+    return start();
+  }
   if (t.id === 'play') return beat.on ? stop() : start();
 });
 $('#bpm').addEventListener('input', e => { beat.touched = true; setBpm(+e.target.value); });
