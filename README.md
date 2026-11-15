@@ -6,7 +6,7 @@ A friendly primer on basic dance-floor moves for goth, industrial and rave night
 
 - Floor basics that work anywhere (bounce, step-touch, sway, arms, dancing in a crowd), then goth, industrial and rave moves.
 - Each move has an easy / medium / tricky tag, how-to steps, tips, common mistakes, and links to easier and next moves.
-- A count-along beat at each style's typical tempo, with half time for goth.
+- A count-along beat at each style's typical tempo that sounds like the genre (house, post-punk, EBM, acid rave), with half time for goth and a plain click if you prefer.
 - Phone and desktop, light and dark themes, installable, works offline.
 - Nothing personal is saved. It's a primer, not a tracker.
 
