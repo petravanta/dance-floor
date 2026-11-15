@@ -188,6 +188,193 @@
     ]
   },
   {
+    "id": "pushing-fog",
+    "name": "Pushing the fog",
+    "style": "goth",
+    "difficulty": 1,
+    "buildsOn": ["goth-drift", "loose-arms"],
+    "focus": ["arms", "torso"],
+    "counts": "Push over 2 beats · draw back over 2",
+    "summary": "The classic: both palms push slowly forward through thick fog, then draw back in. If you only learn one goth arm move, this is it.",
+    "steps": [
+      "Hands at chest height, palms facing out, elbows bent",
+      "Over two beats, push both palms slowly forward as if the air were heavy",
+      "Over the next two, draw them back in toward your chest",
+      "Step with the half-time drift underneath, pushing as you step"
+    ],
+    "tips": [
+      "Push to the side, up, or down toward the floor to vary it",
+      "Lean the chest a little into the push so it comes from the body, not just the arms"
+    ],
+    "mistakes": [
+      "Pushing fast: the fog is thick, so it takes the full two beats"
+    ],
+    "why": "It's the move people mean when they joke about goth dancing, and that's exactly why it works: everyone on the floor recognises it."
+  },
+  {
+    "id": "catching-bats",
+    "name": "Catching bats",
+    "style": "goth",
+    "difficulty": 1,
+    "buildsOn": ["loose-arms"],
+    "focus": ["arms"],
+    "counts": "Snatch on the snare (2 and 4)",
+    "summary": "One hand reaches up and snatches something out of the air, then the other. Slow reach, quick catch.",
+    "steps": [
+      "Reach one hand slowly up and out, fingers open",
+      "Close the hand sharply on the snare, as if you caught something",
+      "Bring the fist down toward your chest",
+      "The other hand reaches up for the next one"
+    ],
+    "tips": [
+      "The contrast is the trick: drift slowly, catch fast",
+      "Follow the hand with your eyes as it reaches"
+    ],
+    "mistakes": [
+      "Grabbing on every beat, which turns it into a punch"
+    ]
+  },
+  {
+    "id": "picking-pennies",
+    "name": "Picking up pennies",
+    "style": "goth",
+    "difficulty": 1,
+    "buildsOn": ["goth-drift"],
+    "focus": ["legs", "arms"],
+    "counts": "Down over 2 beats · up over 2",
+    "summary": "Bend low and scoop something up off the floor, then rise and let it go above your head.",
+    "steps": [
+      "Bend the knees and let one hand sink toward the floor over two beats",
+      "Scoop the hand as if picking something up",
+      "Rise over the next two beats, lifting the hand up past your face",
+      "Open the hand and let it go at the top, then switch sides"
+    ],
+    "tips": [
+      "Bend through the knees, not the back",
+      "Great for a breakdown or a quiet intro, when the floor slows down"
+    ],
+    "mistakes": [
+      "Bending over with straight legs, which is hard on the back and looks like you dropped your keys"
+    ]
+  },
+  {
+    "id": "wrist-twirl",
+    "name": "Wrist twirls",
+    "style": "goth",
+    "difficulty": 1,
+    "buildsOn": ["loose-arms"],
+    "focus": ["arms"],
+    "counts": "One circle per beat, or per two",
+    "summary": "Hands circle slowly at the wrists with the fingers trailing, up by your face or above your head.",
+    "steps": [
+      "Raise your hands to face height or higher, elbows soft",
+      "Circle each hand at the wrist, the fingers following a moment later",
+      "Let the hands turn in opposite directions, or one after the other",
+      "Slowly travel the hands up, out and down while they keep turning"
+    ],
+    "tips": [
+      "Soft, spread fingers look better than a flat hand",
+      "Add this to the half-time drift or the hip sway for a full look"
+    ],
+    "mistakes": [
+      "Turning the whole forearm instead of the wrist"
+    ],
+    "why": "A lot of the classic post-punk front-women danced with their hands. Wrist twirls are the easiest way into that look."
+  },
+  {
+    "id": "goth-hip-sway",
+    "name": "Hip sway",
+    "style": "goth",
+    "difficulty": 2,
+    "buildsOn": ["sway"],
+    "focus": ["hips", "torso"],
+    "counts": "One sway over 2 beats",
+    "summary": "The weight-shift sway, slowed to half time, with the hips drawing a lazy figure of eight.",
+    "steps": [
+      "Start the weight-shift sway, one shift every two beats",
+      "As your weight arrives on one side, let the hip push out and round to the back",
+      "Carry it through the middle and round on the other side",
+      "Let the shoulders roll gently the opposite way to the hips"
+    ],
+    "tips": [
+      "Darkwave and coldwave tracks with a heavy bass line are perfect for this",
+      "Keep the feet still and let the movement live above the knees"
+    ],
+    "mistakes": [
+      "Rocking the hips straight side to side, which loses the curve"
+    ]
+  },
+  {
+    "id": "floor-circle",
+    "name": "Wandering circle",
+    "style": "goth",
+    "difficulty": 1,
+    "buildsOn": ["goth-drift", "crowd-footprint"],
+    "focus": ["feet", "awareness"],
+    "counts": "One step every 2 beats",
+    "summary": "Drift slowly round a small circle or figure of eight on your own patch of floor, as goth floors traditionally do.",
+    "steps": [
+      "Pick a patch of floor about a stride across",
+      "Drift-step round it, one step every two beats",
+      "Every few bars, change direction or cut across the middle",
+      "Keep the arms busy with fog pushes or wrist twirls as you go"
+    ],
+    "tips": [
+      "Watch the floor first: if people are all wandering, there's room; if they're all facing the DJ, stay put"
+    ],
+    "mistakes": [
+      "Wandering out of your patch into someone else's"
+    ],
+    "why": "Goth floors often move as slow, wandering circles rather than facing the stage. Joining that flow is how you look like you belong."
+  },
+  {
+    "id": "deathrock-stomp",
+    "name": "Deathrock stomp",
+    "style": "goth",
+    "difficulty": 2,
+    "buildsOn": ["goth-drift", "knee-bounce"],
+    "focus": ["feet", "legs"],
+    "counts": "Forward 1 · 2 · back 3 · 4",
+    "summary": "For the faster, punkier tracks: two heavy steps forward, two back, knees lifting, in full time.",
+    "steps": [
+      "Step forward with a heavy, flat foot on 1, the other on 2",
+      "Step back on 3 and 4",
+      "Lift the knees a little and let the heels land hard",
+      "Shoulders hunched slightly forward, arms loose or pumping"
+    ],
+    "tips": [
+      "Switch the beat counter to full time for this one",
+      "Drop back into the half-time drift when the track eases off"
+    ],
+    "mistakes": [
+      "Big strides: a step the length of your foot is plenty"
+    ],
+    "why": "Not every goth track is slow. Deathrock and the faster post-punk need something with more punch, and this is the usual answer."
+  },
+  {
+    "id": "cape-swirl",
+    "name": "Cape swirl",
+    "style": "goth",
+    "difficulty": 2,
+    "buildsOn": ["slow-turn"],
+    "focus": ["arms", "balance"],
+    "counts": "Half a turn over 4 beats",
+    "summary": "A slow half turn with the arms sweeping out and round, as if swirling a long cape behind you.",
+    "steps": [
+      "Cross one arm in front of your chest",
+      "Start the slow turn, and as you do, sweep that arm out wide",
+      "Let the other arm follow, both trailing behind the turn",
+      "Finish facing away, then swirl back the other way"
+    ],
+    "tips": [
+      "Long sleeves, coats and skirts make this look fantastic",
+      "Only on a floor with room: check behind you first"
+    ],
+    "mistakes": [
+      "Swinging the arms fast, which hits people instead of looking dramatic"
+    ]
+  },
+  {
     "id": "stomp-march",
     "name": "Stomp march",
     "style": "industrial",
@@ -350,6 +537,99 @@
     ],
     "mistakes": [
       "Moving the whole arm at once, so it never ripples"
+    ]
+  },
+  {
+    "id": "heel-toe",
+    "name": "Heel-toe sidestep",
+    "style": "rave",
+    "difficulty": 2,
+    "buildsOn": ["rave-bounce"],
+    "focus": ["feet"],
+    "counts": "Swivel on every beat",
+    "summary": "Both feet swivel together, heels then toes, so you glide sideways without lifting your feet. The base of most shuffle moves.",
+    "steps": [
+      "Feet together, weight on the balls of the feet",
+      "Swivel both heels out to the right (1)",
+      "Swivel both toes out to the right (2)",
+      "Keep going: you travel right. Reverse to come back"
+    ],
+    "tips": [
+      "Learn it barefoot or in socks first",
+      "Two or four swivels each way is enough on a busy floor"
+    ],
+    "mistakes": [
+      "Lifting the feet instead of sliding them"
+    ],
+    "why": "The swivel is the engine of shuffle. Once it's comfortable, the T-step and most combos fall into place."
+  },
+  {
+    "id": "charleston",
+    "name": "Shuffle Charleston",
+    "style": "rave",
+    "difficulty": 2,
+    "buildsOn": ["rave-bounce"],
+    "focus": ["feet", "legs"],
+    "counts": "1 kick forward · 2 step · 3 kick back · 4 step",
+    "summary": "A small kick forward and a tap back, with a hop on the standing foot each time, borrowed from the old Charleston.",
+    "steps": [
+      "Step forward on your right foot and kick the left foot forward (1)",
+      "Bring the left foot down next to the right (2)",
+      "Step back on the left and tap the right foot back behind you (3)",
+      "Bring it back in (4), with a small hop on the standing foot each time"
+    ],
+    "tips": [
+      "Turn the knees in on the kick for the classic look",
+      "Start at 110 BPM and speed up once it's smooth"
+    ],
+    "mistakes": [
+      "Kicking high: keep it low and quick"
+    ]
+  },
+  {
+    "id": "spongebob",
+    "name": "Spongebob",
+    "style": "rave",
+    "difficulty": 2,
+    "buildsOn": ["rave-bounce"],
+    "focus": ["feet", "legs"],
+    "counts": "Kick out on the beat · in on 'and'",
+    "summary": "Hop on one foot while the other kicks out to the side, then cross back in. Swap feet every few beats.",
+    "steps": [
+      "Stand on your left foot, right knee slightly lifted",
+      "Hop on the left as the right foot kicks out to the right side (1)",
+      "Bring the right foot back in front of the left on the 'and'",
+      "After a few kicks, switch: stand on the right, kick with the left"
+    ],
+    "tips": [
+      "Keep the hop tiny: it's a bounce, not a jump",
+      "Swing the arms in the opposite direction to the kick"
+    ],
+    "mistakes": [
+      "Kicking forward instead of to the side"
+    ]
+  },
+  {
+    "id": "shuffle-combo",
+    "name": "Shuffle combo",
+    "style": "rave",
+    "difficulty": 3,
+    "buildsOn": ["running-man", "t-step", "charleston"],
+    "focus": ["feet", "balance"],
+    "counts": "8 beats of each, then switch",
+    "summary": "Chain the running man, the T-step and the Charleston into one flowing loop.",
+    "steps": [
+      "Running man for 8 beats",
+      "On the last one, keep the knee up and go straight into the T-step for 8",
+      "T-step back the other way for 8",
+      "Drop into the Charleston for 8, then back to the running man"
+    ],
+    "tips": [
+      "Switch on the start of a phrase, often when a new sound comes in",
+      "Smooth links matter more than speed"
+    ],
+    "mistakes": [
+      "Stopping between moves: keep the bounce going through every switch"
     ]
   }
 ]
