@@ -40,5 +40,5 @@ Styles live in [`data/styles.json`](data/styles.json): an `id`, a `name`, a shor
 
 ```sh
 node scripts/check-data.js     # unique ids, styles and buildsOn references exist, no loops
-npx ajv-cli@5 validate --spec=draft2020 -c ajv-formats -s data/schema/moves.schema.json -d data/moves.json
+npx -p ajv-cli@5 -p ajv-formats@3 ajv validate --spec=draft2020 -c ajv-formats -s data/schema/moves.schema.json -d data/moves.json
 ```
