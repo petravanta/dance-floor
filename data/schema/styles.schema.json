@@ -21,7 +21,40 @@
         }
       },
       "music": {"type": "array", "items": {"type": "string"}, "description": "Genres you'd hear this style danced to."},
-      "why": {"type": "string", "description": "Optional: something about the style that isn't obvious and helps people get it."}
+      "why": {"type": "string", "description": "Optional: something about the style that isn't obvious and helps people get it."},
+      "groove": {
+        "type": "object", "additionalProperties": false, "required": ["name", "root", "kick"],
+        "description": "Optional: the practice beat's music for this style, played by synthesised drums, bass and keys. Without one, the beat is a plain click. Each lane loops on its own length in 16th-note steps (16 steps = one bar), so a lane can be 1, 2 or 4 bars long.",
+        "properties": {
+          "name": {"type": "string", "minLength": 3, "description": "Shown next to the beat while it plays, like \"Post-punk groove\"."},
+          "root": {"type": "integer", "minimum": 28, "maximum": 52, "description": "Key note as a MIDI number (40 is E, 45 is A). Bass plays at this pitch; lead, pad and notes are semitones above it."},
+          "kick":  {"$ref": "#/$defs/drums"},
+          "snare": {"$ref": "#/$defs/drums"},
+          "clap":  {"$ref": "#/$defs/drums"},
+          "tom":   {"$ref": "#/$defs/drums"},
+          "hat":   {"$ref": "#/$defs/drums", "description": "Closed hi-hat."},
+          "open":  {"$ref": "#/$defs/drums", "description": "Open hi-hat."},
+          "bass":  {"$ref": "#/$defs/notes"},
+          "lead":  {"$ref": "#/$defs/notes", "description": "A melody an octave above the bass."},
+          "pad":   {"type": "array", "minItems": 1, "items": {"type": "array", "minItems": 1, "items": {"type": "integer", "minimum": -12, "maximum": 24}}, "description": "Held chords, one per bar, as semitones above the root (played two octaves up). Loops."},
+          "sound": {
+            "type": "object", "additionalProperties": false,
+            "description": "How the instruments sound.",
+            "properties": {
+              "bass":   {"enum": ["sine", "triangle", "square", "sawtooth"], "description": "Bass waveform."},
+              "cutoff": {"type": "integer", "minimum": 200, "maximum": 5000, "description": "Bass brightness in Hz."},
+              "drive":  {"type": "number", "minimum": 0, "maximum": 1, "description": "How much the bass is distorted."},
+              "lead":   {"enum": ["sine", "triangle", "square", "sawtooth", "acid"], "description": "Lead voice. acid is a squelchy filtered sawtooth."},
+              "pad":    {"enum": ["sine", "triangle", "sawtooth"], "description": "Pad waveform."},
+              "echo":   {"type": "number", "minimum": 0, "maximum": 0.8, "description": "How much echo the snare, toms, lead and pad get."}
+            }
+          }
+        }
+      }
     }
+  },
+  "$defs": {
+    "drums": {"type": "string", "pattern": "^[xo.]+$", "minLength": 16, "description": "One character per 16th-note step: x loud hit, o normal hit, . rest."},
+    "notes": {"type": "string", "pattern": "^(-?[0-9]{1,2}|-|~)( (-?[0-9]{1,2}|-|~))*$", "description": "Space-separated 16th-note steps: a number is a note that many semitones above the root, - is a rest, ~ holds the note before."}
   }
 }
