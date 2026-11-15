@@ -5,7 +5,7 @@ A friendly primer on basic dance-floor moves for goth, industrial and rave night
 **Open it:** https://petravanta.github.io/dance-floor/ · part of [petravanta's apps](https://petravanta.github.io/general/)
 
 - Floor basics that work anywhere (bounce, step-touch, sway, arms, dancing in a crowd), then goth, industrial and rave moves.
-- Each move has a little animated stick figure that dances it in time with the beat, with a cue on each count.
+- Each move has a little animated stick figure that dances it in time with the beat: a mini preview on its card, and a bigger one with a cue on each count when you open it.
 - Each move has an easy / medium / tricky tag, how-to steps, tips, common mistakes, and links to easier and next moves.
 - A count-along beat at each style's typical tempo that sounds like the genre (house, post-punk, EBM, acid rave), with half time for goth and a plain click if you prefer.
 - Phone and desktop, light and dark themes, installable, works offline.

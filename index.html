@@ -121,7 +121,7 @@ main{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 120px)}
 .intro h2{margin-bottom:6px}
 .intro .genres{margin-top:8px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:12px}
-.move{display:flex;flex-direction:column;gap:8px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;color:inherit}
+.move{text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;color:inherit}
 .move:hover{border-color:var(--accent)}
 .move h4{margin:0;font-size:17px;font-weight:700}
 .move .counts{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
@@ -159,12 +159,20 @@ section.group h3{margin-top:8px}
 /* Stick-figure animation in the move drawer */
 .dancer{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:4px 12px;background:var(--sunk);border-radius:var(--r);padding:10px 14px 12px}
 .dancer svg{grid-column:1/-1;width:100%;height:200px;display:block;overflow:visible}
-.dancer .fig{stroke:var(--ink);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;fill:none}
-.dancer .fig.far{opacity:.4}
-.dancer .head{fill:var(--ink);stroke:none}
-.dancer .face{fill:var(--accent);stroke:none}
-.dancer .floor{stroke:var(--line);stroke-width:2}
-.dancer .shadow{fill:var(--line);opacity:.6}
+.figure .fig{stroke:var(--ink);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.figure .fig.far{opacity:.4}
+.figure .head{fill:var(--ink);stroke:none}
+.figure .face{fill:var(--accent);stroke:none}
+.figure .floor{stroke:var(--line);stroke-width:2}
+.figure .shadow{fill:var(--line);opacity:.6}
+/* Mini preview on each move card */
+.move{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;row-gap:8px;align-content:start}
+.move>*{grid-column:1}
+.move .mini{grid-column:2;grid-row:1/span 4;align-self:center;width:60px;height:84px;display:block;overflow:visible}
+.move .mini .fig{stroke-width:8}
+.move .mini .floor{stroke-width:3}
+.move:hover .mini .fig,.move:hover .mini .head{stroke:var(--accent)}
+.move:hover .mini .head{fill:var(--accent)}
 .dancer .count{display:flex;align-items:center;gap:10px;min-width:0}
 .dancer .count .dots i{width:10px;height:10px}
 .dancer .cue{font-weight:600;color:var(--accent);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -238,6 +246,7 @@ function card(m, showStyle) {
     <h4>${esc(m.name)}</h4>
     <p>${esc(m.summary)}</p>
     <span class="counts">${esc(m.counts)}</span>
+    ${m.animation ? figureSvg('mini', '') : ''}
   </button>`;
 }
 function renderMain() {
@@ -265,6 +274,7 @@ function renderMain() {
       </div>
       <div class="grid">${ms.map(m => card(m)).join('')}</div>`;
   }
+  startMinis();
 }
 function setTab(id) {
   tab = id; lsSet('danceFloor.tab', id);
@@ -325,17 +335,25 @@ const EASE = {
   smooth: t => (1 - Math.cos(Math.PI * t)) / 2, linear: t => t,
   hit: t => t * t * t, float: t => 1 - Math.pow(1 - t, 3)
 };
-const dancer = { m: null, keys: null, raf: 0, playing: true, t0: 0, cue: '', bar: -1 };
+const dancer = { m: null, fig: null, raf: 0, playing: true, t0: 0, cue: '', bar: -1 };
 const reducedMotion = () => window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// The same figure markup serves the drawer and the mini previews on the cards
+function figureSvg(cls, label) {
+  return `<svg class="figure ${cls}" viewBox="-75 -6 150 212" ${label ? `role="img" aria-label="${esc(label)}"` : 'aria-hidden="true"'}>
+      <ellipse class="shadow" cx="0" cy="200" rx="22" ry="3"/>
+      <line class="floor" x1="-75" y1="200" x2="75" y2="200"/>
+      <path class="fig far"/><path class="fig near"/>
+      <circle class="head" r="${BODY.headR}"/><circle class="face" r="2.6"/>
+    </svg>`;
+}
+function makeFigure(m, svg) {
+  const q = s => svg.querySelector(s);
+  return { m, keys: resolveKeys(m.animation), far: q('.far'), near: q('.near'), head: q('.head'), face: q('.face'), shadow: q('.shadow') };
+}
 function dancerHtml(m) {
   return `<div class="dancer" id="dancer">
-    <svg viewBox="-75 -6 150 212" role="img" aria-label="Stick figure doing the ${esc(m.name)}">
-      <ellipse class="shadow" id="dShadow" cx="0" cy="200" rx="22" ry="3"/>
-      <line class="floor" x1="-75" y1="200" x2="75" y2="200"/>
-      <path class="fig far" id="dFar"/><path class="fig" id="dNear"/>
-      <circle class="head" id="dHead" r="${BODY.headR}"/><circle class="face" id="dFace" r="2.6"/>
-    </svg>
+    ${figureSvg('', `Stick figure doing the ${m.name}`)}
     <div class="count" aria-hidden="true"><div class="dots" id="dDots"><i></i><i></i><i></i><i></i></div><span class="cue" id="dCue"></span></div>
     <button type="button" class="btn sm" id="dPlay"></button>
     <p class="note">${m.animation.view === 'side' ? 'Seen from the side, facing right. The far arm and leg are fainter.' : 'Seen from behind, so its right is your right: copy it as it is.'} Follows the beat when it's playing.</p>
@@ -345,8 +363,8 @@ function resolveKeys(a) {
   let cur = NEUTRAL[a.view];
   return a.keys.map(k => { cur = { ...cur, ...k }; return cur; });
 }
-function poseAt(p) {
-  const a = dancer.m.animation, ks = dancer.keys;
+function poseAt(fig, p) {
+  const a = fig.m.animation, ks = fig.keys;
   p = ((p % a.beats) + a.beats) % a.beats;
   let i = ks.length - 1; while (i > 0 && ks[i].at > p) i--;
   const k0 = ks[i], k1 = ks[(i + 1) % ks.length], end = i + 1 < ks.length ? k1.at : a.beats;
@@ -368,8 +386,8 @@ function ik(root, target, a, b, pref) {
   const score = c => (c[0] - mid[0]) * pref[0] + (c[1] - mid[1]) * pref[1];
   return [score(cands[0]) >= score(cands[1]) ? cands[0] : cands[1], end];
 }
-function drawPose(P) {
-  const side = dancer.m.animation.view === 'side', B = BODY, rad = Math.PI / 180;
+function drawPose(fig, P) {
+  const side = fig.m.animation.view === 'side', B = BODY, rad = Math.PI / 180;
   const add = (p, v, k = 1) => [p[0] + v[0] * k, p[1] + v[1] * k];
   const hip = P.hip, up = [Math.sin(P.lean * rad), Math.cos(P.lean * rad)], right = [up[1], -up[0]];
   const neck = add(hip, up, B.torso), shoulder = add(neck, up, -4);
@@ -392,28 +410,31 @@ function drawPose(P) {
   const line = ps => 'M' + ps.map(pt).join('L');
   const spine = line([hip, neck]) + (side ? '' : line([sh.l, sh.r]) + line([hj.l, hj.r]));
   const limbPath = s => line(limbs[s].leg) + line(limbs[s].arm);
-  $('#dFar').setAttribute('d', side ? limbPath('l') : '');
-  $('#dNear').setAttribute('d', spine + (side ? limbPath('r') : limbPath('l') + limbPath('r')));
+  fig.far.setAttribute('d', side ? limbPath('l') : '');
+  fig.near.setAttribute('d', spine + (side ? limbPath('r') : limbPath('l') + limbPath('r')));
   const h = pt(head).split(' ');
-  $('#dHead').setAttribute('cx', h[0]); $('#dHead').setAttribute('cy', h[1]);
+  fig.head.setAttribute('cx', h[0]); fig.head.setAttribute('cy', h[1]);
   // A face only shows once the figure has turned at least side-on toward you (front view is from behind)
-  const face = $('#dFace'), sin = Math.sin(P.turn * 2 * Math.PI), showFace = side || c < 0.3;
+  const face = fig.face, sin = Math.sin(P.turn * 2 * Math.PI), showFace = side || c < 0.3;
   face.style.display = showFace ? '' : 'none';
   face.setAttribute('cx', (+h[0] + (side ? 7 : sin * 7)).toFixed(1)); face.setAttribute('cy', (+h[1] - 1).toFixed(1));
-  $('#dShadow').setAttribute('cx', hip[0].toFixed(1));
-  if (P.say !== dancer.cue) { dancer.cue = P.say; $('#dCue').textContent = P.say; }
+  fig.shadow.setAttribute('cx', hip[0].toFixed(1));
 }
-function dancerPhase() {
+// Where we are in the count: from the beat's audio clock when it's playing, otherwise from `t0` at the current tempo
+function beatPhase(t0) {
   if (beat.on && beat.ctx) {
     const c = beat.ctx, heard = c.currentTime - (c.outputLatency || c.baseLatency || 0);
     return (beat.step - (beat.next - heard) * beat.bpm / 15) / 4;  // the beat ticks in 16ths
   }
-  return (performance.now() - dancer.t0) / 1000 * beat.bpm / 60;
+  return (performance.now() - t0) / 1000 * beat.bpm / 60;
 }
+const dancerPhase = () => beatPhase(dancer.t0);
 function dancerFrame() {
   if (!dancer.m || !$('#dancer')) return;
   const p = dancer.playing ? dancerPhase() : 0;
-  drawPose(poseAt(p));
+  const P = poseAt(dancer.fig, p);
+  drawPose(dancer.fig, P);
+  if (P.say !== dancer.cue) { dancer.cue = P.say; $('#dCue').textContent = P.say; }
   const bar = dancer.playing ? ((Math.floor(p) % 4) + 4) % 4 : -1;
   if (bar !== dancer.bar) { dancer.bar = bar; [...$('#dDots').children].forEach((d, i) => d.classList.toggle('on', i === bar)); }
   if (dancer.playing) dancer.raf = requestAnimationFrame(dancerFrame);
@@ -427,11 +448,35 @@ function setDancerPlaying(on) {
 function startDancer(m) {
   stopDancer();
   if (!m.animation || !$('#dancer')) return;
-  dancer.m = m; dancer.keys = resolveKeys(m.animation); dancer.cue = null; dancer.bar = -1;
+  dancer.m = m; dancer.fig = makeFigure(m, $('#dancer svg')); dancer.cue = null; dancer.bar = -1;
   [...$('#dDots').children].forEach((d, i) => d.classList.toggle('half', beat.half && i % 2 === 1));
   setDancerPlaying(!reducedMotion());
 }
 function stopDancer() { cancelAnimationFrame(dancer.raf); dancer.m = null; }
+
+/* Mini previews on the cards: one loop draws the cards on screen at about 30 fps, all on the same count.
+   With reduced motion they hold the first pose. */
+const minis = { figs: [], seen: new Set(), io: null, raf: 0, last: 0, t0: performance.now() };
+function startMinis() {
+  cancelAnimationFrame(minis.raf); if (minis.io) minis.io.disconnect();
+  minis.figs = [...document.querySelectorAll('.move .mini')].map(svg => makeFigure(byId.get(svg.closest('.move').dataset.move), svg));
+  minis.figs.forEach(f => drawPose(f, poseAt(f, 0)));
+  if (reducedMotion() || !minis.figs.length) return;
+  minis.seen = new Set();
+  if ('IntersectionObserver' in window) {
+    const bySvg = new Map(minis.figs.map(f => [f.near.ownerSVGElement, f]));
+    minis.io = new IntersectionObserver(es => es.forEach(e => minis.seen[e.isIntersecting ? 'add' : 'delete'](bySvg.get(e.target))));
+    bySvg.forEach((f, svg) => minis.io.observe(svg));
+  } else minis.figs.forEach(f => minis.seen.add(f));
+  minis.raf = requestAnimationFrame(miniFrame);
+}
+function miniFrame(now) {
+  minis.raf = requestAnimationFrame(miniFrame);
+  if (now - minis.last < 32 || document.hidden) return;
+  minis.last = now;
+  const p = beatPhase(minis.t0);
+  minis.seen.forEach(f => drawPose(f, poseAt(f, p)));
+}
 
 /* ---------- Count-along beat (Web Audio, scheduled ahead so it stays steady) ----------
    Each style's groove (data/styles.json) is played by small synthesised instruments, one 16th-note step at a time.
