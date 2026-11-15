@@ -4,7 +4,17 @@
     "name": "Floor basics",
     "description": "Moves that work on any dance floor, to any beat. Start here.",
     "bpm": { "min": 110, "max": 130, "default": 120 },
-    "music": ["Anything with a steady beat"]
+    "music": ["Anything with a steady beat"],
+    "groove": {
+      "name": "Easy house groove",
+      "root": 45,
+      "kick":  "x...x...x...x...",
+      "clap":  "....x.......x...",
+      "hat":   "..o...o...o...o.",
+      "bass":  "- - 0 - - - 0 - - - 0 - - - 0 - - - -4 - - - -4 - - - 3 - - - 3 - - - -2 - - - -2 - - - 5 - - - 5 -",
+      "pad":   [[0, 3, 7], [-4, 0, 3], [3, 7, 10], [-2, 2, 5]],
+      "sound": { "bass": "triangle", "cutoff": 700, "drive": 0, "pad": "triangle", "echo": 0.15 }
+    }
   },
   {
     "id": "goth",
@@ -12,20 +22,54 @@
     "description": "Slow, fluid and theatrical. The body sways, the arms tell the story, and the floor is never rushed.",
     "bpm": { "min": 100, "max": 140, "default": 120 },
     "music": ["Post-punk", "Deathrock", "Darkwave", "Coldwave"],
-    "why": "A lot of goth tracks run at a normal club tempo, but the dancing sits on every other beat. Moving in half time is what gives it that drifting, unhurried look."
+    "why": "A lot of goth tracks run at a normal club tempo, but the dancing sits on every other beat. Moving in half time is what gives it that drifting, unhurried look.",
+    "groove": {
+      "name": "Post-punk groove: floor toms and a driving bass",
+      "root": 40,
+      "kick":  "x.......x.x.....",
+      "snare": "....x.......x...",
+      "tom":   "..o.......o..o.o",
+      "hat":   "o.o.o.o.o.o.o.o.",
+      "bass":  "0 - 0 - 0 - 0 - 0 - 0 - 3 - 3 - -2 - -2 - -2 - -2 - -4 - -4 - -5 - 7 -",
+      "lead":  "12 ~ ~ ~ ~ ~ 15 ~ ~ ~ 19 ~ ~ ~ ~ ~ 17 ~ ~ ~ ~ ~ 15 ~ ~ ~ 14 ~ ~ ~ ~ ~ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -",
+      "pad":   [[0, 7, 12], [-4, 3, 8]],
+      "sound": { "bass": "sawtooth", "cutoff": 900, "drive": 0.25, "lead": "triangle", "pad": "sawtooth", "echo": 0.45 }
+    }
   },
   {
     "id": "industrial",
     "name": "Industrial",
     "description": "Heavy, grounded and percussive. Stomps, marches and punchy arms that hit the beat hard.",
     "bpm": { "min": 120, "max": 140, "default": 128 },
-    "music": ["EBM", "Industrial", "Aggrotech", "Dark electro"]
+    "music": ["EBM", "Industrial", "Aggrotech", "Dark electro"],
+    "groove": {
+      "name": "EBM groove: rolling sequencer bass and a hard clap",
+      "root": 38,
+      "kick":  "x...x...x...x...",
+      "snare": "....x.......x...",
+      "clap":  "....x.......x..o",
+      "hat":   "..o...o...o...o.",
+      "bass":  "- 0 12 0 - 0 12 0 - 0 12 0 - 0 12 0 - 0 12 0 - 0 12 0 - 3 15 3 - 5 17 5",
+      "sound": { "bass": "square", "cutoff": 1300, "drive": 0.75, "echo": 0.12 }
+    }
   },
   {
     "id": "rave",
     "name": "Rave",
     "description": "Light on the feet, bouncy and repetitive. Built to last for hours on a crowded floor.",
     "bpm": { "min": 124, "max": 150, "default": 132 },
-    "music": ["Techno", "House", "Trance", "Hard dance"]
+    "music": ["Techno", "House", "Trance", "Hard dance"],
+    "groove": {
+      "name": "Rave groove: four on the floor and an acid line",
+      "root": 45,
+      "kick":  "x...x...x...x...",
+      "clap":  "....o.......o...",
+      "hat":   "oooooooooooooooo",
+      "open":  "..o...o...o...o.",
+      "bass":  "- 0 0 0 - 0 0 0 - 0 0 0 - 0 0 0",
+      "lead":  "12 - 12 24 - 12 - 15 12 - 24 - 12 15 - 10",
+      "pad":   [[0, 3, 7], [0, 3, 7], [-4, 0, 3], [-2, 2, 5]],
+      "sound": { "bass": "sawtooth", "cutoff": 600, "drive": 0.3, "lead": "acid", "pad": "sawtooth", "echo": 0.25 }
+    }
   }
 ]

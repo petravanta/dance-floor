@@ -57,7 +57,7 @@ Every field is described in the schema. Open the move in the app (`?move=<id>`) 
 
 ## Add a style
 
-Styles live in [`data/styles.json`](data/styles.json): an `id`, a `name`, a short `description`, the typical `bpm` range (`min`, `max`, `default`) and some `music` genres. Add the style first, then its moves.
+Styles live in [`data/styles.json`](data/styles.json): an `id`, a `name`, a short `description`, the typical `bpm` range (`min`, `max`, `default`) and some `music` genres. Optionally give it a `groove`, the practice beat's music: drum lanes like `"x...x...x...x..."` and note lanes like `"0 - 3 - 7 -"`, all explained in [`data/schema/styles.schema.json`](data/schema/styles.schema.json). Add the style first, then its moves.
 
 ## Checking locally
 
