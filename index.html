@@ -117,7 +117,9 @@ textarea{resize:vertical}
 :root[data-theme="dark"]{--accent:#e879f9;--accent-ink:#2b0530;--accent-soft:#33173a}
 
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-main{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 120px)}
+main{padding-bottom:8px}
+/* The version line sits under main and keeps clear of the docked beat */
+[data-version-footer]{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 156px)!important}
 .intro h2{margin-bottom:6px}
 .intro .genres{margin-top:8px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:12px}
@@ -195,6 +197,7 @@ section.group h3{margin-top:8px}
 <main class="wrap stack" id="main">
   <p class="empty" id="loading">Loading moves…</p>
 </main>
+<div data-version-footer></div>
 <div class="beat" role="region" aria-label="Count-along beat">
   <div class="wrap">
     <button type="button" class="play" id="play" aria-label="Start the beat">▶</button>
@@ -654,6 +657,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('#layer'
 </script>
 <script src="https://petravanta.github.io/general/shared/hub-link.js" defer></script>
 <script src="https://petravanta.github.io/general/shared/theme-switch.js" defer></script>
+<script src="https://petravanta.github.io/general/shared/version-footer.js" defer></script>
 <script>if('serviceWorker' in navigator&&/^(petravanta\.github\.io|localhost|127\.0\.0\.1)$/.test(location.hostname))navigator.serviceWorker.register('sw.js').catch(function(){})</script>
 </body>
 </html>
