@@ -8,7 +8,7 @@ The easiest way to help is to add a move. Moves live in one plain JSON file, [`d
 2. Find a move in the same style, copy its whole `{ … }` block, and paste it after that block, with a comma between them. Moves are grouped by style.
 3. Change the fields. Every field is explained in [`data/schema/moves.schema.json`](data/schema/moves.schema.json). The main ones:
    - `id`: a new short id in lowercase letters, digits and hyphens. Never change the id of a move that's already there.
-   - `name`, `style` (`foundations`, `goth`, `industrial` or `rave`), `difficulty` (1 easy, 2 medium, 3 tricky).
+   - `name`, `style` (`foundations`, `goth`, `industrial`, `shuffle` or `rave`), `difficulty` (1 easy, 2 medium, 3 tricky).
    - `counts`: how it fits the beat, like `"1 step · 2 touch"`.
    - `summary` and `steps`: a sentence, then short ordered cues. Keep them short; people read them on a phone between tracks.
    - `tips`, `mistakes` and `why` are optional. `buildsOn` lists the ids of easier moves to learn first (`[]` if none).
