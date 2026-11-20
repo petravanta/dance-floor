@@ -678,6 +678,298 @@
     }
   },
   {
+    "id": "swivel-in-place",
+    "name": "Swivel in place",
+    "style": "shuffle",
+    "difficulty": 1,
+    "buildsOn": ["knee-bounce"],
+    "focus": ["feet"],
+    "counts": "Out on the beat · in on 'and'",
+    "summary": "Both feet twist together on the balls of the feet, heels out and in, without going anywhere. The first piece of every shuffle.",
+    "steps": [
+      "Feet together, weight on the balls of your feet, knees soft",
+      "On the beat, twist both heels out so your toes point in",
+      "On the 'and', twist them back so your feet are straight",
+      "After eight, swap: toes out on the beat, back in on the 'and'"
+    ],
+    "tips": [
+      "Start barefoot or in socks on a smooth floor",
+      "Keep the knee bounce going underneath: the twist rides on top of it"
+    ],
+    "mistakes": [
+      "Lifting the feet. They stay on the floor and pivot",
+      "Sitting back on your heels, which jams the twist"
+    ],
+    "why": "Once the swivel happens without thinking, the heel-toe sidestep and the T-step are just this, pointed somewhere.",
+    "animation": {
+      "view": "front",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [0, 82], "lFoot": [-17, 0], "rFoot": [17, 0], "lHand": [-10, -40], "rHand": [10, -40], "say": "heels out" },
+        { "at": 0.5, "hip": [0, 86], "lFoot": [-8, 0], "rFoot": [8, 0], "say": "in" },
+        { "at": 1, "hip": [0, 82], "lFoot": [-17, 0], "rFoot": [17, 0], "say": "heels out" },
+        { "at": 1.5, "hip": [0, 86], "lFoot": [-8, 0], "rFoot": [8, 0], "say": "in" },
+        { "at": 2, "hip": [0, 82], "lFoot": [-3, 0], "rFoot": [3, 0], "say": "toes out" },
+        { "at": 2.5, "hip": [0, 86], "lFoot": [-8, 0], "rFoot": [8, 0], "say": "in" },
+        { "at": 3, "hip": [0, 82], "lFoot": [-3, 0], "rFoot": [3, 0], "say": "toes out" },
+        { "at": 3.5, "hip": [0, 86], "lFoot": [-8, 0], "rFoot": [8, 0], "say": "in" }
+      ]
+    }
+  },
+  {
+    "id": "knee-lift",
+    "name": "Knee lift",
+    "style": "shuffle",
+    "difficulty": 1,
+    "buildsOn": ["knee-bounce"],
+    "focus": ["legs", "balance"],
+    "counts": "Lift on 'and' · down on the beat",
+    "summary": "March on the spot, but put the foot down on the beat and lift on the 'and'. This is the timing of the running man.",
+    "steps": [
+      "Stand tall, weight on the balls of your feet",
+      "On the 'and', lift your right knee to about hip height",
+      "On the beat, put it down",
+      "Lift the left on the next 'and', down on the beat, and keep alternating"
+    ],
+    "tips": [
+      "Count out loud: 'and one, and two'. The lift always comes first",
+      "Swing the opposite arm forward, like walking"
+    ],
+    "mistakes": [
+      "Landing on the 'and', which puts the whole move off the beat"
+    ],
+    "animation": {
+      "view": "side",
+      "beats": 2,
+      "keys": [
+        { "at": 0, "hip": [0, 82], "lean": 3, "lFoot": [-2, 0], "rFoot": [2, 0], "lHand": [4, -48], "rHand": [-4, -48], "say": "down", "ease": "hit" },
+        { "at": 0.5, "hip": [0, 86], "rFoot": [8, 26], "lHand": [14, -30], "rHand": [-10, -40], "say": "lift" },
+        { "at": 1, "hip": [0, 82], "rFoot": [2, 0], "lHand": [4, -48], "rHand": [-4, -48], "say": "down", "ease": "hit" },
+        { "at": 1.5, "hip": [0, 86], "lFoot": [8, 26], "rHand": [14, -30], "lHand": [-10, -40], "say": "lift" }
+      ]
+    }
+  },
+  {
+    "id": "slide-back",
+    "name": "Slide back",
+    "style": "shuffle",
+    "difficulty": 1,
+    "buildsOn": ["knee-lift"],
+    "focus": ["feet", "legs"],
+    "counts": "Slide on the beat · lift on 'and'",
+    "summary": "Half a running man: one knee lifts and lands in front while the standing foot slides back. Learn one side, then the other.",
+    "steps": [
+      "Stand on your left foot with the right knee lifted",
+      "On the beat, put the right foot down in front and slide the left foot back at the same moment",
+      "On the 'and', lift the right knee again and drag the left foot back in under you",
+      "Do eight, then swap legs"
+    ],
+    "tips": [
+      "Socks on a wooden or tiled floor make the slide easy to feel",
+      "The slide is short, about a foot's length"
+    ],
+    "mistakes": [
+      "Stepping back instead of sliding: the back foot never leaves the floor",
+      "Leaning back as the foot slides; keep the chest a little forward"
+    ],
+    "why": "The running man is this slide, swapping legs every beat. Get each side smooth alone and the full move is just alternating them.",
+    "animation": {
+      "view": "side",
+      "beats": 1,
+      "keys": [
+        { "at": 0, "hip": [0, 80], "lean": 6, "rFoot": [14, 0], "lFoot": [-16, 0], "lHand": [14, -22], "rHand": [-6, -34], "say": "slide", "ease": "hit" },
+        { "at": 0.5, "hip": [0, 86], "rFoot": [6, 24], "lFoot": [0, 0], "lHand": [4, -34], "rHand": [2, -30], "say": "lift" }
+      ]
+    }
+  },
+  {
+    "id": "side-kick",
+    "name": "Side kick",
+    "style": "shuffle",
+    "difficulty": 1,
+    "buildsOn": ["knee-bounce"],
+    "focus": ["legs", "balance"],
+    "counts": "Kick on the beat · in on 'and'",
+    "summary": "A small, low kick out to the side and back, with a bounce in the standing knee. No hop yet.",
+    "steps": [
+      "Weight on your left foot, right foot light",
+      "On the beat, flick the right foot out to the side, low",
+      "On the 'and', bring it back in next to the left",
+      "Four kicks, then swap and kick with the left"
+    ],
+    "tips": [
+      "Point the kicking foot's toes forward, not up",
+      "Hands loose at waist height help you balance"
+    ],
+    "mistakes": [
+      "Kicking high, which tips you over and is slow to recover"
+    ],
+    "why": "The kick is what you add to the swivel to make the T-step, and to a hop to make the Spongebob.",
+    "animation": {
+      "view": "front",
+      "beats": 8,
+      "keys": [
+        { "at": 0, "hip": [-3, 81], "rFoot": [30, 8], "lFoot": [-9, 0], "lHand": [-10, -40], "rHand": [10, -40], "ease": "hit", "say": "kick right" },
+        { "at": 0.5, "hip": [-1, 86], "rFoot": [9, 3], "say": "in" },
+        { "at": 1, "hip": [-3, 81], "rFoot": [30, 8], "lFoot": [-9, 0], "lHand": [-10, -40], "rHand": [10, -40], "ease": "hit" },
+        { "at": 1.5, "hip": [-1, 86], "rFoot": [9, 3] },
+        { "at": 2, "hip": [-3, 81], "rFoot": [30, 8], "lFoot": [-9, 0], "lHand": [-10, -40], "rHand": [10, -40], "ease": "hit" },
+        { "at": 2.5, "hip": [-1, 86], "rFoot": [9, 3] },
+        { "at": 3, "hip": [-3, 81], "rFoot": [30, 8], "lFoot": [-9, 0], "lHand": [-10, -40], "rHand": [10, -40], "ease": "hit" },
+        { "at": 3.5, "hip": [-1, 86], "rFoot": [9, 3] },
+        { "at": 4, "hip": [3, 81], "lFoot": [-30, 8], "rFoot": [9, 0], "lHand": [-10, -40], "rHand": [10, -40], "ease": "hit", "say": "kick left" },
+        { "at": 4.5, "hip": [1, 86], "lFoot": [-9, 3], "say": "in" },
+        { "at": 5, "hip": [3, 81], "lFoot": [-30, 8], "rFoot": [9, 0], "lHand": [-10, -40], "rHand": [10, -40], "ease": "hit" },
+        { "at": 5.5, "hip": [1, 86], "lFoot": [-9, 3] },
+        { "at": 6, "hip": [3, 81], "lFoot": [-30, 8], "rFoot": [9, 0], "lHand": [-10, -40], "rHand": [10, -40], "ease": "hit" },
+        { "at": 6.5, "hip": [1, 86], "lFoot": [-9, 3] },
+        { "at": 7, "hip": [3, 81], "lFoot": [-30, 8], "rFoot": [9, 0], "lHand": [-10, -40], "rHand": [10, -40], "ease": "hit" },
+        { "at": 7.5, "hip": [1, 86], "lFoot": [-9, 3] }
+      ]
+    }
+  },
+  {
+    "id": "one-foot-swivel",
+    "name": "One-foot swivel",
+    "style": "shuffle",
+    "difficulty": 2,
+    "buildsOn": ["swivel-in-place", "side-kick"],
+    "focus": ["feet", "balance"],
+    "counts": "Toes on the beat · heel on 'and'",
+    "summary": "Stand on one foot and walk it sideways by twisting toes, then heel. Add the side kick and you're doing the T-step.",
+    "steps": [
+      "Rest a hand on a wall or chair. Stand on your left foot, right knee lifted",
+      "On the beat, twist the left toes out to the left",
+      "On the 'and', twist the left heel out to the left: you've moved a little",
+      "Four swivels left, then stand on the right and swivel back"
+    ],
+    "tips": [
+      "Let go of the wall once it's steady",
+      "When it feels easy, flick the lifted foot out on each beat: that's the T-step"
+    ],
+    "mistakes": [
+      "Hopping the foot along instead of pivoting it",
+      "Dropping the lifted knee to catch your balance"
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 8,
+      "keys": [
+        { "at": 0, "hip": [12, 83], "lFoot": [8, 0], "rFoot": [24, 20], "lHand": [-16, -36], "rHand": [10, -40], "say": "toes left" },
+        { "at": 0.5, "hip": [9, 86], "lFoot": [5, 0], "say": "heel" },
+        { "at": 1, "hip": [7, 83], "lFoot": [3, 0], "rFoot": [19, 20], "lHand": [-16, -36], "rHand": [10, -40] },
+        { "at": 1.5, "hip": [4, 86], "lFoot": [0, 0] },
+        { "at": 2, "hip": [2, 83], "lFoot": [-2, 0], "rFoot": [14, 20], "lHand": [-16, -36], "rHand": [10, -40] },
+        { "at": 2.5, "hip": [-1, 86], "lFoot": [-5, 0] },
+        { "at": 3, "hip": [-3, 83], "lFoot": [-7, 0], "rFoot": [9, 20], "lHand": [-16, -36], "rHand": [10, -40] },
+        { "at": 3.5, "hip": [-6, 86], "lFoot": [-10, 0] },
+        { "at": 4, "hip": [-12, 83], "rFoot": [-8, 0], "lFoot": [-24, 20], "lHand": [-10, -40], "rHand": [16, -36], "say": "switch: toes right" },
+        { "at": 4.5, "hip": [-9, 86], "rFoot": [-5, 0], "say": "heel" },
+        { "at": 5, "hip": [-7, 83], "rFoot": [-3, 0], "lFoot": [-19, 20], "lHand": [-10, -40], "rHand": [16, -36] },
+        { "at": 5.5, "hip": [-4, 86], "rFoot": [0, 0] },
+        { "at": 6, "hip": [-2, 83], "rFoot": [2, 0], "lFoot": [-14, 20], "lHand": [-10, -40], "rHand": [16, -36] },
+        { "at": 6.5, "hip": [1, 86], "rFoot": [5, 0] },
+        { "at": 7, "hip": [3, 83], "rFoot": [7, 0], "lFoot": [-9, 20], "lHand": [-10, -40], "rHand": [16, -36] },
+        { "at": 7.5, "hip": [6, 86], "rFoot": [10, 0] }
+      ]
+    }
+  },
+  {
+    "id": "charleston-walk",
+    "name": "Charleston walk-through",
+    "style": "shuffle",
+    "difficulty": 1,
+    "buildsOn": ["step-touch"],
+    "focus": ["feet"],
+    "counts": "1 tap forward · 2 step · 3 tap back · 4 step",
+    "summary": "The shuffle Charleston at walking pace: taps instead of kicks, and no hops, so you can learn the pattern first.",
+    "steps": [
+      "Step forward on your right foot and tap the left toes out in front (1)",
+      "Bring the left foot down next to the right (2)",
+      "Step back on the left and tap the right toes behind you (3)",
+      "Bring the right foot back in (4), and repeat"
+    ],
+    "tips": [
+      "Say it as you go: 'tap, step, tap, step'",
+      "Once it's automatic, turn the taps into small kicks and add a bounce"
+    ],
+    "mistakes": [
+      "Moving forward a little each time. Forward and back cancel out, so you stay in one spot"
+    ],
+    "animation": {
+      "view": "side",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [6, 85], "lean": 3, "rFoot": [10, 0], "lFoot": [26, 3], "lHand": [-8, -44], "rHand": [10, -40], "say": "tap forward" },
+        { "at": 1, "hip": [5, 84], "lFoot": [8, 0], "say": "step" },
+        { "at": 2, "hip": [-3, 85], "lean": 0, "lFoot": [-6, 0], "rFoot": [-22, 3], "lHand": [10, -40], "rHand": [-8, -44], "say": "tap back" },
+        { "at": 3, "hip": [1, 84], "rFoot": [-4, 0], "say": "step" }
+      ]
+    }
+  },
+  {
+    "id": "first-shuffle",
+    "name": "First shuffle combo",
+    "style": "shuffle",
+    "difficulty": 2,
+    "buildsOn": ["running-man", "charleston"],
+    "focus": ["feet", "awareness"],
+    "counts": "8 running man · 8 Charleston",
+    "summary": "Your first link: eight beats of running man straight into eight of the Charleston, and back round.",
+    "steps": [
+      "Running man for 8 beats",
+      "On beat 8, land the right foot in front and kick the left forward: that's the first Charleston kick",
+      "Charleston twice through, 8 beats",
+      "Back into the running man on the next 1"
+    ],
+    "tips": [
+      "Slow the beat to 100 BPM for the first few rounds",
+      "Once the switch is smooth, try the full Shuffle combo on the Rave tab"
+    ],
+    "mistakes": [
+      "Pausing at the switch: the bounce never stops, even if the feet hesitate"
+    ],
+    "why": "Shuffling is mostly linking. Getting from one move to the next on the 1 is what makes it look like dancing, not drills.",
+    "animation": {
+      "view": "side",
+      "beats": 16,
+      "keys": [
+        { "at": 0, "hip": [0, 80], "lean": 6, "rFoot": [14, 0], "lFoot": [-16, 0], "lHand": [14, -22], "rHand": [-6, -34], "say": "running man", "ease": "hit" },
+        { "at": 0.5, "hip": [0, 86], "rFoot": [0, 0], "lFoot": [6, 24], "say": "lift" },
+        { "at": 1, "hip": [0, 80], "lFoot": [14, 0], "rFoot": [-16, 0], "lHand": [-6, -34], "rHand": [14, -22], "say": "slide", "ease": "hit" },
+        { "at": 1.5, "hip": [0, 86], "lFoot": [0, 0], "rFoot": [6, 24], "say": "lift" },
+        { "at": 2, "hip": [0, 80], "lean": 6, "rFoot": [14, 0], "lFoot": [-16, 0], "lHand": [14, -22], "rHand": [-6, -34], "say": "slide", "ease": "hit" },
+        { "at": 2.5, "hip": [0, 86], "rFoot": [0, 0], "lFoot": [6, 24], "say": "lift" },
+        { "at": 3, "hip": [0, 80], "lFoot": [14, 0], "rFoot": [-16, 0], "lHand": [-6, -34], "rHand": [14, -22], "say": "slide", "ease": "hit" },
+        { "at": 3.5, "hip": [0, 86], "lFoot": [0, 0], "rFoot": [6, 24], "say": "lift" },
+        { "at": 4, "hip": [0, 80], "lean": 6, "rFoot": [14, 0], "lFoot": [-16, 0], "lHand": [14, -22], "rHand": [-6, -34], "say": "slide", "ease": "hit" },
+        { "at": 4.5, "hip": [0, 86], "rFoot": [0, 0], "lFoot": [6, 24], "say": "lift" },
+        { "at": 5, "hip": [0, 80], "lFoot": [14, 0], "rFoot": [-16, 0], "lHand": [-6, -34], "rHand": [14, -22], "say": "slide", "ease": "hit" },
+        { "at": 5.5, "hip": [0, 86], "lFoot": [0, 0], "rFoot": [6, 24], "say": "lift" },
+        { "at": 6, "hip": [0, 80], "lean": 6, "rFoot": [14, 0], "lFoot": [-16, 0], "lHand": [14, -22], "rHand": [-6, -34], "say": "slide", "ease": "hit" },
+        { "at": 6.5, "hip": [0, 86], "rFoot": [0, 0], "lFoot": [6, 24], "say": "lift" },
+        { "at": 7, "hip": [0, 80], "lFoot": [14, 0], "rFoot": [-16, 0], "lHand": [-6, -34], "rHand": [14, -22], "say": "slide", "ease": "hit" },
+        { "at": 7.5, "hip": [0, 86], "lFoot": [0, 0], "rFoot": [6, 24], "say": "lift" },
+        { "at": 8, "hip": [8, 84], "lean": 4, "rFoot": [10, 0], "lFoot": [30, 12], "lHand": [-10, -38], "rHand": [14, -30], "say": "Charleston", "ease": "hit" },
+        { "at": 8.5, "hip": [7, 87] },
+        { "at": 9, "hip": [6, 82], "lFoot": [8, 0], "say": "step" },
+        { "at": 9.5, "hip": [2, 87] },
+        { "at": 10, "hip": [-4, 84], "lFoot": [-6, 0], "rFoot": [-24, 10], "lHand": [14, -30], "rHand": [-10, -38], "say": "tap back", "ease": "hit" },
+        { "at": 10.5, "hip": [-3, 87] },
+        { "at": 11, "hip": [0, 82], "rFoot": [-4, 0], "say": "step" },
+        { "at": 11.5, "hip": [4, 87] },
+        { "at": 12, "hip": [8, 84], "lean": 4, "rFoot": [10, 0], "lFoot": [30, 12], "lHand": [-10, -38], "rHand": [14, -30], "say": "kick", "ease": "hit" },
+        { "at": 12.5, "hip": [7, 87] },
+        { "at": 13, "hip": [6, 82], "lFoot": [8, 0], "say": "step" },
+        { "at": 13.5, "hip": [2, 87] },
+        { "at": 14, "hip": [-4, 84], "lFoot": [-6, 0], "rFoot": [-24, 10], "lHand": [14, -30], "rHand": [-10, -38], "say": "tap back", "ease": "hit" },
+        { "at": 14.5, "hip": [-3, 87] },
+        { "at": 15, "hip": [0, 82], "rFoot": [-4, 0], "say": "step" },
+        { "at": 15.5, "hip": [4, 87] }
+      ]
+    }
+  },
+  {
     "id": "rave-bounce",
     "name": "Rave bounce",
     "style": "rave",
@@ -714,7 +1006,7 @@
     "name": "Running man",
     "style": "rave",
     "difficulty": 2,
-    "buildsOn": ["rave-bounce"],
+    "buildsOn": ["rave-bounce", "slide-back"],
     "focus": ["feet", "legs"],
     "counts": "Lift on 'and', slide on the beat",
     "summary": "Run on the spot: one knee lifts while the standing foot slides back, then they swap.",
@@ -748,7 +1040,7 @@
     "name": "T-step",
     "style": "rave",
     "difficulty": 3,
-    "buildsOn": ["running-man"],
+    "buildsOn": ["running-man", "one-foot-swivel"],
     "focus": ["feet", "balance"],
     "counts": "Swivel on every beat",
     "summary": "The standing foot swivels heel-toe to travel sideways while the other leg kicks out.",
@@ -829,7 +1121,7 @@
     "name": "Heel-toe sidestep",
     "style": "rave",
     "difficulty": 2,
-    "buildsOn": ["rave-bounce"],
+    "buildsOn": ["rave-bounce", "swivel-in-place"],
     "focus": ["feet"],
     "counts": "Swivel on every beat",
     "summary": "Both feet swivel together, heels then toes, so you glide sideways without lifting your feet. The base of most shuffle moves.",
@@ -875,7 +1167,7 @@
     "name": "Shuffle Charleston",
     "style": "rave",
     "difficulty": 2,
-    "buildsOn": ["rave-bounce"],
+    "buildsOn": ["rave-bounce", "charleston-walk"],
     "focus": ["feet", "legs"],
     "counts": "1 kick forward · 2 step · 3 kick back · 4 step",
     "summary": "A small kick forward and a tap back, with a hop on the standing foot each time, borrowed from the old Charleston.",
@@ -912,7 +1204,7 @@
     "name": "Spongebob",
     "style": "rave",
     "difficulty": 2,
-    "buildsOn": ["rave-bounce"],
+    "buildsOn": ["rave-bounce", "side-kick"],
     "focus": ["feet", "legs"],
     "counts": "Kick out on the beat · in on 'and'",
     "summary": "Hop on one foot while the other kicks out to the side, then cross back in. Swap feet every few beats.",
