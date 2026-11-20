@@ -54,6 +54,26 @@
     }
   },
   {
+    "id": "shuffle",
+    "name": "Shuffle basics",
+    "description": "A slow way in to shuffling. Small drills that split the running man, the T-step and the Charleston into pieces you can learn one at a time.",
+    "bpm": { "min": 100, "max": 128, "default": 110 },
+    "music": ["Melbourne bounce", "Electro house", "Big room", "Hardstyle"],
+    "why": "Shuffling looks fast, but every move is two or three simple pieces stuck to the beat. Learn each piece here at 100 to 110 BPM, then take the full move to the Rave tab at club speed.",
+    "groove": {
+      "name": "Bounce groove: offbeat hats and a jumping bass",
+      "root": 43,
+      "kick":  "x...x...x...x...",
+      "clap":  "....x.......x...",
+      "hat":   ".o.o.o.o.o.o.o.o",
+      "open":  "..o...o...o...o.",
+      "bass":  "- - 0 12 - - 0 12 - - 0 12 - - 0 12 - - 0 12 - - 0 12 - - 3 15 - - 5 17",
+      "lead":  "12 - 12 - 15 - 12 - 10 - - - 7 - - - 12 - 12 - 15 - 17 - 15 - - - 12 - - -",
+      "pad":   [[0, 3, 7], [0, 3, 7], [3, 7, 10], [5, 8, 12]],
+      "sound": { "bass": "sawtooth", "cutoff": 1100, "drive": 0.2, "lead": "square", "pad": "triangle", "echo": 0.2 }
+    }
+  },
+  {
     "id": "rave",
     "name": "Rave",
     "description": "Light on the feet, bouncy and repetitive. Built to last for hours on a crowded floor.",
