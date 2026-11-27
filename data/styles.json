@@ -54,6 +54,26 @@
     }
   },
   {
+    "id": "cybergoth",
+    "name": "Cybergoth",
+    "description": "Big, sharp and tireless. Industrial stomps and sweeping arms at hard trance speed, made to be seen across a UV-lit floor.",
+    "bpm": { "min": 135, "max": 160, "default": 145 },
+    "music": ["Cyber", "Aggrotech", "Hard trance", "Hard techno"],
+    "why": "Cybergoth dancing is what happens when industrial stomping meets rave tempo. The arms do most of the work in big, clean shapes, so it reads from far away, even through goggles and falls.",
+    "groove": {
+      "name": "Cyber groove: hard kick, rolling bass and a stabbing lead",
+      "root": 42,
+      "kick":  "x...x...x...x...",
+      "clap":  "....x.......x...",
+      "hat":   "o.oo.oo.o.oo.oo.",
+      "open":  "..o...o...o...o.",
+      "bass":  "- 0 0 12 - 0 0 12 - 0 0 12 - 0 0 12 - 0 0 12 - 0 0 12 - 3 3 15 - 5 5 17",
+      "lead":  "12 - - 12 - - 15 - - 15 - - 19 - 17 - 12 - - 12 - - 15 - - 15 - - 22 - 19 -",
+      "pad":   [[0, 3, 7], [0, 3, 7], [3, 7, 10], [5, 8, 12]],
+      "sound": { "bass": "sawtooth", "cutoff": 1500, "drive": 0.6, "lead": "square", "pad": "sawtooth", "echo": 0.3 }
+    }
+  },
+  {
     "id": "shuffle",
     "name": "Shuffle basics",
     "description": "A slow way in to shuffling. Small drills that split the running man, the T-step and the Charleston into pieces you can learn one at a time.",
@@ -90,6 +110,44 @@
       "lead":  "12 - 12 24 - 12 - 15 12 - 24 - 12 15 - 10",
       "pad":   [[0, 3, 7], [0, 3, 7], [-4, 0, 3], [-2, 2, 5]],
       "sound": { "bass": "sawtooth", "cutoff": 600, "drive": 0.3, "lead": "acid", "pad": "sawtooth", "echo": 0.25 }
+    }
+  },
+  {
+    "id": "house",
+    "name": "House",
+    "description": "Grounded and bouncy, with the groove in the chest. Quick, light footwork comes and goes on top of the jack.",
+    "bpm": { "min": 118, "max": 128, "default": 122 },
+    "music": ["House", "Deep house", "Garage", "Disco"],
+    "why": "House dancing grew up in the clubs of Chicago and New York. Everything sits on the jack, a bounce that lives in the chest rather than the knees, so once that's going any step looks like house.",
+    "groove": {
+      "name": "House groove: offbeat hats, organ bass and seventh chords",
+      "root": 41,
+      "kick":  "x...x...x...x...",
+      "clap":  "....x.......x...",
+      "hat":   "o.o.o.o.o.o.o.oo",
+      "open":  "..o...o...o...o.",
+      "bass":  "- - 0 - - 0 - 12 - - 0 - - 0 - 10 - - -2 - - -2 - 10 - - -4 - - 3 - 7",
+      "pad":   [[0, 3, 7, 10], [-2, 2, 5, 9], [-4, 0, 3, 7], [-2, 2, 5, 9]],
+      "sound": { "bass": "square", "cutoff": 800, "drive": 0, "pad": "triangle", "echo": 0.2 }
+    }
+  },
+  {
+    "id": "vogue",
+    "name": "Vogue",
+    "description": "Fierce, precise and posed. Catwalk, hands and poses from ballroom culture, scaled for a club floor.",
+    "bpm": { "min": 118, "max": 132, "default": 124 },
+    "music": ["Ballroom", "Vogue beats", "House", "Jersey club"],
+    "why": "Vogue comes from the Black and Latinx queer ballroom scene in New York. It's danced as a performance: every move is meant to be seen, and hitting a pose on the music matters more than doing a lot.",
+    "groove": {
+      "name": "Ballroom groove: four on the floor and the \"ha\" crash",
+      "root": 40,
+      "kick":  "x...x...x...x...",
+      "snare": "....o.......o...",
+      "clap":  ".......x.......x",
+      "hat":   "o.o.o.o.o.o.o.o.",
+      "bass":  "0 - - - - - - 0 - - - - - - - 0 0 - - - - - - 0 - - - - 3 - -2 -",
+      "pad":   [[0, 3, 7], [0, 3, 7], [-2, 3, 7], [-4, 0, 3]],
+      "sound": { "bass": "sine", "cutoff": 500, "drive": 0.1, "pad": "sawtooth", "echo": 0.35 }
     }
   }
 ]
