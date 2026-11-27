@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Dance Floor</title>
-<meta name="description" content="A friendly primer on basic dance-floor moves for goth, industrial and rave nights, with a beat to count along to.">
+<meta name="description" content="A friendly primer on basic dance-floor moves for goth, industrial, cyber, rave, house and vogue nights, with a beat to count along to.">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#172129" media="(prefers-color-scheme: dark)">
 <script>try{var t=localStorage.getItem('petravanta.theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
@@ -216,7 +216,7 @@ section.group h3{margin-top:8px}
 <div id="layer"></div>
 <script>
 'use strict';
-/* Dance Floor: a light primer on basic moves for goth, industrial and rave floors.
+/* Dance Floor: a light primer on basic moves for goth, industrial, cyber, rave, house and vogue floors.
    Everything it teaches is data: data/styles.json and data/moves.json (schemas in data/schema/).
    Nothing personal is saved. The only things kept in this browser are the last style tab and the beat settings. */
 const $ = s => document.querySelector(s);
@@ -376,7 +376,7 @@ function poseAt(fig, p) {
   for (const f of POINTS) out[f] = [mix(k0[f][0], k1[f][0]), mix(k0[f][1], k1[f][1])];
   for (const f of ['lean', 'head']) out[f] = mix(k0[f], k1[f]);
   let dt = k1.turn - k0.turn; dt -= Math.round(dt); out.turn = k0.turn + dt * t;
-  let j = i; while (j > 0 && !ks[j].say) j--;  // a cue stays up until the next key that has one
+  let j = i; while (j > 0 && !a.keys[j].say) j--;  // a cue stays up until the next key that has one
   out.say = a.keys[j].say || '';
   return out;
 }

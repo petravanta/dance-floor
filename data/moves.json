@@ -176,6 +176,153 @@
     }
   },
   {
+    "id": "body-roll",
+    "name": "Body roll",
+    "style": "foundations",
+    "difficulty": 2,
+    "buildsOn": ["sway", "knee-bounce"],
+    "focus": ["torso", "hips"],
+    "counts": "1 chest · 2 belly · 3 hips · 4 knees",
+    "summary": "A wave that starts in the chest and rolls down through the belly and hips into the knees. Slow it down for goth, speed it up for house.",
+    "steps": [
+      "Feet hip-width, knees soft",
+      "Push the chest forward on 1",
+      "Let the belly follow on 2 as the chest settles back",
+      "Push the hips forward on 3",
+      "Bend the knees on 4, then reset and start again from the chest"
+    ],
+    "tips": [
+      "Practise side-on to a mirror or a dark window",
+      "Start with one roll every bar; once it flows, try one every two beats"
+    ],
+    "mistakes": [
+      "Moving everything at once, which turns the roll into a lean",
+      "Pushing the head forward like a pigeon: the head rides along, it doesn't lead"
+    ],
+    "why": "It fits almost any genre and makes a plain bounce look like dancing. It's also the root of a lot of house, vogue and goth arm and torso work.",
+    "animation": {
+      "view": "side",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [-3, 86], "lean": 10, "lHand": [6, -42], "rHand": [4, -44], "say": "chest" },
+        { "at": 1, "hip": [1, 85], "lean": 4, "say": "belly" },
+        { "at": 2, "hip": [6, 83], "lean": -6, "say": "hips" },
+        { "at": 3, "hip": [2, 77], "lean": 0, "say": "knees" }
+      ]
+    }
+  },
+  {
+    "id": "quarter-turns",
+    "name": "Quarter turns",
+    "style": "foundations",
+    "difficulty": 2,
+    "buildsOn": ["step-touch", "crowd-footprint"],
+    "focus": ["awareness", "feet"],
+    "counts": "A step-touch, then turn a quarter on the last touch",
+    "summary": "Keep the step-touch going and turn a quarter of the way round every four beats, so you face a new part of the room.",
+    "steps": [
+      "Do one full step-touch: right, touch, left, touch",
+      "On the last touch, turn a quarter to your left on the balls of your feet",
+      "Carry on facing the new way",
+      "Four quarter turns bring you back to where you started"
+    ],
+    "tips": [
+      "Turn on the start of a phrase (every 8 or 16 beats) once four beats feels easy",
+      "Spot a light or a speaker for each wall so you don't get dizzy"
+    ],
+    "mistakes": [
+      "Stopping the feet to turn: the touch is the turn",
+      "Turning into someone's space. Glance before you go"
+    ],
+    "why": "Facing one way all night is what makes people look stuck. Small turns let you dance with the whole floor, and they're the base of every spin later on.",
+    "animation": {
+      "view": "front",
+      "beats": 16,
+      "keys": [
+        { "at": 0, "turn": 0, "hip": [0, 80], "lFoot": [-14, 0], "rFoot": [14, 0], "lHand": [-2, -48], "rHand": [10, -44], "say": "step" },
+        { "at": 0.5, "hip": [5, 86], "lFoot": [-5, 7] },
+        { "at": 1, "hip": [8, 80], "lFoot": [2, 0], "say": "touch" },
+        { "at": 1.5, "hip": [4, 86], "lFoot": [-8, 6], "lHand": [-10, -44], "rHand": [2, -48] },
+        { "at": 2, "hip": [0, 80], "lFoot": [-14, 0], "say": "step" },
+        { "at": 2.5, "hip": [-5, 86], "rFoot": [5, 7] },
+        { "at": 3, "hip": [-8, 80], "rFoot": [-2, 0], "say": "touch and turn" },
+        { "at": 3.5, "turn": 0.12, "hip": [-4, 86], "rFoot": [8, 6], "lHand": [-2, -48], "rHand": [10, -44] },
+        { "at": 4, "turn": 0.25, "hip": [0, 80], "lFoot": [-14, 0], "rFoot": [14, 0], "lHand": [-2, -48], "rHand": [10, -44], "say": "step" },
+        { "at": 4.5, "hip": [5, 86], "lFoot": [-5, 7] },
+        { "at": 5, "hip": [8, 80], "lFoot": [2, 0], "say": "touch" },
+        { "at": 5.5, "hip": [4, 86], "lFoot": [-8, 6], "lHand": [-10, -44], "rHand": [2, -48] },
+        { "at": 6, "hip": [0, 80], "lFoot": [-14, 0], "say": "step" },
+        { "at": 6.5, "hip": [-5, 86], "rFoot": [5, 7] },
+        { "at": 7, "hip": [-8, 80], "rFoot": [-2, 0], "say": "touch and turn" },
+        { "at": 7.5, "turn": 0.37, "hip": [-4, 86], "rFoot": [8, 6], "lHand": [-2, -48], "rHand": [10, -44] },
+        { "at": 8, "turn": 0.5, "hip": [0, 80], "lFoot": [-14, 0], "rFoot": [14, 0], "lHand": [-2, -48], "rHand": [10, -44], "say": "step" },
+        { "at": 8.5, "hip": [5, 86], "lFoot": [-5, 7] },
+        { "at": 9, "hip": [8, 80], "lFoot": [2, 0], "say": "touch" },
+        { "at": 9.5, "hip": [4, 86], "lFoot": [-8, 6], "lHand": [-10, -44], "rHand": [2, -48] },
+        { "at": 10, "hip": [0, 80], "lFoot": [-14, 0], "say": "step" },
+        { "at": 10.5, "hip": [-5, 86], "rFoot": [5, 7] },
+        { "at": 11, "hip": [-8, 80], "rFoot": [-2, 0], "say": "touch and turn" },
+        { "at": 11.5, "turn": 0.62, "hip": [-4, 86], "rFoot": [8, 6], "lHand": [-2, -48], "rHand": [10, -44] },
+        { "at": 12, "turn": 0.75, "hip": [0, 80], "lFoot": [-14, 0], "rFoot": [14, 0], "lHand": [-2, -48], "rHand": [10, -44], "say": "step" },
+        { "at": 12.5, "hip": [5, 86], "lFoot": [-5, 7] },
+        { "at": 13, "hip": [8, 80], "lFoot": [2, 0], "say": "touch" },
+        { "at": 13.5, "hip": [4, 86], "lFoot": [-8, 6], "lHand": [-10, -44], "rHand": [2, -48] },
+        { "at": 14, "hip": [0, 80], "lFoot": [-14, 0], "say": "step" },
+        { "at": 14.5, "hip": [-5, 86], "rFoot": [5, 7] },
+        { "at": 15, "hip": [-8, 80], "rFoot": [-2, 0], "say": "touch and turn" },
+        { "at": 15.5, "turn": 0.87, "hip": [-4, 86], "rFoot": [8, 6], "lHand": [-2, -48], "rHand": [10, -44] }
+      ]
+    }
+  },
+  {
+    "id": "half-double",
+    "name": "Half and double time",
+    "style": "foundations",
+    "difficulty": 2,
+    "buildsOn": ["knee-bounce"],
+    "focus": ["awareness", "legs"],
+    "counts": "Bounce every 2 beats · every beat · twice a beat",
+    "summary": "Keep the same beat but change how often you move to it: half as often for a slow, heavy feel, twice as often to lift the energy.",
+    "steps": [
+      "Knee bounce on every beat to find the tempo",
+      "Now bounce only on 1 and 3: that's half time",
+      "Back to every beat",
+      "Now bounce on every beat and every \"and\": that's double time",
+      "Switch between them when the music changes"
+    ],
+    "tips": [
+      "Half time suits breakdowns and goth tracks; double time suits build-ups and fast hi-hats",
+      "Try it on the practice beat with Half time switched on and off"
+    ],
+    "mistakes": [
+      "Speeding the bounce up instead of fitting twice as many into the same beat",
+      "Making double time bigger. Make it smaller, or it gets tiring fast"
+    ],
+    "why": "Matching the music's energy, not just its tempo, is the step from moving in time to actually dancing to the track.",
+    "animation": {
+      "view": "front",
+      "beats": 8,
+      "keys": [
+        { "at": 0, "hip": [0, 79], "head": 4, "say": "half time" },
+        { "at": 1, "hip": [0, 86], "head": 0 },
+        { "at": 2, "hip": [0, 79], "head": 4 },
+        { "at": 3, "hip": [0, 86], "head": 0 },
+        { "at": 4, "hip": [0, 79], "head": 4, "say": "on the beat" },
+        { "at": 4.5, "hip": [0, 86], "head": 0 },
+        { "at": 5, "hip": [0, 79], "head": 4 },
+        { "at": 5.5, "hip": [0, 86], "head": 0 },
+        { "at": 6, "hip": [0, 81], "head": 2, "say": "double time" },
+        { "at": 6.25, "hip": [0, 85], "head": 0 },
+        { "at": 6.5, "hip": [0, 81], "head": 2 },
+        { "at": 6.75, "hip": [0, 85], "head": 0 },
+        { "at": 7, "hip": [0, 81], "head": 2 },
+        { "at": 7.25, "hip": [0, 85], "head": 0 },
+        { "at": 7.5, "hip": [0, 81], "head": 2 },
+        { "at": 7.75, "hip": [0, 85], "head": 0 }
+      ]
+    }
+  },
+  {
     "id": "goth-drift",
     "name": "Half-time drift",
     "style": "goth",
@@ -674,6 +821,464 @@
         { "at": 2.5, "hip": [0, 85], "lFoot": [6, 10] },
         { "at": 3, "hip": [0, 81], "lFoot": [-2, 0], "lHand": [10, -18], "say": "pull", "ease": "hit" },
         { "at": 3.5, "hip": [0, 85], "rFoot": [8, 10] }
+      ]
+    }
+  },
+  {
+    "id": "hammer-fists",
+    "name": "Hammer fists",
+    "style": "industrial",
+    "difficulty": 1,
+    "buildsOn": ["stomp-march"],
+    "focus": ["arms"],
+    "counts": "Hammer on 1 and 3 · lift on 2 and 4",
+    "summary": "Both fists rise together and slam down to chest height on the big beats, while the feet keep marching.",
+    "steps": [
+      "Keep the stomp march going",
+      "Lift both fists up beside your head on 2",
+      "Bring them down together, hard, to chest height on 3",
+      "Lift on 4, hammer on 1, and keep going"
+    ],
+    "tips": [
+      "Stop the fists dead at chest height: the stop is what makes it hit",
+      "Save it for the heaviest part of the track and march with plain arms the rest of the time"
+    ],
+    "mistakes": [
+      "Swinging the fists all the way down to the hips, which loses the punch and the beat"
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [0, 80], "lFoot": [-11, 0], "rFoot": [11, 0], "lHand": [12, -22], "rHand": [-12, -22], "ease": "hit", "say": "hammer" },
+        { "at": 0.5, "hip": [0, 86], "lFoot": [-11, 12] },
+        { "at": 1, "hip": [0, 82], "lFoot": [-11, 0], "lHand": [2, 36], "rHand": [-2, 36], "say": "lift" },
+        { "at": 1.5, "hip": [0, 86], "rFoot": [11, 12] },
+        { "at": 2, "hip": [0, 80], "rFoot": [11, 0], "lHand": [12, -22], "rHand": [-12, -22], "ease": "hit", "say": "hammer" },
+        { "at": 2.5, "hip": [0, 86], "lFoot": [-11, 12] },
+        { "at": 3, "hip": [0, 82], "lFoot": [-11, 0], "lHand": [2, 36], "rHand": [-2, 36], "say": "lift" },
+        { "at": 3.5, "hip": [0, 86], "rFoot": [11, 12] }
+      ]
+    }
+  },
+  {
+    "id": "side-stomp",
+    "name": "Side stomp",
+    "style": "industrial",
+    "difficulty": 1,
+    "buildsOn": ["stomp-march", "step-touch"],
+    "focus": ["legs", "feet"],
+    "counts": "1 out · 2 stomp · 3 in · 4 stomp, then the other side",
+    "summary": "A heavy step-touch: step out wide, stomp the other foot beside it, come back, stomp again. Then go the other way.",
+    "steps": [
+      "Step your right foot out wide on 1, knees bent",
+      "Stomp the left foot down beside it on 2",
+      "Step the right foot back in on 3",
+      "Stomp it on 4, then do the same to the left"
+    ],
+    "tips": [
+      "Drop your weight into the bent knees on every stomp",
+      "Let the shoulders lean a little toward the stepping foot"
+    ],
+    "mistakes": [
+      "Standing up tall between stomps: stay low the whole time"
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 8,
+      "keys": [
+        { "at": 0, "hip": [8, 79], "lean": 4, "rFoot": [24, 0], "lFoot": [-11, 0], "lHand": [10, -30], "rHand": [-6, -34], "ease": "hit", "say": "out" },
+        { "at": 0.5, "hip": [8, 84], "lFoot": [-4, 12] },
+        { "at": 1, "hip": [10, 78], "lFoot": [-2, 0], "ease": "hit", "say": "stomp" },
+        { "at": 1.5, "hip": [6, 84], "rFoot": [16, 10] },
+        { "at": 2, "hip": [2, 79], "lean": 0, "rFoot": [11, 0], "lFoot": [-11, 0], "ease": "hit", "say": "in" },
+        { "at": 2.5, "hip": [0, 85], "rFoot": [11, 12] },
+        { "at": 3, "hip": [0, 79], "rFoot": [11, 0], "ease": "hit", "say": "stomp" },
+        { "at": 3.5, "hip": [-2, 85] },
+        { "at": 4, "hip": [-8, 79], "lean": -4, "lFoot": [-24, 0], "rFoot": [11, 0], "lHand": [6, -34], "rHand": [-10, -30], "ease": "hit", "say": "out" },
+        { "at": 4.5, "hip": [-8, 84], "rFoot": [4, 12] },
+        { "at": 5, "hip": [-10, 78], "rFoot": [2, 0], "ease": "hit", "say": "stomp" },
+        { "at": 5.5, "hip": [-6, 84], "lFoot": [-16, 10] },
+        { "at": 6, "hip": [-2, 79], "lean": 0, "lFoot": [-11, 0], "rFoot": [11, 0], "ease": "hit", "say": "in" },
+        { "at": 6.5, "hip": [0, 85], "lFoot": [-11, 12] },
+        { "at": 7, "hip": [0, 79], "lFoot": [-11, 0], "ease": "hit", "say": "stomp" },
+        { "at": 7.5, "hip": [2, 85] }
+      ]
+    }
+  },
+  {
+    "id": "kick-stomp",
+    "name": "Kick and stomp",
+    "style": "industrial",
+    "difficulty": 2,
+    "buildsOn": ["stomp-march", "ebm-two-step"],
+    "focus": ["legs", "balance"],
+    "counts": "1 kick · 2 stomp · 3 kick · 4 stomp",
+    "summary": "Kick one foot forward on the beat, stomp it down beside the other on the next, then switch feet.",
+    "steps": [
+      "Kick your right foot forward at shin height on 1",
+      "Stomp it down flat beside your left on 2",
+      "Kick the left foot forward on 3",
+      "Stomp it down on 4"
+    ],
+    "tips": [
+      "Keep the kicks low and short. Height doesn't matter, timing does",
+      "Pump the opposite arm with each kick, like the EBM two-step"
+    ],
+    "mistakes": [
+      "Leaning back to kick higher, which throws you off balance",
+      "Kicking out into the crowd: kick into the space you already have"
+    ],
+    "animation": {
+      "view": "side",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [-2, 84], "lean": -4, "rFoot": [48, 36], "lFoot": [-2, 0], "lHand": [18, -22], "rHand": [-8, -36], "ease": "hit", "say": "kick" },
+        { "at": 0.5, "hip": [0, 86], "rFoot": [12, 14] },
+        { "at": 1, "hip": [0, 79], "lean": 8, "rFoot": [4, 0], "ease": "hit", "say": "stomp" },
+        { "at": 1.5, "hip": [0, 86], "lean": 2 },
+        { "at": 2, "hip": [-2, 84], "lean": -4, "lFoot": [48, 36], "rFoot": [2, 0], "lHand": [-8, -36], "rHand": [18, -22], "ease": "hit", "say": "kick" },
+        { "at": 2.5, "hip": [0, 86], "lFoot": [12, 14] },
+        { "at": 3, "hip": [0, 79], "lean": 8, "lFoot": [-2, 0], "ease": "hit", "say": "stomp" },
+        { "at": 3.5, "hip": [0, 86], "lean": 2 }
+      ]
+    }
+  },
+  {
+    "id": "stomp-combo",
+    "name": "Stomp combo",
+    "style": "industrial",
+    "difficulty": 3,
+    "buildsOn": ["ebm-two-step", "punch-pull", "kick-stomp"],
+    "focus": ["feet", "arms", "balance"],
+    "counts": "4 beats of each, then round again",
+    "summary": "Chain the stomp march, the EBM two-step, kick and stomp, and punch and pull into one loop that fills a whole phrase.",
+    "steps": [
+      "Stomp march for 4 beats",
+      "Go straight into the EBM two-step for 4",
+      "Kick and stomp for 4",
+      "Punch and pull for 4, then back to the march"
+    ],
+    "tips": [
+      "Change move when the music changes; most EBM tracks shift every 8 or 16 beats",
+      "Once it flows, stay on each move for 8 beats instead of 4"
+    ],
+    "mistakes": [
+      "Pausing between moves. The feet never stop: every switch lands on a beat"
+    ],
+    "animation": {
+      "view": "side",
+      "beats": 16,
+      "keys": [
+        { "at": 0, "hip": [0, 80], "lean": 8, "lFoot": [-2, 0], "rFoot": [4, 0], "lHand": [12, -30], "rHand": [-8, -38], "ease": "hit", "say": "march" },
+        { "at": 0.5, "hip": [0, 86], "lFoot": [8, 16] },
+        { "at": 1, "hip": [0, 80], "lFoot": [-2, 0], "lHand": [-8, -38], "rHand": [12, -30], "ease": "hit" },
+        { "at": 1.5, "hip": [0, 86], "rFoot": [10, 16] },
+        { "at": 2, "hip": [0, 80], "lean": 8, "rFoot": [4, 0], "lFoot": [-2, 0], "lHand": [12, -30], "rHand": [-8, -38], "ease": "hit" },
+        { "at": 2.5, "hip": [0, 86], "lFoot": [8, 16] },
+        { "at": 3, "hip": [0, 80], "lFoot": [-2, 0], "lHand": [-8, -38], "rHand": [12, -30], "ease": "hit" },
+        { "at": 3.5, "hip": [0, 86], "rFoot": [10, 16] },
+        { "at": 4, "hip": [6, 81], "lean": 6, "lFoot": [-4, 0], "rFoot": [20, 0], "lHand": [16, -26], "rHand": [-10, -38], "ease": "hit", "say": "two-step" },
+        { "at": 4.5, "hip": [3, 86], "rFoot": [10, 5] },
+        { "at": 5, "hip": [0, 81], "rFoot": [0, 0], "lHand": [-10, -38], "rHand": [16, -26], "ease": "hit" },
+        { "at": 5.5, "hip": [3, 86], "rFoot": [10, 5] },
+        { "at": 6, "hip": [6, 81], "lean": 6, "rFoot": [20, 0], "lFoot": [-4, 0], "lHand": [16, -26], "rHand": [-10, -38], "ease": "hit" },
+        { "at": 6.5, "hip": [3, 86], "rFoot": [10, 5] },
+        { "at": 7, "hip": [0, 81], "rFoot": [0, 0], "lHand": [-10, -38], "rHand": [16, -26], "ease": "hit" },
+        { "at": 7.5, "hip": [3, 86], "rFoot": [10, 5] },
+        { "at": 8, "hip": [-2, 84], "lean": -4, "lFoot": [-2, 0], "rFoot": [48, 36], "lHand": [18, -22], "rHand": [-8, -36], "ease": "hit", "say": "kick" },
+        { "at": 8.5, "hip": [0, 86], "rFoot": [12, 14] },
+        { "at": 9, "hip": [0, 79], "lean": 8, "rFoot": [4, 0], "ease": "hit" },
+        { "at": 9.5, "hip": [0, 86], "lean": 2 },
+        { "at": 10, "hip": [-2, 84], "lean": -4, "lFoot": [48, 36], "rFoot": [2, 0], "lHand": [-8, -36], "rHand": [18, -22], "ease": "hit" },
+        { "at": 10.5, "hip": [0, 86], "lFoot": [12, 14] },
+        { "at": 11, "hip": [0, 79], "lean": 8, "lFoot": [-2, 0], "ease": "hit" },
+        { "at": 11.5, "hip": [0, 86], "lean": 2 },
+        { "at": 12, "hip": [0, 81], "lean": 8, "lFoot": [-2, 0], "rFoot": [4, 0], "lHand": [10, -18], "rHand": [32, -26], "ease": "hit", "say": "punch" },
+        { "at": 12.5, "hip": [0, 85], "lFoot": [6, 10] },
+        { "at": 13, "hip": [0, 81], "lFoot": [-2, 0], "rHand": [10, -18], "ease": "hit" },
+        { "at": 13.5, "hip": [0, 85], "rFoot": [8, 10] },
+        { "at": 14, "hip": [0, 81], "rFoot": [4, 0], "lHand": [32, -26], "ease": "hit" },
+        { "at": 14.5, "hip": [0, 85], "lFoot": [6, 10] },
+        { "at": 15, "hip": [0, 81], "lFoot": [-2, 0], "lHand": [10, -18], "ease": "hit" },
+        { "at": 15.5, "hip": [0, 85], "rFoot": [8, 10] }
+      ]
+    }
+  },
+  {
+    "id": "cyber-stomp",
+    "name": "Cyber stomp",
+    "style": "cybergoth",
+    "difficulty": 1,
+    "buildsOn": ["stomp-march", "step-touch"],
+    "focus": ["feet", "legs"],
+    "counts": "1 step · 2 stomp · 3 step · 4 stomp",
+    "summary": "A step-touch built from stomps, side to side, with the arms swinging the way you travel. Everything else in cyber sits on it.",
+    "steps": [
+      "Step your right foot out to the side on 1",
+      "Stomp the left foot down next to it on 2",
+      "Step the left foot out to the left on 3",
+      "Stomp the right foot next to it on 4",
+      "Swing both arms low toward the side you're stepping to"
+    ],
+    "tips": [
+      "At 145 BPM it's quick: start it at 120 on the practice beat",
+      "Stay on the balls of your feet so you can keep it up for a whole track"
+    ],
+    "mistakes": [
+      "Stomping flat-footed at full speed, which tires the legs in a minute"
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [6, 80], "lFoot": [-8, 0], "rFoot": [20, 0], "lHand": [10, -44], "rHand": [24, -38], "ease": "hit", "say": "step" },
+        { "at": 0.5, "hip": [10, 86], "lFoot": [0, 12] },
+        { "at": 1, "hip": [12, 79], "lFoot": [4, 0], "lHand": [16, -40], "rHand": [30, -32], "ease": "hit", "say": "stomp" },
+        { "at": 1.5, "hip": [4, 86], "lFoot": [-8, 10] },
+        { "at": 2, "hip": [-6, 80], "lFoot": [-20, 0], "rFoot": [8, 0], "lHand": [-24, -38], "rHand": [-10, -44], "ease": "hit", "say": "step" },
+        { "at": 2.5, "hip": [-10, 86], "rFoot": [0, 12] },
+        { "at": 3, "hip": [-12, 79], "rFoot": [-4, 0], "lHand": [-30, -32], "rHand": [-16, -40], "ease": "hit", "say": "stomp" },
+        { "at": 3.5, "hip": [-4, 86], "rFoot": [8, 10] }
+      ]
+    }
+  },
+  {
+    "id": "arm-roll",
+    "name": "Arm roll and punch",
+    "style": "cybergoth",
+    "difficulty": 1,
+    "buildsOn": ["loose-arms"],
+    "focus": ["arms"],
+    "counts": "Roll for 3 beats · punch up on 4",
+    "summary": "The forearms roll round each other in front of the chest, once per beat, then one fist punches up.",
+    "steps": [
+      "Fists in front of your chest, one above the other",
+      "Roll them round each other, like winding wool, once per beat",
+      "On 4, punch one fist straight up",
+      "Bring it back in and start rolling again"
+    ],
+    "tips": [
+      "Roll forward for a bar, then backward for a bar",
+      "Swap the punching hand every time"
+    ],
+    "mistakes": [
+      "Rolling so fast you lose the beat. One turn per beat is plenty"
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "lHand": [25, -22], "rHand": [-25, -22], "ease": "linear", "hip": [0, 82], "say": "roll" },
+        { "at": 0.25, "lHand": [17, -14], "rHand": [-17, -30], "ease": "linear", "hip": [0, 86] },
+        { "at": 0.5, "lHand": [9, -22], "rHand": [-9, -22], "ease": "linear", "hip": [0, 82] },
+        { "at": 0.75, "lHand": [17, -30], "rHand": [-17, -14], "ease": "linear", "hip": [0, 86] },
+        { "at": 1, "lHand": [25, -22], "rHand": [-25, -22], "ease": "linear", "hip": [0, 82] },
+        { "at": 1.25, "lHand": [17, -14], "rHand": [-17, -30], "ease": "linear", "hip": [0, 86] },
+        { "at": 1.5, "lHand": [9, -22], "rHand": [-9, -22], "ease": "linear", "hip": [0, 82] },
+        { "at": 1.75, "lHand": [17, -30], "rHand": [-17, -14], "ease": "linear", "hip": [0, 86] },
+        { "at": 2, "lHand": [25, -22], "rHand": [-25, -22], "ease": "linear", "hip": [0, 82] },
+        { "at": 2.25, "lHand": [17, -14], "rHand": [-17, -30], "ease": "linear", "hip": [0, 86] },
+        { "at": 2.5, "lHand": [9, -22], "rHand": [-9, -22], "ease": "linear", "hip": [0, 82] },
+        { "at": 2.75, "lHand": [17, -30], "rHand": [-17, -14], "ease": "linear", "hip": [0, 86] },
+        { "at": 3, "hip": [0, 80], "rHand": [4, 48], "lHand": [16, -24], "ease": "hit", "say": "punch" },
+        { "at": 3.5, "hip": [0, 86], "rHand": [-12, -16] }
+      ]
+    }
+  },
+  {
+    "id": "windmill-arms",
+    "name": "Windmill arms",
+    "style": "cybergoth",
+    "difficulty": 2,
+    "buildsOn": ["cyber-stomp", "arm-roll"],
+    "focus": ["arms", "awareness"],
+    "counts": "One full circle every 2 beats",
+    "summary": "Straight arms sweep in big circles at your sides, one following the other, over a stomp march.",
+    "steps": [
+      "March or stomp in place",
+      "Swing the right arm up, out and down in a big circle over two beats",
+      "Start the left arm half a circle behind it",
+      "Keep the circles at your sides, not in front of you"
+    ],
+    "tips": [
+      "This is the move that looks amazing with glowing falls or UV gloves",
+      "Shrink the circles to elbow height on a busy floor"
+    ],
+    "mistakes": [
+      "Doing it in a crowd without checking your space first. Look left and right before the first swing"
+    ],
+    "why": "Cyber dancing is made to be seen from across the room. Big, clean shapes at a steady speed read much better than lots of small moves.",
+    "animation": {
+      "view": "front",
+      "beats": 2,
+      "keys": [
+        { "at": 0, "rHand": [0, 52], "lHand": [0, -52], "ease": "linear", "lElbow": [-1, 0], "rElbow": [1, 0], "say": "windmill", "hip": [0, 80], "rFoot": [11, 0], "lFoot": [-11, 0] },
+        { "at": 0.25, "rHand": [36.8, 36.8], "lHand": [16.5, -36.8], "ease": "linear", "hip": [0, 86], "lFoot": [-11, 12] },
+        { "at": 0.5, "rHand": [52, 0], "lHand": [23.4, 0], "ease": "linear", "hip": [0, 80], "lFoot": [-11, 0], "rFoot": [11, 0] },
+        { "at": 0.75, "rHand": [36.8, -36.8], "lHand": [16.5, 36.8], "ease": "linear", "hip": [0, 86], "rFoot": [11, 12] },
+        { "at": 1, "rHand": [0, -52], "lHand": [0, 52], "ease": "linear", "hip": [0, 80], "rFoot": [11, 0], "lFoot": [-11, 0] },
+        { "at": 1.25, "rHand": [-16.5, -36.8], "lHand": [-36.8, 36.8], "ease": "linear", "hip": [0, 86], "lFoot": [-11, 12] },
+        { "at": 1.5, "rHand": [-23.4, 0], "lHand": [-52, 0], "ease": "linear", "hip": [0, 80], "lFoot": [-11, 0], "rFoot": [11, 0] },
+        { "at": 1.75, "rHand": [-16.5, 36.8], "lHand": [-36.8, -36.8], "ease": "linear", "hip": [0, 86], "rFoot": [11, 12] }
+      ]
+    }
+  },
+  {
+    "id": "cyber-kick",
+    "name": "Side kick stomp",
+    "style": "cybergoth",
+    "difficulty": 2,
+    "buildsOn": ["cyber-stomp", "side-kick"],
+    "focus": ["legs", "balance"],
+    "counts": "1 kick · 2 stomp · 3 kick · 4 stomp",
+    "summary": "Kick one foot out to the side on the beat, stomp it back in on the next, then the other foot. The arms punch down the opposite way.",
+    "steps": [
+      "Kick your right foot out to the side at knee height on 1",
+      "Stomp it back in next to the left on 2",
+      "Kick the left foot out on 3",
+      "Stomp it in on 4",
+      "Punch both fists down toward the opposite side as you kick"
+    ],
+    "tips": [
+      "Lean away from the kick a little to stay balanced",
+      "Try two kicks on the same foot (kick, stomp, kick, stomp) before switching"
+    ],
+    "mistakes": [
+      "Kicking higher than you can land on time"
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [-4, 84], "lean": -6, "lFoot": [-11, 0], "rFoot": [50, 34], "lHand": [-20, -38], "rHand": [-34, -30], "ease": "hit", "say": "kick" },
+        { "at": 0.5, "hip": [-2, 86], "rFoot": [20, 14] },
+        { "at": 1, "hip": [0, 79], "lean": 0, "rFoot": [11, 0], "lHand": [8, -34], "rHand": [-8, -34], "ease": "hit", "say": "stomp" },
+        { "at": 1.5, "hip": [2, 86] },
+        { "at": 2, "hip": [4, 84], "lean": 6, "lFoot": [-50, 34], "lHand": [34, -30], "rHand": [20, -38], "ease": "hit", "say": "kick" },
+        { "at": 2.5, "hip": [2, 86], "lFoot": [-20, 14] },
+        { "at": 3, "hip": [0, 79], "lean": 0, "lFoot": [-11, 0], "lHand": [8, -34], "rHand": [-8, -34], "ease": "hit", "say": "stomp" },
+        { "at": 3.5, "hip": [-2, 86] }
+      ]
+    }
+  },
+  {
+    "id": "stomp-turn",
+    "name": "Stomp turn",
+    "style": "cybergoth",
+    "difficulty": 2,
+    "buildsOn": ["cyber-stomp"],
+    "focus": ["balance", "awareness"],
+    "counts": "A full turn over 8 stomps",
+    "summary": "Stomp march on the spot while turning slowly round, an eighth of a turn with every stomp.",
+    "steps": [
+      "Start the stomp march, fists at chest height",
+      "With each stomp, point your toes a little further to the left",
+      "After eight stomps you're facing the front again",
+      "Next time, turn the other way"
+    ],
+    "tips": [
+      "Keep your eyes level and pick out each wall as you pass it",
+      "Pump the fists in time with the feet"
+    ],
+    "mistakes": [
+      "Turning in one big hop: the turn is spread over all eight stomps"
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 8,
+      "keys": [
+        { "at": 0, "turn": 0, "hip": [0, 80], "rFoot": [11, 0], "lHand": [12, -26], "rHand": [-10, -34], "ease": "hit", "lFoot": [-11, 0], "say": "stomp round" },
+        { "at": 0.5, "hip": [0, 86], "lFoot": [-11, 12] },
+        { "at": 1, "turn": 0.125, "hip": [0, 80], "lFoot": [-11, 0], "lHand": [10, -34], "rHand": [-12, -26], "ease": "hit" },
+        { "at": 1.5, "hip": [0, 86], "rFoot": [11, 12] },
+        { "at": 2, "turn": 0.25, "hip": [0, 80], "rFoot": [11, 0], "lHand": [12, -26], "rHand": [-10, -34], "ease": "hit" },
+        { "at": 2.5, "hip": [0, 86], "lFoot": [-11, 12] },
+        { "at": 3, "turn": 0.375, "hip": [0, 80], "lFoot": [-11, 0], "lHand": [10, -34], "rHand": [-12, -26], "ease": "hit" },
+        { "at": 3.5, "hip": [0, 86], "rFoot": [11, 12] },
+        { "at": 4, "turn": 0.5, "hip": [0, 80], "rFoot": [11, 0], "lHand": [12, -26], "rHand": [-10, -34], "ease": "hit", "say": "halfway" },
+        { "at": 4.5, "hip": [0, 86], "lFoot": [-11, 12] },
+        { "at": 5, "turn": 0.625, "hip": [0, 80], "lFoot": [-11, 0], "lHand": [10, -34], "rHand": [-12, -26], "ease": "hit" },
+        { "at": 5.5, "hip": [0, 86], "rFoot": [11, 12] },
+        { "at": 6, "turn": 0.75, "hip": [0, 80], "rFoot": [11, 0], "lHand": [12, -26], "rHand": [-10, -34], "ease": "hit" },
+        { "at": 6.5, "hip": [0, 86], "lFoot": [-11, 12] },
+        { "at": 7, "turn": 0.875, "hip": [0, 80], "lFoot": [-11, 0], "lHand": [10, -34], "rHand": [-12, -26], "ease": "hit" },
+        { "at": 7.5, "hip": [0, 86], "rFoot": [11, 12] }
+      ]
+    }
+  },
+  {
+    "id": "cyber-combo",
+    "name": "Cyber combo",
+    "style": "cybergoth",
+    "difficulty": 3,
+    "buildsOn": ["cyber-stomp", "windmill-arms", "cyber-kick", "arm-roll"],
+    "focus": ["feet", "arms", "awareness"],
+    "counts": "4 beats of each, then round again",
+    "summary": "Cyber stomp, windmill arms, side kick stomp and the arm roll, back to back without dropping the beat.",
+    "steps": [
+      "Cyber stomp for 4 beats",
+      "Windmill arms for 4, feet still stomping",
+      "Side kick stomp for 4",
+      "Arm roll and punch for 4, then back to the cyber stomp"
+    ],
+    "tips": [
+      "Learn it at 120 BPM, then nudge the tempo up a few beats at a time",
+      "Hit the punch on the drop and it looks planned even if nothing else was"
+    ],
+    "mistakes": [
+      "Letting the arms get smaller and smaller as you tire. Fewer, bigger moves beat lots of small ones"
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 16,
+      "keys": [
+        { "at": 0, "hip": [6, 80], "lFoot": [-8, 0], "rFoot": [20, 0], "lHand": [10, -44], "rHand": [24, -38], "ease": "hit", "say": "stomp" },
+        { "at": 0.5, "hip": [10, 86], "lFoot": [0, 12] },
+        { "at": 1, "hip": [12, 79], "lFoot": [4, 0], "lHand": [16, -40], "rHand": [30, -32], "ease": "hit" },
+        { "at": 1.5, "hip": [4, 86], "lFoot": [-8, 10] },
+        { "at": 2, "hip": [-6, 80], "lFoot": [-20, 0], "rFoot": [8, 0], "lHand": [-24, -38], "rHand": [-10, -44], "ease": "hit" },
+        { "at": 2.5, "hip": [-10, 86], "rFoot": [0, 12] },
+        { "at": 3, "hip": [-12, 79], "rFoot": [-4, 0], "lHand": [-30, -32], "rHand": [-16, -40], "ease": "hit" },
+        { "at": 3.5, "hip": [-4, 86], "rFoot": [8, 10] },
+        { "at": 4, "hip": [0, 80], "lFoot": [-11, 0], "rFoot": [11, 0], "lHand": [0, -52], "rHand": [0, 52], "lElbow": [-1, 0], "rElbow": [1, 0], "ease": "linear", "say": "windmill" },
+        { "at": 4.25, "rHand": [36.8, 36.8], "lHand": [16.5, -36.8], "ease": "linear", "hip": [0, 86], "lFoot": [-11, 12] },
+        { "at": 4.5, "rHand": [52, 0], "lHand": [23.4, 0], "ease": "linear", "hip": [0, 80], "lFoot": [-11, 0], "rFoot": [11, 0] },
+        { "at": 4.75, "rHand": [36.8, -36.8], "lHand": [16.5, 36.8], "ease": "linear", "hip": [0, 86], "rFoot": [11, 12] },
+        { "at": 5, "rHand": [0, -52], "lHand": [0, 52], "ease": "linear", "hip": [0, 80], "rFoot": [11, 0], "lFoot": [-11, 0] },
+        { "at": 5.25, "rHand": [-16.5, -36.8], "lHand": [-36.8, 36.8], "ease": "linear", "hip": [0, 86], "lFoot": [-11, 12] },
+        { "at": 5.5, "rHand": [-23.4, 0], "lHand": [-52, 0], "ease": "linear", "hip": [0, 80], "lFoot": [-11, 0], "rFoot": [11, 0] },
+        { "at": 5.75, "rHand": [-16.5, 36.8], "lHand": [-36.8, -36.8], "ease": "linear", "hip": [0, 86], "rFoot": [11, 12] },
+        { "at": 6, "rHand": [0, 52], "lHand": [0, -52], "ease": "linear", "lElbow": [-1, 0], "rElbow": [1, 0], "hip": [0, 80], "rFoot": [11, 0], "lFoot": [-11, 0] },
+        { "at": 6.25, "rHand": [36.8, 36.8], "lHand": [16.5, -36.8], "ease": "linear", "hip": [0, 86], "lFoot": [-11, 12] },
+        { "at": 6.5, "rHand": [52, 0], "lHand": [23.4, 0], "ease": "linear", "hip": [0, 80], "lFoot": [-11, 0], "rFoot": [11, 0] },
+        { "at": 6.75, "rHand": [36.8, -36.8], "lHand": [16.5, 36.8], "ease": "linear", "hip": [0, 86], "rFoot": [11, 12] },
+        { "at": 7, "rHand": [0, -52], "lHand": [0, 52], "ease": "linear", "hip": [0, 80], "rFoot": [11, 0], "lFoot": [-11, 0] },
+        { "at": 7.25, "rHand": [-16.5, -36.8], "lHand": [-36.8, 36.8], "ease": "linear", "hip": [0, 86], "lFoot": [-11, 12] },
+        { "at": 7.5, "rHand": [-23.4, 0], "lHand": [-52, 0], "ease": "linear", "hip": [0, 80], "lFoot": [-11, 0], "rFoot": [11, 0] },
+        { "at": 7.75, "rHand": [-16.5, 36.8], "lHand": [-36.8, -36.8], "ease": "linear", "hip": [0, 86], "rFoot": [11, 12] },
+        { "at": 8, "hip": [-4, 84], "lean": -6, "lFoot": [-11, 0], "rFoot": [50, 34], "lHand": [-20, -38], "rHand": [-34, -30], "ease": "hit", "say": "kick" },
+        { "at": 8.5, "hip": [-2, 86], "rFoot": [20, 14] },
+        { "at": 9, "hip": [0, 79], "lean": 0, "rFoot": [11, 0], "lHand": [8, -34], "rHand": [-8, -34], "ease": "hit" },
+        { "at": 9.5, "hip": [2, 86] },
+        { "at": 10, "hip": [4, 84], "lean": 6, "lFoot": [-50, 34], "lHand": [34, -30], "rHand": [20, -38], "ease": "hit" },
+        { "at": 10.5, "hip": [2, 86], "lFoot": [-20, 14] },
+        { "at": 11, "hip": [0, 79], "lean": 0, "lFoot": [-11, 0], "lHand": [8, -34], "rHand": [-8, -34], "ease": "hit" },
+        { "at": 11.5, "hip": [-2, 86] },
+        { "at": 12, "hip": [0, 82], "lFoot": [-11, 0], "rFoot": [11, 0], "lHand": [25, -22], "rHand": [-25, -22], "ease": "linear", "say": "roll" },
+        { "at": 12.25, "lHand": [17, -14], "rHand": [-17, -30], "ease": "linear", "hip": [0, 86] },
+        { "at": 12.5, "lHand": [9, -22], "rHand": [-9, -22], "ease": "linear", "hip": [0, 82] },
+        { "at": 12.75, "lHand": [17, -30], "rHand": [-17, -14], "ease": "linear", "hip": [0, 86] },
+        { "at": 13, "lHand": [25, -22], "rHand": [-25, -22], "ease": "linear", "hip": [0, 82] },
+        { "at": 13.25, "lHand": [17, -14], "rHand": [-17, -30], "ease": "linear", "hip": [0, 86] },
+        { "at": 13.5, "lHand": [9, -22], "rHand": [-9, -22], "ease": "linear", "hip": [0, 82] },
+        { "at": 13.75, "lHand": [17, -30], "rHand": [-17, -14], "ease": "linear", "hip": [0, 86] },
+        { "at": 14, "lHand": [25, -22], "rHand": [-25, -22], "ease": "linear", "hip": [0, 82] },
+        { "at": 14.25, "lHand": [17, -14], "rHand": [-17, -30], "ease": "linear", "hip": [0, 86] },
+        { "at": 14.5, "lHand": [9, -22], "rHand": [-9, -22], "ease": "linear", "hip": [0, 82] },
+        { "at": 14.75, "lHand": [17, -30], "rHand": [-17, -14], "ease": "linear", "hip": [0, 86] },
+        { "at": 15, "hip": [0, 80], "rHand": [4, 48], "lHand": [16, -24], "ease": "hit" },
+        { "at": 15.5, "hip": [0, 86], "rHand": [-12, -16] }
       ]
     }
   },
@@ -1334,6 +1939,568 @@
         { "at": 30.5, "hip": [-3, 87] },
         { "at": 31, "hip": [0, 82], "rFoot": [-4, 0], "say": "step" },
         { "at": 31.5, "hip": [4, 87] }
+      ]
+    }
+  },
+  {
+    "id": "fist-pump",
+    "name": "Fist pump",
+    "style": "rave",
+    "difficulty": 1,
+    "buildsOn": ["rave-bounce"],
+    "focus": ["arms"],
+    "counts": "Pump on every beat · swap hands every 8",
+    "summary": "One fist punches up toward the ceiling on each beat while the other rests at your chest. The classic big-room move.",
+    "steps": [
+      "Keep the rave bounce going",
+      "Bring your right fist up beside your shoulder",
+      "Punch it up on each beat and pull it back on the \"and\"",
+      "After eight, swap hands"
+    ],
+    "tips": [
+      "Go double time on a build-up, then both fists up on the drop",
+      "Keep the elbow a little bent at the top"
+    ],
+    "mistakes": [
+      "Punching forward instead of up, which takes up the space of the person in front"
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 2,
+      "keys": [
+        { "at": 0, "hip": [0, 80], "rHand": [6, 46], "lHand": [12, -30], "rElbow": [1, 0], "ease": "hit", "say": "pump" },
+        { "at": 0.5, "hip": [0, 86], "rHand": [4, 12] },
+        { "at": 1, "hip": [0, 80], "rHand": [6, 46], "ease": "hit", "say": "pump" },
+        { "at": 1.5, "hip": [0, 86], "rHand": [4, 12] }
+      ]
+    }
+  },
+  {
+    "id": "liquid-hands",
+    "name": "Liquid hands",
+    "style": "rave",
+    "difficulty": 2,
+    "buildsOn": ["arm-wave", "wrist-twirl"],
+    "focus": ["arms"],
+    "counts": "One flowing shape every 2 beats",
+    "summary": "The hands flow around each other in front of the body without ever stopping, as if moving through water. Lovely in a trance breakdown.",
+    "steps": [
+      "Hands at chest height, palms facing each other, elbows soft",
+      "Let the left hand rise while the right one sinks, as if passing a ball between them",
+      "Roll the wrists as they pass, so the palms keep facing the moving hand",
+      "Swap: right rises, left sinks, and keep it going"
+    ],
+    "tips": [
+      "Move in slow motion compared to the beat; the bounce keeps time for you",
+      "Watch the hands. Wherever you look, people look too"
+    ],
+    "mistakes": [
+      "Stopping at the top or bottom: liquid never stops, it changes direction smoothly",
+      "Stiff fingers. Let them trail behind the wrist"
+    ],
+    "why": "Liquid grew up with glowsticks and gloving at raves. It's the arm style to fall back on when the music goes soft and dreamy and the feet calm down.",
+    "animation": {
+      "view": "front",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [-3, 84], "lHand": [12, 6], "rHand": [-10, -22], "lElbow": [-1, -0.6], "rElbow": [1, -0.6], "ease": "float", "say": "flow" },
+        { "at": 1, "hip": [0, 85], "lHand": [-16, -4], "rHand": [14, -12], "ease": "float" },
+        { "at": 2, "hip": [3, 84], "lHand": [10, -22], "rHand": [-12, 6], "ease": "float", "say": "and flow" },
+        { "at": 3, "hip": [0, 85], "lHand": [-14, -12], "rHand": [16, -4], "ease": "float" }
+      ]
+    }
+  },
+  {
+    "id": "jack",
+    "name": "The jack",
+    "style": "house",
+    "difficulty": 1,
+    "buildsOn": ["knee-bounce"],
+    "focus": ["torso"],
+    "counts": "Chest forward on every beat",
+    "summary": "The heartbeat of house: the chest pulses forward on every beat and back on the \"and\", with the knees soft underneath.",
+    "steps": [
+      "Feet hip-width, knees soft, arms loose",
+      "On the beat, push the chest forward and let the knees dip",
+      "On the \"and\", let the chest come back",
+      "Keep it going under every other house step"
+    ],
+    "tips": [
+      "Think of being pushed from behind on each kick drum",
+      "Try it side to side, or rolling in a circle, once forward and back is easy"
+    ],
+    "mistakes": [
+      "Nodding the head instead of moving the chest",
+      "Bending from the waist: the movement lives between the shoulder blades"
+    ],
+    "why": "Jacking came out of Chicago house clubs. Once it's there, any footwork on top of it looks like house dancing.",
+    "animation": {
+      "view": "side",
+      "beats": 1,
+      "keys": [
+        { "at": 0, "hip": [-2, 81], "lean": 12, "head": -4, "lHand": [12, -36], "rHand": [8, -40], "ease": "hit", "say": "jack" },
+        { "at": 0.5, "hip": [2, 86], "lean": -3, "head": 2, "say": "back" }
+      ]
+    }
+  },
+  {
+    "id": "house-stomp",
+    "name": "House stomp",
+    "style": "house",
+    "difficulty": 1,
+    "buildsOn": ["jack", "step-touch"],
+    "focus": ["feet"],
+    "counts": "And tap · 1 stomp · and tap · 2 stomp",
+    "summary": "Tap one foot in next to the other on the \"and\", then put it down flat out to the side on the beat. Then the other foot.",
+    "steps": [
+      "Jack gently to find the groove",
+      "On the \"and\", tap the left toes in next to the right foot",
+      "On 1, put the left foot down flat out to the side",
+      "Tap the right foot in on the \"and\", put it down out to the side on 2"
+    ],
+    "tips": [
+      "Keep the jack going in the chest the whole time",
+      "Make the taps light and the stomps heavy"
+    ],
+    "mistakes": [
+      "Hopping: the weight moves, the body stays level"
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 2,
+      "keys": [
+        { "at": 0, "hip": [-2, 79], "lFoot": [-16, 0], "rFoot": [14, 0], "lHand": [8, -34], "rHand": [-4, -38], "ease": "hit", "say": "stomp" },
+        { "at": 0.5, "hip": [-5, 86], "rFoot": [0, 6], "say": "tap" },
+        { "at": 1, "hip": [2, 79], "rFoot": [16, 0], "lHand": [4, -38], "rHand": [-8, -34], "ease": "hit", "say": "stomp" },
+        { "at": 1.5, "hip": [5, 86], "lFoot": [0, 6], "say": "tap" }
+      ]
+    }
+  },
+  {
+    "id": "skate",
+    "name": "Skate",
+    "style": "house",
+    "difficulty": 1,
+    "buildsOn": ["sway"],
+    "focus": ["legs", "balance"],
+    "counts": "1 glide right · 2 draw in · 3 glide left · 4 draw in",
+    "summary": "Push off one foot and glide the other out to the side, as if ice skating, then draw the trailing foot in.",
+    "steps": [
+      "Bend the knees a little more than usual",
+      "Push off the left foot and glide the right foot out to the side on 1",
+      "Draw the left foot in along the floor on 2",
+      "Glide out to the left on 3, draw the right in on 4",
+      "Let the arms swing gently with the glide"
+    ],
+    "tips": [
+      "Works best in smooth-soled shoes",
+      "Make it smaller and quicker on a crowded floor"
+    ],
+    "mistakes": [
+      "Lifting the feet: they slide along the floor"
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [8, 80], "lean": 5, "lFoot": [-10, 3], "rFoot": [20, 0], "lHand": [16, -30], "rHand": [20, -42], "ease": "float", "say": "glide" },
+        { "at": 1, "hip": [6, 83], "lean": 2, "lFoot": [4, 1], "say": "draw in" },
+        { "at": 2, "hip": [-8, 80], "lean": -5, "lFoot": [-20, 0], "rFoot": [10, 3], "lHand": [-20, -42], "rHand": [-16, -30], "ease": "float", "say": "glide" },
+        { "at": 3, "hip": [-6, 83], "lean": -2, "rFoot": [-4, 1], "say": "draw in" }
+      ]
+    }
+  },
+  {
+    "id": "pas-de-bourree",
+    "name": "Pas de bourrée",
+    "style": "house",
+    "difficulty": 2,
+    "buildsOn": ["house-stomp"],
+    "focus": ["feet"],
+    "counts": "1 behind · and side · 2 in place",
+    "summary": "Three quick steps over a beat and a half: cross behind, step to the side, step in place. Borrowed from ballet, beloved of house dancers.",
+    "steps": [
+      "Step the right foot behind the left on 1",
+      "Step the left foot out to the side on the \"and\"",
+      "Step the right foot down in place on 2",
+      "Then mirror it: left behind on 3, right to the side on the \"and\", left in place on 4"
+    ],
+    "tips": [
+      "Say \"back, side, front\" out loud until your feet know it",
+      "Stay on the balls of your feet so the steps can be quick and small"
+    ],
+    "mistakes": [
+      "Big steps: the whole thing fits inside a small square"
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [-4, 81], "lFoot": [-4, 0], "rFoot": [-10, 0], "lHand": [8, -34], "rHand": [-6, -36], "ease": "hit", "say": "behind" },
+        { "at": 0.5, "hip": [-8, 84], "lFoot": [-18, 0], "say": "side" },
+        { "at": 1, "hip": [-8, 81], "rFoot": [-4, 0], "ease": "hit", "say": "in place" },
+        { "at": 1.5, "hip": [-2, 86], "lFoot": [-12, 4] },
+        { "at": 2, "hip": [4, 81], "lFoot": [10, 0], "rFoot": [4, 0], "lHand": [6, -36], "rHand": [-8, -34], "ease": "hit", "say": "behind" },
+        { "at": 2.5, "hip": [8, 84], "rFoot": [18, 0], "say": "side" },
+        { "at": 3, "hip": [8, 81], "lFoot": [4, 0], "ease": "hit", "say": "in place" },
+        { "at": 3.5, "hip": [2, 86], "rFoot": [12, 4] }
+      ]
+    }
+  },
+  {
+    "id": "loose-legs",
+    "name": "Loose legs",
+    "style": "house",
+    "difficulty": 2,
+    "buildsOn": ["jack", "side-kick"],
+    "focus": ["legs", "balance"],
+    "counts": "Flick on the \"and\" · land on the beat",
+    "summary": "A relaxed leg flicks out to the side and drops back under you, swapping feet each beat, as if the legs were made of rope.",
+    "steps": [
+      "Jack lightly to find the groove",
+      "On the \"and\", flick the right foot out to the side, knee loose",
+      "Land it back under you on the beat",
+      "Flick the left on the next \"and\", land it on the beat"
+    ],
+    "tips": [
+      "The flick comes from the hip; the knee and ankle just follow",
+      "Lean the upper body a little away from the flick"
+    ],
+    "mistakes": [
+      "Kicking with a straight, stiff leg. Loose legs is a flick, not a kick"
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 2,
+      "keys": [
+        { "at": 0, "hip": [0, 80], "lean": 0, "lFoot": [-9, 0], "rFoot": [9, 0], "lHand": [8, -36], "rHand": [-8, -36], "ease": "hit", "say": "land" },
+        { "at": 0.5, "hip": [-4, 86], "lean": -5, "rFoot": [32, 16], "say": "flick" },
+        { "at": 1, "hip": [0, 80], "lean": 0, "rFoot": [9, 0], "ease": "hit", "say": "land" },
+        { "at": 1.5, "hip": [4, 86], "lean": 5, "lFoot": [-32, 16], "say": "flick" }
+      ]
+    }
+  },
+  {
+    "id": "crossroads",
+    "name": "Crossroads",
+    "style": "house",
+    "difficulty": 2,
+    "buildsOn": ["house-stomp"],
+    "focus": ["feet", "awareness"],
+    "counts": "1 cross · 2 open · 3 cross · 4 open",
+    "summary": "One foot crosses over the other, then steps back out wide. Then the other foot. Simple, and it opens the door to a lot of house footwork.",
+    "steps": [
+      "Cross your right foot over in front of the left on 1",
+      "Step it back out to the right on 2",
+      "Cross the left over in front of the right on 3",
+      "Step it back out to the left on 4"
+    ],
+    "tips": [
+      "Let the hips turn a little with each cross",
+      "Once it's easy, cross behind instead of in front every other time"
+    ],
+    "mistakes": [
+      "Crossing so far you trip over your own foot. A small cross is enough"
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [-4, 81], "lean": 0, "lFoot": [-11, 0], "rFoot": [-18, 0], "lHand": [10, -34], "rHand": [-2, -38], "ease": "hit", "say": "cross" },
+        { "at": 0.5, "hip": [-2, 86], "rFoot": [-2, 8] },
+        { "at": 1, "hip": [0, 81], "rFoot": [14, 0], "lHand": [6, -36], "rHand": [-6, -36], "ease": "hit", "say": "open" },
+        { "at": 1.5, "hip": [2, 86], "lFoot": [2, 8] },
+        { "at": 2, "hip": [4, 81], "lFoot": [18, 0], "rFoot": [11, 0], "lHand": [2, -38], "rHand": [-10, -34], "ease": "hit", "say": "cross" },
+        { "at": 2.5, "hip": [2, 86], "lFoot": [2, 8] },
+        { "at": 3, "hip": [0, 81], "lFoot": [-14, 0], "lHand": [6, -36], "rHand": [-6, -36], "ease": "hit", "say": "open" },
+        { "at": 3.5, "hip": [-2, 86], "rFoot": [-2, 8] }
+      ]
+    }
+  },
+  {
+    "id": "house-combo",
+    "name": "House combo",
+    "style": "house",
+    "difficulty": 3,
+    "buildsOn": ["house-stomp", "pas-de-bourree", "loose-legs", "crossroads"],
+    "focus": ["feet", "balance"],
+    "counts": "4 beats of each, then round again",
+    "summary": "House stomp, pas de bourrée, loose legs and crossroads linked into one 16-beat phrase of footwork.",
+    "steps": [
+      "House stomp for 4 beats",
+      "Pas de bourrée right and left for 4",
+      "Loose legs for 4",
+      "Crossroads for 4, then back to the stomp"
+    ],
+    "tips": [
+      "Keep the jack going in the chest through every change",
+      "Switch the order once it's easy, so it never looks rehearsed"
+    ],
+    "mistakes": [
+      "Watching your feet. Look up: house is danced to the room"
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 16,
+      "keys": [
+        { "at": 0, "hip": [-2, 79], "lFoot": [-16, 0], "rFoot": [14, 0], "lHand": [8, -34], "rHand": [-4, -38], "ease": "hit", "say": "stomp" },
+        { "at": 0.5, "hip": [-5, 86], "rFoot": [0, 6] },
+        { "at": 1, "hip": [2, 79], "rFoot": [16, 0], "lHand": [4, -38], "rHand": [-8, -34], "ease": "hit" },
+        { "at": 1.5, "hip": [5, 86], "lFoot": [0, 6] },
+        { "at": 2, "hip": [-2, 79], "lFoot": [-16, 0], "rFoot": [14, 0], "lHand": [8, -34], "rHand": [-4, -38], "ease": "hit" },
+        { "at": 2.5, "hip": [-5, 86], "rFoot": [0, 6] },
+        { "at": 3, "hip": [2, 79], "rFoot": [16, 0], "lHand": [4, -38], "rHand": [-8, -34], "ease": "hit" },
+        { "at": 3.5, "hip": [5, 86], "lFoot": [0, 6] },
+        { "at": 4, "hip": [-4, 81], "lFoot": [-4, 0], "rFoot": [-10, 0], "lHand": [8, -34], "rHand": [-6, -36], "ease": "hit", "say": "pas de bourrée" },
+        { "at": 4.5, "hip": [-8, 84], "lFoot": [-18, 0] },
+        { "at": 5, "hip": [-8, 81], "rFoot": [-4, 0], "ease": "hit" },
+        { "at": 5.5, "hip": [-2, 86], "lFoot": [-12, 4] },
+        { "at": 6, "hip": [4, 81], "lFoot": [10, 0], "rFoot": [4, 0], "lHand": [6, -36], "rHand": [-8, -34], "ease": "hit" },
+        { "at": 6.5, "hip": [8, 84], "rFoot": [18, 0] },
+        { "at": 7, "hip": [8, 81], "lFoot": [4, 0], "ease": "hit" },
+        { "at": 7.5, "hip": [2, 86], "rFoot": [12, 4] },
+        { "at": 8, "hip": [0, 80], "lFoot": [-9, 0], "rFoot": [9, 0], "lHand": [8, -36], "rHand": [-8, -36], "ease": "hit", "say": "loose legs" },
+        { "at": 8.5, "hip": [-4, 86], "lean": -5, "rFoot": [32, 16] },
+        { "at": 9, "hip": [0, 80], "lean": 0, "rFoot": [9, 0], "ease": "hit" },
+        { "at": 9.5, "hip": [4, 86], "lean": 5, "lFoot": [-32, 16] },
+        { "at": 10, "hip": [0, 80], "lean": 0, "lFoot": [-9, 0], "rFoot": [9, 0], "lHand": [8, -36], "rHand": [-8, -36], "ease": "hit" },
+        { "at": 10.5, "hip": [-4, 86], "lean": -5, "rFoot": [32, 16] },
+        { "at": 11, "hip": [0, 80], "lean": 0, "rFoot": [9, 0], "ease": "hit" },
+        { "at": 11.5, "hip": [4, 86], "lean": 5, "lFoot": [-32, 16] },
+        { "at": 12, "hip": [-4, 81], "lFoot": [-11, 0], "rFoot": [-18, 0], "lHand": [10, -34], "rHand": [-2, -38], "ease": "hit", "say": "crossroads" },
+        { "at": 12.5, "hip": [-2, 86], "rFoot": [-2, 8] },
+        { "at": 13, "hip": [0, 81], "rFoot": [14, 0], "lHand": [6, -36], "rHand": [-6, -36], "ease": "hit" },
+        { "at": 13.5, "hip": [2, 86], "lFoot": [2, 8] },
+        { "at": 14, "hip": [4, 81], "lFoot": [18, 0], "rFoot": [11, 0], "lHand": [2, -38], "rHand": [-10, -34], "ease": "hit" },
+        { "at": 14.5, "hip": [2, 86], "lFoot": [2, 8] },
+        { "at": 15, "hip": [0, 81], "lFoot": [-14, 0], "lHand": [6, -36], "rHand": [-6, -36], "ease": "hit" },
+        { "at": 15.5, "hip": [-2, 86], "rFoot": [-2, 8] }
+      ]
+    }
+  },
+  {
+    "id": "catwalk",
+    "name": "Catwalk",
+    "style": "vogue",
+    "difficulty": 1,
+    "buildsOn": ["sway"],
+    "focus": ["hips", "feet"],
+    "counts": "One step on every beat",
+    "summary": "Walk in place as if on a runway: each foot crosses onto a line in front of you and the hips swing out over it.",
+    "steps": [
+      "Stand tall, chin up, shoulders back and down",
+      "Step the right foot onto an imaginary line in front of you on 1",
+      "Let the right hip swing out as the weight arrives",
+      "Step the left foot onto the line on 2, left hip out",
+      "Let the arms swing long and loose with the hips"
+    ],
+    "tips": [
+      "Attitude does half the work. Pick a point at eye level and own it",
+      "Walk forward for 4 and back for 4 if there's room"
+    ],
+    "mistakes": [
+      "Looking at your feet",
+      "Swinging the shoulders as much as the hips: the top stays calm"
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 2,
+      "keys": [
+        { "at": 0, "hip": [7, 85], "lean": -4, "head": 4, "lFoot": [-6, 3], "rFoot": [2, 0], "lHand": [-14, -44], "rHand": [18, -42], "say": "step" },
+        { "at": 0.5, "hip": [0, 86], "lean": 0, "head": 0, "lFoot": [-2, 8] },
+        { "at": 1, "hip": [-7, 85], "lean": 4, "head": -4, "lFoot": [-2, 0], "rFoot": [6, 3], "lHand": [-18, -42], "rHand": [14, -44], "say": "step" },
+        { "at": 1.5, "hip": [0, 86], "lean": 0, "head": 0, "rFoot": [2, 8] }
+      ]
+    }
+  },
+  {
+    "id": "strike-a-pose",
+    "name": "Strike a pose",
+    "style": "vogue",
+    "difficulty": 1,
+    "buildsOn": ["catwalk"],
+    "focus": ["balance", "awareness"],
+    "counts": "Walk for 7 · pose on 8",
+    "summary": "Catwalk for seven beats, then freeze into a sharp pose on the eighth, right on the accent in the music.",
+    "steps": [
+      "Catwalk for seven beats",
+      "On 8, stop dead with the weight on one leg and the other hip popped",
+      "One hand on the hip, the other framing the face, chin turned",
+      "Hold it for a beat, then walk out of it"
+    ],
+    "tips": [
+      "Listen for the crash or the \"ha\" sound in ballroom tracks and pose on it",
+      "Have three poses ready so you never have to think of one"
+    ],
+    "mistakes": [
+      "Drifting into the pose. It should hit like a photo flash"
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 8,
+      "keys": [
+        { "at": 0, "hip": [7, 85], "lean": -4, "head": 4, "lFoot": [-6, 3], "rFoot": [2, 0], "lHand": [-14, -44], "rHand": [18, -42], "say": "step" },
+        { "at": 0.5, "hip": [0, 86], "lean": 0, "head": 0, "lFoot": [-2, 8] },
+        { "at": 1, "hip": [-7, 85], "lean": 4, "head": -4, "lFoot": [-2, 0], "rFoot": [6, 3], "lHand": [-18, -42], "rHand": [14, -44], "say": "step" },
+        { "at": 1.5, "hip": [0, 86], "lean": 0, "head": 0, "rFoot": [2, 8] },
+        { "at": 2, "hip": [7, 85], "lean": -4, "head": 4, "lFoot": [-6, 3], "rFoot": [2, 0], "lHand": [-14, -44], "rHand": [18, -42], "say": "step" },
+        { "at": 2.5, "hip": [0, 86], "lean": 0, "head": 0, "lFoot": [-2, 8] },
+        { "at": 3, "hip": [-7, 85], "lean": 4, "head": -4, "lFoot": [-2, 0], "rFoot": [6, 3], "lHand": [-18, -42], "rHand": [14, -44], "say": "step" },
+        { "at": 3.5, "hip": [0, 86], "lean": 0, "head": 0, "rFoot": [2, 8] },
+        { "at": 4, "hip": [7, 85], "lean": -4, "head": 4, "lFoot": [-6, 3], "rFoot": [2, 0], "lHand": [-14, -44], "rHand": [18, -42], "say": "step" },
+        { "at": 4.5, "hip": [0, 86], "lean": 0, "head": 0, "lFoot": [-2, 8] },
+        { "at": 5, "hip": [-7, 85], "lean": 4, "head": -4, "lFoot": [-2, 0], "rFoot": [6, 3], "lHand": [-18, -42], "rHand": [14, -44], "say": "step" },
+        { "at": 5.5, "hip": [0, 86], "lean": 0, "head": 0, "rFoot": [2, 8] },
+        { "at": 6, "hip": [7, 85], "lean": -4, "head": 4, "lFoot": [-6, 3], "rFoot": [2, 0], "lHand": [-14, -44], "rHand": [18, -42], "say": "step" },
+        { "at": 6.5, "hip": [0, 86], "lean": 0, "head": 0, "lFoot": [-2, 8] },
+        { "at": 7, "hip": [8, 82], "lean": -6, "head": 10, "lFoot": [-14, 0], "rFoot": [6, 0], "lHand": [4, 26], "lElbow": [-1, 0.6], "rHand": [-6, -38], "rElbow": [1, 0], "ease": "hit", "say": "pose!" },
+        { "at": 7.75, "hip": [8, 82] }
+      ]
+    }
+  },
+  {
+    "id": "vogue-hands",
+    "name": "Hand performance",
+    "style": "vogue",
+    "difficulty": 1,
+    "buildsOn": ["wrist-twirl", "loose-arms"],
+    "focus": ["arms"],
+    "counts": "A new shape every 2 beats",
+    "summary": "The hands tell the story: frame the face, sweep out, trace down the body and flick out at the wrists.",
+    "steps": [
+      "Frame your face with both hands on 1",
+      "Sweep one hand out to the side, palm flat, on 3",
+      "Trace both hands down the front of the body on 5",
+      "Flick both wrists out wide on 7, then start again"
+    ],
+    "tips": [
+      "Keep the fingers long and together; the wrists do the flicking",
+      "Look at your hands as they move. The eyes sell it"
+    ],
+    "mistakes": [
+      "Rushing from one shape to the next. Arrive, hold, then move"
+    ],
+    "why": "Hands are the easiest way into vogue, and you can do them anywhere: on a crowded floor, in a queue, sitting down.",
+    "animation": {
+      "view": "front",
+      "beats": 8,
+      "keys": [
+        { "at": 0, "hip": [-3, 85], "lHand": [8, 20], "rHand": [-8, 20], "lElbow": [-1, -0.5], "rElbow": [1, -0.5], "ease": "float", "say": "frame" },
+        { "at": 1.5, "hip": [-3, 85] },
+        { "at": 2, "hip": [3, 85], "rHand": [48, 16], "ease": "float", "say": "sweep" },
+        { "at": 3.5, "hip": [3, 85] },
+        { "at": 4, "hip": [-3, 84], "lHand": [14, -30], "rHand": [-14, -30], "ease": "float", "say": "trace" },
+        { "at": 5.5, "hip": [-3, 84] },
+        { "at": 6, "hip": [0, 83], "lHand": [-42, -18], "rHand": [42, -18], "ease": "hit", "say": "flick" },
+        { "at": 7.5, "hip": [0, 85] }
+      ]
+    }
+  },
+  {
+    "id": "arm-control",
+    "name": "Arm control",
+    "style": "vogue",
+    "difficulty": 2,
+    "buildsOn": ["vogue-hands"],
+    "focus": ["arms", "torso"],
+    "counts": "Hit a new shape on every beat",
+    "summary": "Old-way vogue: the arms make sharp boxes and straight lines around the head and body, snapping from one to the next on the beat.",
+    "steps": [
+      "Make a box above your head on 1: forearms flat, elbows out",
+      "Snap the right arm straight out to the side, left hand in front of the face, on 2",
+      "Drop both hands to the hips, elbows out, on 3",
+      "Left arm straight out, right hand in front of the face, on 4"
+    ],
+    "tips": [
+      "Keep every angle a right angle; the precision is the look",
+      "Move only the arms at first. Add a hip pop on each hit later"
+    ],
+    "mistakes": [
+      "Soft, curvy arms: this one is all lines"
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "hip": [0, 85], "lHand": [14, 44], "rHand": [-14, 44], "lElbow": [-1, 0], "rElbow": [1, 0], "ease": "hit", "say": "box" },
+        { "at": 0.6, "hip": [0, 85] },
+        { "at": 1, "hip": [4, 84], "lHand": [14, 22], "lElbow": [-1, -1], "rHand": [52, 4], "rElbow": [0, 1], "ease": "hit", "say": "line" },
+        { "at": 1.6, "hip": [4, 84] },
+        { "at": 2, "hip": [0, 84], "lHand": [6, -40], "lElbow": [-1, 0], "rHand": [-6, -40], "rElbow": [1, 0], "ease": "hit", "say": "hips" },
+        { "at": 2.6, "hip": [0, 84] },
+        { "at": 3, "hip": [-4, 84], "lHand": [-52, 4], "lElbow": [0, 1], "rHand": [-14, 22], "rElbow": [1, -1], "ease": "hit", "say": "line" },
+        { "at": 3.6, "hip": [-4, 84] }
+      ]
+    }
+  },
+  {
+    "id": "spin-pose",
+    "name": "Spin and pose",
+    "style": "vogue",
+    "difficulty": 2,
+    "buildsOn": ["strike-a-pose", "quarter-turns"],
+    "focus": ["balance"],
+    "counts": "1 prepare · 2 spin · 3 pose · 4 hold",
+    "summary": "A quick full turn on the ball of one foot that lands straight into a pose.",
+    "steps": [
+      "Step the right foot out and bend the knees on 1, arms in to the chest",
+      "Spin to the left on the ball of your left foot on 2, arms tight",
+      "Land facing the front and hit a pose on 3",
+      "Hold it on 4"
+    ],
+    "tips": [
+      "Spot: keep your eyes on one point and whip the head round last",
+      "Try a half turn first, landing facing the back"
+    ],
+    "mistakes": [
+      "Throwing the arms out during the spin, which slows it and can hit someone"
+    ],
+    "animation": {
+      "view": "front",
+      "beats": 4,
+      "keys": [
+        { "at": 0, "turn": 0, "hip": [0, 80], "lFoot": [-11, 0], "rFoot": [16, 0], "lHand": [14, -28], "rHand": [-14, -28], "say": "prepare" },
+        { "at": 1, "turn": 0, "hip": [0, 86], "rFoot": [6, 6], "lHand": [16, -18], "rHand": [-16, -18], "say": "spin" },
+        { "at": 1.33, "turn": 0.33, "ease": "linear" },
+        { "at": 1.67, "turn": 0.67, "ease": "linear" },
+        { "at": 2, "turn": 1, "hip": [8, 82], "lean": -6, "head": 10, "lFoot": [-14, 0], "rFoot": [6, 0], "lHand": [4, 26], "lElbow": [-1, 0.6], "rHand": [-6, -38], "rElbow": [1, 0], "ease": "hit", "say": "pose!" },
+        { "at": 3, "hip": [8, 82], "say": "hold" },
+        { "at": 3.6, "hip": [8, 82] }
+      ]
+    }
+  },
+  {
+    "id": "duckwalk",
+    "name": "Duckwalk",
+    "style": "vogue",
+    "difficulty": 3,
+    "buildsOn": ["catwalk", "knee-lift"],
+    "focus": ["legs", "balance"],
+    "counts": "A kick on every beat, low down",
+    "summary": "Crouch low on the balls of your feet and kick the feet forward one at a time, bouncing on the beat. One of the five elements of vogue fem.",
+    "steps": [
+      "Bend deep at the knees with your heels up and your back straight",
+      "Arms out in front for balance",
+      "Kick the right foot forward on 1 and put it back under you",
+      "Kick the left on 2, and keep a small bounce going"
+    ],
+    "tips": [
+      "Only go as low as your knees are happy. Half height still reads",
+      "Practise holding the crouch for 8 counts before adding the kicks"
+    ],
+    "mistakes": [
+      "Letting the knees fall in. Keep them over the toes",
+      "Trying dips (the drop to the floor) without a teacher and a forgiving floor. Those aren't taught here"
+    ],
+    "why": "Vogue comes from the Black and Latinx queer ballroom scene in New York. Duckwalk is one of its signatures, and even a few beats of it at the right moment gets a cheer.",
+    "animation": {
+      "view": "side",
+      "beats": 2,
+      "keys": [
+        { "at": 0, "hip": [0, 58], "lean": 14, "lFoot": [-6, 0], "rFoot": [40, 8], "lHand": [30, -12], "rHand": [28, -6], "ease": "hit", "say": "kick" },
+        { "at": 0.5, "hip": [0, 55], "rFoot": [6, 0] },
+        { "at": 1, "hip": [0, 58], "lFoot": [40, 8], "rFoot": [-6, 0], "ease": "hit", "say": "kick" },
+        { "at": 1.5, "hip": [0, 55], "lFoot": [6, 0] }
       ]
     }
   }
