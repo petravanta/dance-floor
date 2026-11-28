@@ -284,7 +284,7 @@ function setTab(id) {
   renderTabs(); renderMain();
   const s = styleOf.get(id);
   setStyle(id);
-  if (s && !beat.touched) setBpm(s.bpm.default, s.id === 'goth');
+  if (s) setBpm(s.bpm.default, s.id === 'goth');  // each style starts at its own tempo, even after a manual change
 }
 
 /* ---------- Move drawer ---------- */
@@ -484,7 +484,7 @@ function miniFrame(now) {
 /* ---------- Count-along beat (Web Audio, scheduled ahead so it stays steady) ----------
    Each style's groove (data/styles.json) is played by small synthesised instruments, one 16th-note step at a time.
    Half time plays the drums at half speed while the bass keeps driving, which is how half-time tracks sound. */
-const beat = { ctx: null, out: null, echo: null, noise: null, on: false, bpm: 120, half: false, sound: 'groove', style: 'foundations', step: 0, next: 0, timer: null, touched: false };
+const beat = { ctx: null, out: null, echo: null, noise: null, on: false, bpm: 120, half: false, sound: 'groove', style: 'foundations', step: 0, next: 0, timer: null };
 const saved = lsGet('danceFloor.beat'); if (saved) { beat.bpm = saved.bpm || 120; beat.half = !!saved.half; if (saved.sound === 'click') beat.sound = 'click'; }
 const groove = () => { const s = styleOf.get(beat.style); return beat.sound === 'groove' && s && s.groove || null; };
 function setBpm(v, half) {
@@ -633,18 +633,18 @@ document.addEventListener('click', e => {
   if (t.dataset.tab) return setTab(t.dataset.tab);
   if (t.dataset.move) return openMove(t.dataset.move);
   if (t.hasAttribute('data-close')) return closeDrawer();
-  if (t.dataset.tempo) { const s = styleOf.get(t.dataset.tempo); beat.touched = true; setStyle(s.id); return setBpm(s.bpm.default, s.id === 'goth'); }
+  if (t.dataset.tempo) { const s = styleOf.get(t.dataset.tempo); setStyle(s.id); return setBpm(s.bpm.default, s.id === 'goth'); }
   if (t.dataset.try) {
     const m = byId.get(t.dataset.try), s = styleOf.get(m.style);
     if (m.animation && beat.on) return stop();
-    beat.touched = true; setStyle(s.id); setBpm(s.bpm.default, s.id === 'goth');
+    setStyle(s.id); setBpm(s.bpm.default, s.id === 'goth');
     if (!m.animation) closeDrawer();  // with a figure to follow, keep the drawer open
     return start();
   }
   if (t.id === 'play') return beat.on ? stop() : start();
 });
-$('#bpm').addEventListener('input', e => { beat.touched = true; setBpm(+e.target.value); });
-$('#half').addEventListener('change', e => { beat.touched = true; setBpm(beat.bpm, e.target.checked); });
+$('#bpm').addEventListener('input', e => { setBpm(+e.target.value); });
+$('#half').addEventListener('change', e => { setBpm(beat.bpm, e.target.checked); });
 $('#sound').addEventListener('change', e => { beat.sound = e.target.value; setBpm(beat.bpm); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('#layer').innerHTML) closeDrawer(); });
 
